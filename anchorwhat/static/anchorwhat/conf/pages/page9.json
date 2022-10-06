@@ -1,0 +1,46 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": true
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Hurrah! This is the end!",
+            "fr": "Hourra ! Enfin la fin !"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "Congratulations! The members of the project thank you for your participation in this experiment!<br>You can find your results in the next page."
+            ],
+            "fr": [
+                "Bravo ! Les membres du projet vous remercie pour votre participation à cette expérience !<br>Vous trouverez vos résultats sur la page suivante."
+            ]
+        },
+        "alignment": "center"
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "How did I do?",
+            "fr": "Vite ! Mes résultats !"
+        },
+        "effect": "next",
+        "dev": false
+    }
+]

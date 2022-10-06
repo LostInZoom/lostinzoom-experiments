@@ -1,0 +1,168 @@
+{
+    "readingTimeEstimation": "10:00",
+    "alert": {
+        "conditions": {
+            "label": {
+                "en": "Please accept the conditions if you wish to continue the experiment.",
+                "fr": "Merci d'accepter les conditions si vous souhaitez continuer l'expérience."
+            },
+            "button": {
+                "en": "Got it!",
+                "fr": "D'accord !"
+            }
+        },
+        "forms": {
+            "label": {
+                "en": "Please answer all the mandatory questions to continue the experiment.",
+                "fr": "Merci de répondre à toutes les questions obligatoires si vous souhaitez continuer l'expérience."
+            },
+            "button": {
+                "en": "Got it!",
+                "fr": "D'accord !"
+            }
+        },
+        "screensize": {
+            "label": {
+                "en": "The resolution of your screen or the size of your browser window is not large enough to carry on the experiment.<br>Please resize this window until this message disappears or try on an other computer.",
+                "fr": "La résolution de votre écran ou la taille de cette fenêtre n'est pas assez grande pour continuer l'expérience.<br>Merci de redimensionner cette fenêtre jusqu'à la disparition de ce message, ou d'essayer sur un autre ordinateur."
+            }
+        }
+    },
+    "mandatory": {
+        "en": "Mandatory to continue",
+        "fr": "Obligatoire pour continuer"
+    },
+    "dev": {
+        "in": {
+            "en": "Development mode",
+            "fr": "Mode développement"
+        },
+        "out": {
+            "en": "Standard mode",
+            "fr": "Mode standard"
+        },
+        "page": {
+            "en": "Page",
+            "fr": "Page"
+        }
+    },
+    "experiment": {
+        "layers": {
+            "colors": [
+                "rgba(181, 65, 110, 0.6)",
+                "rgba(181, 127, 56, 0.6)",
+                "rgba(81, 181, 63, 0.6)",
+                "rgba(69, 159, 181, 0.6)",
+                "rgba(94, 54, 181, 0.6)"
+            ],
+            "placeholders": {
+                "en": "Name this colour",
+                "fr": "Nommez cette couleur"
+            },
+            "controls": [{
+                "name": "undo",
+                "text": {
+                    "en": "Undo",
+                    "fr": "Annuler"
+                }
+            }, {
+                "name": "clear",
+                "text": {
+                    "en": "Clear colour",
+                    "fr": "Nettoyer <br> la couleur"
+                }
+            }]
+        },
+        "progress": {
+            "missing": {
+                "en": "colours missing...",
+                "fr": "couleurs manquantes..."
+            },
+            "validation": {
+                "en": "Validate drawing and continue...",
+                "fr": "Valider le dessin et continuer..."
+            }
+        },
+        "importance": {
+            "label": {
+                "en": "Estimate the level of memorability of this colour",
+                "fr": "Estimez le degré de mémorabilité de cette couleur"
+            },
+            "value": {
+                "fr": ["Faible", "Moyenne", "Forte"],
+                "en": ["Low", "Average", "Strong"]
+            },
+            "opacity": [0.4, 0.6, 0.8]
+        },
+        "question": {
+            "question": {
+                "en": "By imagining yourself zooming in or out on the map, highlight 5 of its parts that you would remember.",
+                "fr": "En vous imaginant zoomer ou dézoomer sur la carte, surlignez 5 parties dont vous pensez vous souvenir."
+            },
+            "button": {
+                "en": "Alrighty!",
+                "fr": "Ça marche !"
+            }
+        },
+        "hints": [{
+                "en": "By imagining yourself zooming in or out on the map, highlight 5 of its parts that you would remember.",
+                "fr": "En vous imaginant zoomer ou dézoomer sur la carte, surlignez 5 parties dont vous pensez vous souvenir."
+            },
+            {
+                "en": "Those five colours represents five disctinct map elements for you to draw. You can also choose a name for each colour.",
+                "fr": "Ces cinq couleurs représentent cinq différents éléments de la carte à surligner. Vous pouvez choisir un nom pour chaque couleur."
+            },
+            {
+                "en": "Specify an importance for each colours. A low importance means those elements won't be memorized as much as those of strong importance.",
+                "fr": "Indiquez une importance pour chaque couleur. Une faible importance indique que ces éléments ne seront pas aussi mémorables que ceux de forte importance."
+            },
+            {
+                "en": "The undo button removes the last part you drew for the selected colour.",
+                "fr": "Le bouton annuler retire la dernière partie que vous avez dessiné pour la couleur correspondante."
+            },
+            {
+                "en": "The clear button removes all the parts of the selected colour.",
+                "fr": "Le bouton de nettoyage de la couleur retire toutes les parties de la couleur sélectionnée."
+            },
+            {
+                "en": "Once you drew at least one part for each colour, you can press the validation button to carry on the experiment.",
+                "fr": "Lorsque vous avez dessiné au moins une partie pour chacune des couleurs, vous pouvez cliquer sur le bouton de validation pour continuer l'expérience."
+            }
+        ],
+        "tutorial": {
+            "main": [{
+                    "en": "When we look at a map, our brains may separate the map into smaller cognitive spaces in order to better locate us. These separations are unique to each of us. They may come from our knowledge and experience of the geographical area, from visual separations suggested by the map, from the scale of the map, etc.<br><br>What you just saw was an example of a drawing session. And you, how would you have highlighted this city?",
+                    "fr": "Quand nous regardons une carte, il se peut que pour mieux nous repérer notre cerveau sépare la carte en de plus petits espaces cognitifs. Ces séparations sont propres à chacun·e d’entre nous. Elles peuvent provenir de notre connaissance et expérimentation de la zone géographique, de séparations visuelles suggérées par la carte, de l’échelle de la carte, etc.<br><br>Vous venez de voir un exemple d'une session de dessin. Et vous, comment auriez-vous coloré la ville ?"
+                },
+                {
+                    "en": "Those five colours represents five disctinct map parts for you to draw. The highlighted coloured circle is the colour you are currently using and you can easily switch by clicking on the others.<br><br>Below the coloured circle, you can also state your motivations or simply give a name to the colour by filling the textbox.",
+                    "fr": "Ces cinq couleurs représentent cinq différents parties de la carte à surligner. Le cercle coloré en surbrillance est la couleur que vous dessinez en ce moment et vous pouvez facilement changer en cliquant sur les autres<br><br>En dessous, vous pouvez également indiquer vos motivations ou simplement nommer la couleur en remplissant le champs de texte."
+                },
+                {
+                    "en": "At the bottom left, estimate the memorability by choosing between low, average or strong. It is set to average by default.",
+                    "fr": "En bas à gauche, estimez la mémorabilité en choisissant entre faible, moyenne ou forte. Elle est reglée sur moyenne par défaut."
+                },
+                {
+                    "en": "At the bottom right, two buttons appear once you start drawing with a colour. The left one allows you to remove the last part you drew while the second completely removes all the parts of the colour.",
+                    "fr": "En bas à droite, deux boutons apparaissent lorsque vous commencez à dessiner avec une couleur. Celui de gauche permet de retirer la dernière partie que vous avez dessiné alors que le second permet de retirer toutes les parties de la couleur sélectionnée."
+                },
+                {
+                    "en": "This indicator shows the number of colours you haven't used. Once at least one part is drawn for each colour, click here to carry on the experiment.",
+                    "fr": "Cet indicateur montre le nombre de couleur que vous n'avez pas encore utilisée. Lorsque chaque couleur a été utilisée, cliquer ici pour continuer l'expérience."
+                },
+                {
+                    "en": "You can change the brush size using the mouse wheel.<br>Try it now!",
+                    "fr": "Vous pouvez changer la taille du pinceau avec la molette.<br>Essayez maintenant !"
+                },
+                {
+                    "en": "Whenever you feel lost during a drawing session, hover your cursor over the indicator at the upper right corner to reveal help messages.",
+                    "fr": "Si vous vous sentez perdu·e pendant une session de dessin, passez le curseur sur l'indicateur situé en haut à droite afin de révéler des messages d'aide."
+                },
+                {
+                    "en": "Now that you are familiar with the controls, you can carry on the experiment.",
+                    "fr": "Maintenant que vous êtes familier·ère des contrôles, vous pouvez continuer l'expérience."
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,142 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": true
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": true,
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Congratulations!",
+            "fr": "Félicitations !"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "Now you're entering part 3, 4 and 5 which alternate between two types of animation, namely zoom in and pan. Furthermore, there is an alternation between three basemaps, namely IGN topographic maps, plan IGN and OpenStreetMap."
+            ],
+            "fr": [
+                "Maintenant, vous allez commencer les parties 3, 4 et 5 qui alternent entre deux types d'animations, à savoir le zoom avant et le déplacement latéral. De plus, il y a une alternance entre trois fonds de carte, à savoir les cartes topographiques IGN, le plan IGN et OpenStreetMap."
+            ]
+        },
+        "alignment": "center"
+    },
+    {
+        "type": "special",
+        "items": [{
+                "type": "map",
+                "display": "empty",
+                "basemap": "mign",
+                "shape": "circle",
+                "style": {
+                    "height": "200px",
+                    "width": "200px"
+                },
+                "center": [269803.963425206, 6248561.733196414],
+                "zoom": 15,
+                "overlay": {
+                    "label": {
+                        "en": "IGN topographic maps",
+                        "fr": "Cartes topographiques IGN"
+                    },
+                    "style": {
+                        "width": "min-content"
+                    },
+                    "alignment": "center",
+                    "background": true
+                }
+            },
+            {
+                "type": "map",
+                "display": "empty",
+                "basemap": "pign",
+                "shape": "circle",
+                "style": {
+                    "height": "200px",
+                    "width": "200px"
+                },
+                "center": [269803.963425206, 6248561.733196414],
+                "zoom": 15,
+                "overlay": {
+                    "label": {
+                        "en": "Plan IGN",
+                        "fr": "Plan IGN"
+                    },
+                    "style": {
+                        "width": "min-content"
+                    },
+                    "alignment": "center",
+                    "background": true
+                }
+            },
+            {
+                "type": "map",
+                "display": "empty",
+                "basemap": "osm",
+                "shape": "circle",
+                "style": {
+                    "height": "200px",
+                    "width": "200px"
+                },
+                "center": [269803.963425206, 6248561.733196414],
+                "zoom": 15,
+                "overlay": {
+                    "label": {
+                        "en": "Open Street Map",
+                        "fr": "Open Street Map"
+                    },
+                    "style": {
+                        "width": "min-content"
+                    },
+                    "alignment": "center",
+                    "background": true
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "The following training is designed to familiarize yourself with the new basemaps. It is not a part of the experiment in itself and you are allowed to repeat it as many times as you want."
+            ],
+            "fr": [
+                "L'entraînement suivant est conçu pour vous familiariser avec les nouveaux fonds de carte. Il ne fait pas partie de l'expérience en elle-même et vous avez la possibilité de le refaire autant de fois que vous le souhaitez."
+            ]
+        },
+        "alignment": "center"
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "A little more trainings...",
+            "fr": "Encore un peu d'entraînement..."
+        },
+        "training": 2,
+        "effect": "start",
+        "dev": false
+    }
+]

@@ -1,0 +1,37 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "You can cycle through your drawings and compare them with others, randomly selected, by clicking on the refresh button."
+            ],
+            "fr": [
+                "Vous pouvez parcourir vos dessins et les comparer avec ceux des autres, sélectionnés aléatoirement, en cliquant sur le bouton de rafraîchissement."
+            ]
+        },
+        "alignment": "center"
+    },
+    {
+        "type": "results"
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "If you liked Anchorwhat, please consider trying the experiment <a href='http://54.211.63.55/fogdetector/' target='_blank'>Fog Detector</a> which aims at measuring disorientation while navigating online maps."
+            ],
+            "fr": [
+                "Si vous avez aimé Anchorwhat, n'hésitez pas à essayer l'expérience <a href='http://54.211.63.55/fogdetector/' target='_blank'>Fog Detector</a> qui a pour but de mesurer la désorientation lors de l'utilisation de cartes en ligne."
+            ]
+        },
+        "alignment": "center"
+    }
+]

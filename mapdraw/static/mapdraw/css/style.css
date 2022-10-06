@@ -1,0 +1,65 @@
+/*
+Description: Styles included in the Fog Detector experiment
+Author: Justin Berli - ERC LostInZoom
+*/
+
+@import url("fonts/fonts.css");
+@import url("animation/animation.css");
+@import url("animation/click.css");
+@import url("general/visibility.css");
+@import url("general/development.css");
+@import url("time/loader.css");
+@import url("map/map.css");
+@import url("drawing/canvas.css");
+@import url("drawing/controls.css");
+@import url("drawing/tutorial.css");
+@import url("interface/menu.css");
+
+/*
+Defining the graphical chart
+*/
+
+:root {
+    --white-invisible: rgba(255, 255, 255, 0);
+    --white-transparent: rgba(255, 255, 255, 0.85);
+    --gray-transparent: rgba(163, 163, 163, 0.8);
+    --white: #fff;
+    --light-gray: rgb(158, 158, 158);
+    --dark-gray: rgb(104, 104, 104);
+    --main-light: rgb(185, 126, 126);
+    --main-dark: rgb(143, 96, 96);
+    --main-dark-transparent: rgba(143, 96, 96, 0.8);
+    --main-light-transparent: rgba(185, 126, 126, 0.8);
+    --dev-light: var(--light-gray);
+    --dev-dark: var(--dark-gray);
+}
+
+body {
+    font-family: Ubuntu;
+    overflow: hidden;
+    color: var(--dark-gray);
+}
+
+#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+a:link,
+a:visited {
+    color: var(--main-dark);
+    font-weight: bold;
+    text-decoration: none;
+}

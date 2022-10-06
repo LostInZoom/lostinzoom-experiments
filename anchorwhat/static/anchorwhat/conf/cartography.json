@@ -1,0 +1,55 @@
+{
+    "basemaps": [{
+            "name": "osm",
+            "preload": "Infinity",
+            "source": {
+                "type": "OSM"
+            }
+        },
+        {
+            "name": "google",
+            "source": {
+                "type": "Google"
+            }
+        },
+        {
+            "name": "pign",
+            "preload": "Infinity",
+            "source": {
+                "type": "WMTS",
+                "provider": "IGN",
+                "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
+                "layer": "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
+                "matrixSet": "PM",
+                "format": "image/png",
+                "style": "normal",
+                "dimensions": [256, 256],
+                "tileGrid": {
+                    "origin": [-20037508, 20037508]
+                }
+            }
+        },
+        {
+            "name": "mign",
+            "preload": "Infinity",
+            "source": {
+                "type": "WMTS",
+                "provider": "IGN",
+                "url": "https://wxs.ign.fr/IGN_SECRET_KEY/geoportail/wmts",
+                "layer": "GEOGRAPHICALGRIDSYSTEMS.MAPS",
+                "matrixSet": "PM",
+                "format": "image/jpeg",
+                "style": "normal",
+                "dimensions": [256, 256],
+                "tileGrid": {
+                    "origin": [-20037508, 20037508]
+                }
+            }
+        }
+    ],
+    "zoomLevels": [11, 13, 15],
+    "startView": [
+        [-9950155.680353438, 5323385.548110732, 13, "osm"],
+        [260296.36182771696, 6250869.585595192, 13, "osm"]
+    ]
+}

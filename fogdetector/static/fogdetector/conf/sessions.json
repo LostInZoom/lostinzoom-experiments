@@ -1,0 +1,59 @@
+[{
+        "smallScale": [
+            "pan ss mign",
+            "pan ss mign",
+            "zoomout lg mign",
+            "zoomout sg mign"
+        ],
+        "largeScale": [
+            "pan ls mign",
+            "pan ls mign",
+            "zoomin lg mign",
+            "zoomin sg mign"
+        ]
+    },
+    {
+        "smallScale": [
+            "pan ss mign",
+            "pan ss mign",
+            "zoomout lg mign",
+            "zoomout sg mign"
+        ],
+        "largeScale": [
+            "pan ls mign",
+            "pan ls mign",
+            "zoomin lg mign",
+            "zoomin sg mign"
+        ]
+    },
+    {
+        "largeScale": [
+            "pan ls mign",
+            "pan ls pign",
+            "pan ls osm",
+            "zoomin lg mign",
+            "zoomin lg pign",
+            "zoomin lg osm"
+        ]
+    },
+    {
+        "largeScale": [
+            "pan ls mign",
+            "pan ls pign",
+            "pan ls osm",
+            "zoomin lg mign",
+            "zoomin lg pign",
+            "zoomin lg osm"
+        ]
+    },
+    {
+        "largeScale": [
+            "pan ls mign",
+            "pan ls pign",
+            "pan ls osm",
+            "zoomin lg mign",
+            "zoomin lg pign",
+            "zoomin lg osm"
+        ]
+    }
+]

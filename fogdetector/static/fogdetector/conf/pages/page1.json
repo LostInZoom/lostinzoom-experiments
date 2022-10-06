@@ -1,0 +1,32 @@
+[{
+        "type": "title",
+        "texts": {
+            "en": "Welcome to Fog Detector",
+            "fr": "Bienvenue sur Fog Detector"
+        }
+    },
+    {
+        "type": "subtitle",
+        "texts": {
+            "en": "An experiment to measure the loss of self-consciousness during cartographic navigation",
+            "fr": "Une expérience pour mesurer la perte de repères au cours de la navigation cartographique"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Let's go!",
+            "fr": "Allons-y !"
+        },
+        "effect": "next",
+        "dev": false
+    }
+]

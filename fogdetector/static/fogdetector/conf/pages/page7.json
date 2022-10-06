@@ -1,0 +1,64 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": false,
+        "dev": true
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Now for the real deal...",
+            "fr": "Les choses sérieuses commencent..."
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "list",
+        "texts": {
+            "en": [
+                "<b>Part 1 and 2:</b> These two parts alternate between three types of animation, namely zoom in, zoom out and pan. The basemap does not change (IGN maps).", "<b>Part 3, 4 and 5:</b> These three parts alternate between two types of animation, namely zoom in and pan. Furthermore, there is an alternation between three basemaps, namely IGN topograhic maps, plan IGN and OpenStreetMap.</b> "
+            ],
+            "fr": [
+                "<b>Partie 1 et 2:</b> Ces deux parties alternent entre trois types d'animation, à savoir le zoom avant, le zoom arrière et le déplacement latéral. Le fond de carte ne change pas (cartes IGN).", "<b>Partie 3, 4 et 5:</b> Ces trois parties alternent entre deux types d'animations, à savoir le zoom avant et le déplacement latéral. De plus, il y a une alternance entre trois fonds de carte, à savoir les cartes topographiques IGN, le plan IGN et OpenStreetMap."
+            ]
+        },
+        "ordered": false,
+        "header": {
+            "texts": {
+                "en": "Now that you made it through the training, you can start the real experiment. It is divided into five parts:",
+                "fr": "Maintenant que vous êtes arrivé à la fin de l'entraînement, vous pouvez commencer la véritable expérience. Celle-ci est divisée en cinq parties :"
+            },
+            "alignment": "center"
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Let's start part 1",
+            "fr": "Commençons la partie 1"
+        },
+        "session": 1,
+        "effect": "start",
+        "dev": false
+    }
+]

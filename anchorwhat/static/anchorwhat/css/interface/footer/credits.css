@@ -1,0 +1,8 @@
+.credits {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    line-height: 100px;
+    height: 100%;
+}

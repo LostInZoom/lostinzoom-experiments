@@ -1,0 +1,17 @@
+#alert-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    transition: all 1s;
+    z-index: 100;
+    user-select: none;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+}
+
+.alert {
+    font-size: 20px;
+}

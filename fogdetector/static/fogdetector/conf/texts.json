@@ -1,0 +1,161 @@
+{
+    "readingTimeEstimation": "10:00",
+    "alert": {
+        "conditions": {
+            "label": {
+                "en": "Please accept the conditions if you wish to continue the experiment.",
+                "fr": "Merci d'accepter les conditions si vous souhaitez continuer l'expérience."
+            },
+            "button": {
+                "en": "Got it!",
+                "fr": "D'accord !"
+            }
+        },
+        "forms": {
+            "label": {
+                "en": "Please answer all the mandatory questions to continue the experiment.",
+                "fr": "Merci de répondre à toutes les questions obligatoires si vous souhaitez continuer l'expérience."
+            },
+            "button": {
+                "en": "Got it!",
+                "fr": "D'accord !"
+            }
+        }
+    },
+    "mandatory": {
+        "en": "Mandatory to continue",
+        "fr": "Obligatoire pour continuer"
+    },
+    "dev": {
+        "in": {
+            "en": "Development mode",
+            "fr": "Mode développement"
+        },
+        "out": {
+            "en": "Standard mode",
+            "fr": "Mode standard"
+        },
+        "page": {
+            "en": "Page",
+            "fr": "Page"
+        }
+    },
+    "results": {
+        "overall": {
+            "en": "Overall",
+            "fr": "Global"
+        },
+        "distance-avg": {
+            "label": {
+                "en": "Average distance",
+                "fr": "Distance moyenne"
+            },
+            "unit": {
+                "en": "px",
+                "fr": "px"
+            }
+        },
+        "distance-max": {
+            "label": {
+                "en": "Maximum distance",
+                "fr": "Distance maximum"
+            },
+            "unit": {
+                "en": "px",
+                "fr": "px"
+            }
+        },
+        "time-avg": {
+            "label": {
+                "en": "Average reaction time",
+                "fr": "Temps moyen de réaction"
+            },
+            "unit": {
+                "en": "s",
+                "fr": "s"
+            }
+        },
+        "time-min": {
+            "label": {
+                "en": "Minimum reaction time",
+                "fr": "Temps minimum de réaction"
+            },
+            "unit": {
+                "en": "s",
+                "fr": "s"
+            }
+        },
+        "time-max": {
+            "label": {
+                "en": "Maximum reaction time",
+                "fr": "Temps maximum de réaction"
+            },
+            "unit": {
+                "en": "s",
+                "fr": "s"
+            }
+        }
+    },
+    "tutoHints": {
+        "tutoHint1": {
+            "hint": {
+                "en": "Concentrate on the target and try to memorize its location based on its surroundings.<br>Watch out for the countdown, you have ten seconds!",
+                "fr": "Concentrez-vous sur la cible et essayez de mémoriser sa position grâce aux éléments environnants.<br>Attention au compte à rebours, vous avez 10 secondes !"
+            },
+            "button": {
+                "en": "Alright!",
+                "fr": "D'accord !"
+            }
+        },
+        "tutoHint2": {
+            "hint": {
+                "en": "The map has now moved somewhere else.<br>But an animation will bring you back close to where you started.",
+                "fr": "La carte a maintenant bougé.<br>Mais une animation va vous ramener proche de votre position de départ."
+            },
+            "button": {
+                "en": "Alright!",
+                "fr": "D'accord !"
+            }
+        },
+        "tutoHint3": {
+            "hint": {
+                "en": "Click on the former location of the target.<br>Its position on screen has changed but don't worry,<br>a glowing circle indicates you where it was and<br>a fixed circle indicates the area inside which your click is valid.<br>Try to be as quick as possible!",
+                "fr": "Cliquez sur la position où était la cible.<br>Sa position sur l'écran à changé mais pas d'inquiétudes, un cercle animé vous indique où elle était.<br>Un cercle fixe représente la zone dans laquelle votre clique est validé.<br>Essayez d'aller aussi vite que possible !"
+            },
+            "button": {
+                "en": "Alright!",
+                "fr": "D'accord !"
+            }
+        },
+        "tutoHint4": {
+            "hint": {
+                "en": "Congratulations!<br>You found the target and finished the guided tutorial.<br>Now, you will undertake three training tests.<br>Be careful though, the two helping circles pointing the target won't appear on the map.",
+                "fr": "Félicitations !<br>Vous avez trouvé la cible et fini le tutoriel guidé.<br>Maintenant, vous allez effectuer trois tests d'entraînement.<br>Mais attention, les deux cercles d'aide indiquant la cible n'apparaîtront plus sur la carte."
+            },
+            "button": {
+                "en": "No problems, I can do it!",
+                "fr": "Pas de problèmes, je peux le faire !"
+            }
+        },
+        "tutoHint5": {
+            "hint": {
+                "en": "Too bad! You missed the target!<br>The glowing circle indicates the target location.",
+                "fr": "Dommage ! Vous n'avez pas cliqué sur la cible !<br>Le cercle animé indique la position de la cible."
+            },
+            "button": {
+                "en": "I got it!",
+                "fr": "Je vais y arriver !"
+            }
+        },
+        "tutoHint6": {
+            "hint": {
+                "en": "Are you there?<br>Now is not the time for a coffee break!<br>The glowing circle indicates the target location.",
+                "fr": "Y a quelqu'un ?<br>C'est pas encore l'heure de la pause café !<br>Le cercle animé indique la position de la cible."
+            },
+            "button": {
+                "en": "Ok, ok!",
+                "fr": "D'accord, d'accord !"
+            }
+        }
+    }
+}

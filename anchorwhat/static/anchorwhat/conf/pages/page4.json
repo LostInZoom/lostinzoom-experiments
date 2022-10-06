@@ -1,0 +1,379 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Quick survey",
+            "fr": "Questionnaire rapide"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "form",
+        "content": [{
+                "question": {
+                    "text": {
+                        "en": "From those four solutions, choose the one that best represents the level of water:",
+                        "fr": "Parmi les quatre solutions ci-dessous, choisir celle qui, selon vous, représente au mieux le niveau de l'eau:"
+                    },
+                    "svg": "piaget-question"
+                },
+                "items": [{
+                    "type": "svg",
+                    "content": ["piaget-answer1", "piaget-answer2", "piaget-answer3", "piaget-answer4"],
+                    "multiple": false
+                }],
+                "mandatory": false,
+                "stayChecked": true,
+                "multiple": false,
+                "default": "not answered"
+            },
+            {
+                "question": {
+                    "text": {
+                        "en": "Gender<br>(choose all relevant answers):",
+                        "fr": "Genre<br>(sélectionnez toutes les réponses applicables):"
+                    }
+                },
+                "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["Woman", "Man", "Transgender"],
+                            "fr": ["Femme", "Homme", "Transgenre"]
+                        },
+                        "multiple": true
+                    },
+                    {
+                        "type": "input",
+                        "texts": {
+                            "en": "I identify myself as:",
+                            "fr": "Je m'identifie comme:"
+                        },
+                        "multiple": true
+                    },
+                    {
+                        "type": "button",
+                        "texts": {
+                            "en": ["Prefer not to answer"],
+                            "fr": ["Ne se prononce pas"]
+                        },
+                        "multiple": false
+                    }
+                ],
+                "mandatory": false,
+                "stayChecked": true,
+                "multiple": true,
+                "default": "not answered"
+            },
+            {
+                "question": {
+                    "text": {
+                        "en": "Select your age category:",
+                        "fr": "Sélectionnez votre catégorie d'âge :"
+                    }
+                },
+                "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["18-24", "25-34", "35-44", "45-59", "60 and above"],
+                            "fr": ["18-24", "25-34", "35-44", "45-59", "60 et plus"]
+                        },
+                        "multiple": false
+                    },
+                    {
+                        "type": "button",
+                        "texts": {
+                            "en": ["Prefer not to answer"],
+                            "fr": ["Ne se prononce pas"]
+                        },
+                        "multiple": false
+                    }
+                ],
+                "mandatory": false,
+                "stayChecked": true,
+                "multiple": false,
+                "default": "not answered"
+            },
+            {
+                "question": {
+                    "text": {
+                        "en": "You use interactive maps<br>(Google Maps, Géoportail IGN, OpenStreetMap, etc.):",
+                        "fr": "Vous utilisez des cartes interactives<br>(Google Maps, Géoportail de l'IGN, OpenStreetMap, etc.) :"
+                    }
+                },
+                "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["Every day", "A few times a week", "A few times a month", "Almost never"],
+                            "fr": ["Tous les jours", "Quelques fois par semaine", "Quelques fois par mois", "Presque jamais"]
+                        },
+                        "multiple": false
+                    },
+                    {
+                        "type": "button",
+                        "texts": {
+                            "en": ["Prefer not to answer"],
+                            "fr": ["Ne se prononce pas"]
+                        },
+                        "multiple": false
+                    }
+                ],
+                "mandatory": false,
+                "stayChecked": true,
+                "multiple": false,
+                "default": "not answered"
+            }
+        ]
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "subtitle",
+        "texts": {
+            "en": "Your knowledge of Paris, France",
+            "fr": "Votre connaissance de Paris, France"
+        }
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "map",
+            "display": "empty",
+            "basemap": "osm",
+            "shape": "circle",
+            "style": {
+                "height": "500px",
+                "width": "500px"
+            },
+            "center": [260296.36182771696, 6250869.585595192],
+            "zoom": 10
+        }]
+    },
+    {
+        "type": "form",
+        "content": [{
+            "question": {
+                "text": {
+                    "en": "Have you ever been to the Paris region?",
+                    "fr": "Êtes-vous déjà allé en région parisienne ?"
+                }
+            },
+            "items": [{
+                "type": "button",
+                "texts": {
+                    "en": ["Yes", "No"],
+                    "fr": ["Oui", "Non"]
+                },
+                "multiple": false
+            }],
+            "mandatory": false,
+            "stayChecked": true,
+            "multiple": false,
+            "default": "not answered",
+            "cascading": {
+                "answer": 1,
+                "content": [{
+                    "question": {
+                        "text": {
+                            "en": "Do you live or have you ever lived in the Paris region?",
+                            "fr": "Habitez-vous ou avez-vous déjà habité en région parisienne ?"
+                        }
+                    },
+                    "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["Yes", "No"],
+                            "fr": ["Oui", "Non"]
+                        },
+                        "multiple": false
+                    }],
+                    "mandatory": false,
+                    "stayChecked": true,
+                    "multiple": false,
+                    "default": "not answered"
+                }]
+            }
+        }]
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "subtitle",
+        "texts": {
+            "en": "Your knowledge of Madison, USA",
+            "fr": "Votre connaissance de Madison, USA"
+        }
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "map",
+            "display": "empty",
+            "basemap": "osm",
+            "shape": "circle",
+            "style": {
+                "height": "500px",
+                "width": "500px"
+            },
+            "center": [-9950155.680353438, 5323385.548110732],
+            "zoom": 11
+        }]
+    },
+    {
+        "type": "form",
+        "content": [{
+            "question": {
+                "text": {
+                    "en": "Have you ever been to Madison or its surroundings?",
+                    "fr": "Êtes-vous déjà allé à Madison ou ses environs ?"
+                }
+            },
+            "items": [{
+                "type": "button",
+                "texts": {
+                    "en": ["Yes", "No"],
+                    "fr": ["Oui", "Non"]
+                },
+                "multiple": false
+            }],
+            "mandatory": false,
+            "stayChecked": true,
+            "multiple": false,
+            "default": "not answered",
+            "cascading": {
+                "answer": 1,
+                "content": [{
+                    "question": {
+                        "text": {
+                            "en": "Do you live or have you ever lived in Madison or its surroundings?",
+                            "fr": "Habitez-vous ou avez-vous déjà habité à Madison ou ses environs ?"
+                        }
+                    },
+                    "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["Yes", "No"],
+                            "fr": ["Oui", "Non"]
+                        },
+                        "multiple": false
+                    }],
+                    "mandatory": false,
+                    "stayChecked": true,
+                    "multiple": false,
+                    "default": "not answered"
+                }]
+            }
+        }]
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "subtitle",
+        "texts": {
+            "en": "Your knowledge of Bourg Saint-Maurice, France",
+            "fr": "Votre connaissance de Bourg Saint-Maurice, France"
+        }
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "map",
+            "display": "empty",
+            "basemap": "osm",
+            "shape": "circle",
+            "style": {
+                "height": "500px",
+                "width": "500px"
+            },
+            "center": [753751.1688731503, 5719192.939855061],
+            "zoom": 12
+        }]
+    },
+    {
+        "type": "form",
+        "content": [{
+            "question": {
+                "text": {
+                    "en": "Have you ever been to Bourg Saint-Maurice or its surroundings?",
+                    "fr": "Êtes-vous déjà allé à Bourg Saint-Maurice ou ses environs ?"
+                }
+            },
+            "items": [{
+                "type": "button",
+                "texts": {
+                    "en": ["Yes", "No"],
+                    "fr": ["Oui", "Non"]
+                },
+                "multiple": false
+            }],
+            "mandatory": false,
+            "stayChecked": true,
+            "multiple": false,
+            "default": "not answered",
+            "cascading": {
+                "answer": 1,
+                "content": [{
+                    "question": {
+                        "text": {
+                            "en": "Do you live or have you ever lived in Bourg Saint-Maurice or its surroundings?",
+                            "fr": "Habitez-vous ou avez-vous déjà habité à Bourg Saint-Maurice ou ses environs ?"
+                        }
+                    },
+                    "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["Yes", "No"],
+                            "fr": ["Oui", "Non"]
+                        },
+                        "multiple": false
+                    }],
+                    "mandatory": false,
+                    "stayChecked": true,
+                    "multiple": false,
+                    "default": "not answered"
+                }]
+            }
+        }]
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Enough about myself!",
+            "fr": "Assez parlé de moi !"
+        },
+        "effect": "form",
+        "dev": false
+    }
+]

@@ -1,0 +1,91 @@
+.menu-text {
+    text-align: center;
+    font-weight: normal;
+    line-height: 150%;
+}
+
+.menu-title {
+    font-size: 50px;
+    margin: 0 auto 20px auto
+}
+
+.menu-subtitle {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.menu-paragraph {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.menu-paragraph:last-child {
+    margin-bottom: 40px;
+}
+
+.menu-hint {
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.menu-tips {
+    font-size: 24px;
+    margin: 0 auto 30px auto;
+    max-width: 600px;
+}
+
+.menu-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.menu-image {
+    margin: 20px 100px;
+}
+
+.menu-image>a {
+    display: flex;
+}
+
+.menu-image>img,
+.menu-image>a,
+.menu-image>a>img {
+    height: inherit;
+    width: inherit;
+}
+
+.special-menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.special-menu-container>.map-tuto,
+.special-menu-container>.timer-tuto {
+    margin: 0 30px 30px 30px;
+}
+
+.separator {
+    margin: 0 auto 30px auto;
+    border: 0;
+}
+
+.separator-plain {
+    border-top-style: solid;
+    border-top-color: var(--dark-gray);
+}
+
+.separator-gradient {
+    background-image: linear-gradient(to right, transparent, var(--dark-gray), transparent);
+}
+
+.separator-dashed {
+    border-top-style: dashed;
+    border-top-color: var(--dark-gray);
+}

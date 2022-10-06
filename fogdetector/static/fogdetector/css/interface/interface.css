@@ -1,0 +1,22 @@
+@import url("footer/footer.css");
+@import url("footer/credits.css");
+@import url("footer/language.css");
+@import url("interaction/button.css");
+@import url("interaction/checkbox.css");
+@import url("interaction/form.css");
+@import url("interaction/scroller.css");
+@import url("menu/alert.css");
+@import url("menu/element.css");
+@import url("menu/list.css");
+@import url("menu/page.css");
+@import url("menu/results.css");
+@import url("menu/tutorial.css");
+.narrow {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.wide {
+    margin-left: 0;
+    margin-right: 0;
+}

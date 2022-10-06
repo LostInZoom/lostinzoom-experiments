@@ -1,0 +1,133 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Demographic survey",
+            "fr": "Questionnaire démographique"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "form",
+        "content": [{
+                "question": {
+                    "text": {
+                        "en": "Gender<br>(choose all relevant answers):",
+                        "fr": "Genre<br>(sélectionnez toutes les réponses applicables):"
+                    }
+                },
+                "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["Woman", "Man", "Transgender"],
+                            "fr": ["Femme", "Homme", "Transgenre"]
+                        },
+                        "multiple": true
+                    },
+                    {
+                        "type": "input",
+                        "texts": {
+                            "en": "I identify myself as:",
+                            "fr": "Je m'identifie comme:"
+                        },
+                        "multiple": true
+                    },
+                    {
+                        "type": "button",
+                        "texts": {
+                            "en": ["Prefer not to answer"],
+                            "fr": ["Ne se prononce pas"]
+                        },
+                        "multiple": false
+                    }
+                ],
+                "mandatory": false,
+                "stayChecked": true,
+                "multiple": true,
+                "default": "not answered"
+            },
+            {
+                "question": {
+                    "text": {
+                        "en": "Select your age category:",
+                        "fr": "Sélectionnez votre catégorie d'âge :"
+                    }
+                },
+                "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["18-24", "25-34", "35-44", "45-59", "60 and above"],
+                            "fr": ["18-24", "25-34", "35-44", "45-59", "60 et plus"]
+                        },
+                        "multiple": false
+                    },
+                    {
+                        "type": "button",
+                        "texts": {
+                            "en": ["Prefer not to answer"],
+                            "fr": ["Ne se prononce pas"]
+                        },
+                        "multiple": false
+                    }
+                ],
+                "mandatory": false,
+                "stayChecked": true,
+                "multiple": false,
+                "default": "not answered"
+            },
+            {
+                "question": {
+                    "text": {
+                        "en": "You use interactive maps<br>(Google Maps, Géoportail IGN, OpenStreetMap, etc.):",
+                        "fr": "Vous utilisez des cartes interactives<br>(Google Maps, Géoportail de l'IGN, OpenStreetMap, etc.) :"
+                    }
+                },
+                "items": [{
+                        "type": "button",
+                        "texts": {
+                            "en": ["Every day", "A few times a week", "A few times a month", "Almost never"],
+                            "fr": ["Tous les jours", "Quelques fois par semaine", "Quelques fois par mois", "Presque jamais"]
+                        },
+                        "multiple": false
+                    },
+                    {
+                        "type": "button",
+                        "texts": {
+                            "en": ["Prefer not to answer"],
+                            "fr": ["Ne se prononce pas"]
+                        },
+                        "multiple": false
+                    }
+                ],
+                "mandatory": false,
+                "stayChecked": true,
+                "multiple": false,
+                "default": "not answered"
+            }
+        ]
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Enough about myself!",
+            "fr": "Assez parlé de moi !"
+        },
+        "effect": "form",
+        "dev": false
+    }
+]

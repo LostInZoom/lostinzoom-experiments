@@ -1,0 +1,21 @@
+{
+    "pages": {
+        "start": 1
+    },
+    "timers": {
+        "averageSessionDuration": "07:00",
+        "loadingLimit": "00:04"
+    },
+    "languages": {
+        "default": "en",
+        "supported": ["en", "fr"]
+    },
+    "canvas": {
+        "height": 700,
+        "width": 1500
+    },
+    "development": {
+        "switch": false,
+        "devmode": false
+    }
+}

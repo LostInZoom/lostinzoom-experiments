@@ -1,0 +1,45 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": true
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": false,
+        "dev": true
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Still two parts to go...",
+            "fr": "Encore deux parties..."
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Part 4... Almost the end!",
+            "fr": "Partie 4... Bientôt la fin !"
+        },
+        "session": 4,
+        "effect": "start",
+        "dev": false
+    }
+]

@@ -1,0 +1,45 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": false,
+        "dev": true
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Time to move on",
+            "fr": "Il est temps d'avancer"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Let's start part 3",
+            "fr": "Commençons la partie 3"
+        },
+        "session": 3,
+        "effect": "start",
+        "dev": false
+    }
+]

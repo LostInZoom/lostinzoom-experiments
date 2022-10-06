@@ -1,0 +1,29 @@
+#scroller-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 0;
+    height: calc(100% - 220px);
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color: var(--main-light-transparent);
+    overflow: hidden;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+}
+
+#scroller {
+    position: relative;
+    background-color: var(--main-light-transparent);
+    height: 100%;
+    width: 100%;
+    transition: height .5s;
+    -webkit-transition: height .5s;
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+}

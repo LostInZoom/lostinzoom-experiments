@@ -1,0 +1,65 @@
+/****** Text list styles *********/
+
+.list-header {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+ol,
+ul {
+    margin: 0;
+}
+
+ol {
+    list-style-type: none;
+    counter-reset: level1;
+}
+
+li {
+    line-height: 150%;
+    text-align: justify;
+    padding-left: 10px;
+}
+
+.list-level-1 {
+    margin-bottom: 50px;
+}
+
+.list-entry-1 {
+    font-size: 20px;
+    counter-increment: level1;
+    counter-reset: level2;
+}
+
+.list-entry-2 {
+    font-size: 16px;
+    counter-increment: level2;
+}
+
+ol.list-level-1>li::marker {
+    font-weight: bold;
+    content: counter(level1) "  \2022   ";
+}
+
+ul.list-level-1>li::marker {
+    content: "\2022   ";
+}
+
+.list-entry-2 {
+    font-size: 18px;
+    counter-increment: level2;
+}
+
+ol.list-level-2>li::marker {
+    font-weight: bold;
+    content: counter(level2) "  -   ";
+}
+
+ul.list-level-2>li::marker {
+    content: "\2022   ";
+}
+
+.list-level-2 {
+    margin-top: 8px;
+    margin-bottom: 20px;
+}

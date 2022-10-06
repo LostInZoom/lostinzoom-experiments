@@ -1,0 +1,17 @@
+/****** Text tuto styles *********/
+
+.menu-tuto-list {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 30px auto 10px auto;
+}
+
+.menu-tuto-hints {
+    font-size: 25px;
+    color: var(--white);
+    margin-bottom: 50px;
+}
+
+.menu-tuto-hints>ul {
+    margin: 0;
+}

@@ -1,0 +1,40 @@
+{
+    "pages": {
+        "start": 1
+    },
+    "languages": {
+        "default": "en",
+        "supported": ["en", "fr"]
+    },
+    "timers": {
+        "timeLimitStart": "00:10",
+        "timeLimitClick": "01:00",
+        "loadingLimit": "00:04",
+        "averageReaction": "00:10",
+        "menuAnimationTime": "00:10"
+    },
+    "animations": {
+        "duration": {
+            "pan": 4,
+            "zoominSg": 4,
+            "zoominLg": 5,
+            "zoomoutSg": 4,
+            "zoomoutLg": 5
+        },
+        "easing": {
+            "pan": "inOut",
+            "zoomin": "inOut",
+            "zoomout": "in"
+        }
+    },
+    "targetArea": {
+        "top": 150,
+        "bottom": 150,
+        "left": 250,
+        "right": 200
+    },
+    "development": {
+        "switch": false,
+        "devmode": false
+    }
+}

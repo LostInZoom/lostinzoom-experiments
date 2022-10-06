@@ -1,0 +1,13 @@
+{
+    "pages": {
+        "start": 1
+    },
+    "languages": {
+        "default": "en",
+        "supported": ["en", "fr"]
+    },
+    "development": {
+        "switch": false,
+        "devmode": false
+    }
+}

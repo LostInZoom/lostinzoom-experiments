@@ -1,0 +1,115 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Drawing your way through the map",
+            "fr": "Dessiner son chemin à travers la carte"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "When we look at a map or interact with a multiscale map on a computer or phone, our brains may separate the map into smaller cognitive spaces in order to better locate us. These separations are unique to each of us. They may come from our knowledge and experience of the geographical area, from visual separations suggested by the map, from the scale of the map, etc. In this survey you will be asked to highlight elements on different maps, at different scales and locations. Your participation will help us to better understand how cartographic exploration works."
+            ],
+            "fr": [
+                "Quand nous regardons une carte ou interagissons avec une carte multiéchelle sur un ordinateur ou un téléphone, il se peut que pour mieux nous repérer notre cerveau sépare la carte en de plus petits espaces cognitifs. Ces séparations sont propres à chacun d’entre nous. Elles peuvent provenir de notre connaissance et expérimentation de la zone géographique, de séparations visuelles suggérées par la carte, de l’échelle de la carte, etc. Dans cette enquête il vous sera demandé de surligner des éléments sur différentes cartes, à différentes échelles et localisation. Votre participation nous aidera à mieux comprendre le fonctionnement de l'exploration cartographique."
+            ]
+        },
+        "alignment": "justify"
+    },
+    {
+        "type": "image",
+        "span": "wide",
+        "content": [{
+                "format": "png",
+                "name": "logo-erc",
+                "link": "https://erc.europa.eu/",
+                "style": {
+                    "height": "200px"
+                }
+            },
+            {
+                "format": "svg",
+                "name": "logo-liz",
+                "link": "https://lostinzoom.github.io/home/",
+                "style": {
+                    "width": "500px"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "The survey you are about to take part in is conducted as part of the LostInZoom project, funded by the European Research Council (ERC). Your contribution will help us to better understand how people read multi-scale zoomable maps, and how we could design maps in which people are less likely to get lost."
+            ],
+            "fr": [
+                "L’expérience à laquelle vous vous apprêtez à participer est effectuée dans le cadre du projet de recherche LostInZoom, financé par le Conseil européen de la recherche (ERC). Votre contribution servira à mieux comprendre comment les personnes lisent une carte interactive multi-échelle, et comment nous pourrions concevoir des cartes plus faciles à parcourir."
+            ]
+        },
+        "alignment": "justify"
+    },
+    {
+        "type": "list",
+        "span": "wide",
+        "texts": {
+            "en": [
+                "Use a <b>mouse</b> and a <b>computer screen</b>.",
+                "Do not change the <b>size of this window</b> when running a test.",
+                "Use a computer with a <b>proper internet connection</b> as the experiment relies on online maps.",
+                "<b>Press F11 to enter full screen mode</b> to fully enjoy the experiment."
+            ],
+            "fr": [
+                "Réaliser l'expérience avec une <b>souris</b> et sur un <b>écran d'ordinateur</b>.",
+                "Ne pas <b>changer la taille de cette fenêtre</b> pendant un test.",
+                "Utiliser un ordinateur avec une <b>bonne connexion internet</b>, l'expérience repose en effet sur l'utilisation de cartes en ligne.",
+                "<b>Appuyer sur F11 pour entrer en mode plein écran</b> pour profiter au maximum de l'expérience."
+            ]
+        },
+        "ordered": false,
+        "header": {
+            "texts": {
+                "en": "To properly conduct the experiment, please:",
+                "fr": "Afin de réaliser l'expérience dans de bonnes conditions, merci de :"
+            },
+            "alignment": "left"
+        },
+        "duration": {
+            "texts": {
+                "en": "The experiment will last approximately",
+                "fr": "L'expérience va durer environ"
+            },
+            "units": {
+                "en": "minutes",
+                "fr": "minutes"
+            }
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Alright!",
+            "fr": "D'accord !"
+        },
+        "effect": "next",
+        "dev": false
+    }
+]

@@ -1,0 +1,120 @@
+#drawing {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+
+.drawing-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.canvas-container canvas {
+    position: absolute!important;
+}
+
+.canvas-container {
+    position: absolute!important;
+    pointer-events: none;
+    z-index: 51;
+}
+
+.canvas-container.active {
+    pointer-events: all;
+    z-index: 52;
+}
+
+#cursor {
+    position: absolute!important;
+    pointer-events: none;
+    z-index: 53;
+}
+
+.color-input-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    width: inherit;
+    max-width: 20%;
+}
+
+.color-container {
+    position: absolute;
+    pointer-events: none;
+    z-index: 54;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.color-picker-input {
+    pointer-events: all;
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+.color-picker {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    border: solid 2px white;
+    pointer-events: all;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+}
+
+.color-picker>img {
+    height: 100%;
+    width: 100%;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transform: scale(0, 0);
+    -webkit-transform: scale(0, 0);
+    -moz-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+}
+
+.color-picker.validated>img {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+}
+
+.color-picker:hover,
+.color-picker.active {
+    transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -o-transform: scale(1.2, 1.2);
+}
+
+.color-picker.active {
+    box-shadow: white 0 0 10px 5px;
+}

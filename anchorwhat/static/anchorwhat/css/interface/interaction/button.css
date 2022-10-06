@@ -1,0 +1,170 @@
+/****** Buttons Styles *********/
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background: var(--main-light);
+    color: var(--white);
+    border-radius: 10px;
+    width: max-content;
+    align-self: center;
+    text-align: center;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    user-select: none;
+    transition: all .5s;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+}
+
+.button:hover {
+    color: white;
+    cursor: pointer;
+    background: var(--main-dark);
+    opacity: 1;
+}
+
+.button-development-container {
+    position: absolute;
+    z-index: 60;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.button-development {
+    margin-left: 30px;
+    background: var(--dev-light);
+    color: var(--white);
+}
+
+.button-development:hover {
+    color: white;
+    background: var(--dev-dark);
+}
+
+.button-back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 30px;
+}
+
+.button-skip {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 30px;
+}
+
+.button-alert {
+    margin-top: 20px;
+}
+
+.button-hints {
+    background: var(--white);
+    color: var(--main-dark);
+}
+
+.button-hints:hover {
+    background: var(--main-light);
+    color: var(--white);
+}
+
+.menu-text-button {
+    text-align: center;
+    color: var(--main-dark);
+    font-weight: normal;
+}
+
+.duration {
+    margin-top: 10px;
+}
+
+#button-status-container {
+    position: absolute;
+    cursor: pointer;
+    z-index: 60;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    padding: 20px;
+    background: var(--dev-light);
+    box-shadow: inset 0 0 0 18px var(--white);
+    transition: all .5s;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    animation: fadeInDev .5s;
+    -webkit-animation: fadeInDev .5s;
+}
+
+#button-status-container:hover {
+    opacity: 0.8;
+    background: var(--dev-dark);
+}
+
+#button-status-container.play {
+    opacity: 0.8;
+    background: var(--dev-dark);
+}
+
+.button-status {
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+    width: 0;
+    height: 50px;
+    user-select: none;
+    pointer-events: none;
+    border-color: transparent transparent transparent var(--white);
+    transition: all .1s ease;
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+}
+
+#button-status-container.pause>.button-status {
+    border-style: double;
+    border-width: 0px 0 0px 40px;
+}
+
+#button-status-container.play>.button-status {
+    border-style: solid;
+    border-width: 25px 0 25px 40px;
+    transform: translateX(5px);
+    -webkit-transform: translateX(5px);
+    -moz-transform: translateX(5px);
+    -ms-transform: translateX(5px);
+    -o-transform: translateX(5px);
+}

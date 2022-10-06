@@ -1,0 +1,56 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "What do I do ?",
+            "fr": "Que dois-je faire ?"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "The following tutorial explains how a drawing session works. Through an overview of the controls, you will better understand what is expected from you.<br><b>Please keep in mind that the map elements you will draw are personal, they don't reflect a universal reality</b>."
+            ],
+            "fr": [
+                "Le tutoriel suivant vous explique le déroulement d'une session de dessin. Au travers d'une démonstration des contrôles, vous serez mieux à-même de comprendre ce qui est attendu de vous. Gardez à l'esprit que ces éléments cartographiques sont personnels et ne reflètent en rien une réalité universelle."
+            ]
+        },
+        "alignment": "center"
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Here is an example of a drawing session",
+            "fr": "Voici un exemple d'une session de dessin"
+        },
+        "training": 1,
+        "effect": "start",
+        "dev": false
+    }
+]

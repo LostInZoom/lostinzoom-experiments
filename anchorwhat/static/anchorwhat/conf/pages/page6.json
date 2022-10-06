@@ -1,0 +1,46 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Tutorial",
+            "fr": "Tutoriel"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Congratulations, you finished the tutorial!",
+            "fr": "Félicitations, vous avez fini le tutoriel !"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "You can still go back to familiarise yourself some more with the experiment if you don't feel ready."
+            ],
+            "fr": [
+                "Vous pouvez encore revenir en arrière si vous souhaitez vous familiariser davantage avec l'expérience."
+            ]
+        },
+        "alignment": "center"
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Great!",
+            "fr": "Super !"
+        },
+        "effect": "next",
+        "dev": false
+    }
+]

@@ -1,0 +1,23 @@
+[{
+        "type": "title",
+        "texts": {
+            "en": "LostInZoom",
+            "fr": "LostInZoom"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "subtitle",
+        "texts": {
+            "en": "scientific experiments platform",
+            "fr": "plate-forme d'expériences scientifiques"
+        }
+    }
+]

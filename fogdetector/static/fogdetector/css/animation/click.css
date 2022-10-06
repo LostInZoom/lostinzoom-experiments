@@ -1,0 +1,20 @@
+.click-effect {
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: #FFFFFF;
+    border-radius: 50%;
+    animation: clickEffect 1s linear;
+    z-index: 25;
+    pointer-events: none;
+    -webkit-animation: clickEffect 1s linear;
+}
+
+.click-infinite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.click-standard {
+    position: absolute;
+}

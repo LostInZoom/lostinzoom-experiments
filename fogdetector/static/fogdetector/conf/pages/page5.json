@@ -1,0 +1,199 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": true,
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "What do I do ?",
+            "fr": "Que dois-je faire ?"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "tips",
+        "texts": {
+            "en": "Concentrate on the target and try to memorize its position based on the surroundings.",
+            "fr": "Concentrez-vous sur la cible et essayez de mémoriser sa position grâce aux éléments environnants."
+        }
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "map",
+            "display": "target",
+            "basemap": "mign",
+            "shape": "circle",
+            "style": {
+                "height": "200px",
+                "width": "200px"
+            },
+            "center": [269803.963425206, 6248561.733196414],
+            "zoom": 15
+        }]
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "tips",
+        "texts": {
+            "en": "Watch out for the countdown, you have 10 seconds to memorise the target!",
+            "fr": "Attention au compte à rebours, vous avez 10 secondes pour mémoriser la cible !"
+        }
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "timer",
+            "duration": 10
+        }]
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "tips",
+        "texts": {
+            "en": "The map disappears and reappears somewhere else.",
+            "fr": "La carte disparaît et réapparaît à un autre endroit."
+        }
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "map",
+            "display": "empty",
+            "basemap": "mign",
+            "shape": "circle",
+            "style": {
+                "height": "200px",
+                "width": "200px"
+            },
+            "center": [269803.963425206, 6248561.733196414],
+            "zoom": 12
+        }]
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "tips",
+        "texts": {
+            "en": "An animation brings you back around your position.",
+            "fr": "Une animation vous ramène proche de votre position."
+        }
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "map",
+            "display": "animation",
+            "basemap": "mign",
+            "shape": "circle",
+            "style": {
+                "height": "200px",
+                "width": "200px"
+            },
+            "center": [269803.963425206, 6248561.733196414],
+            "zoom": 15
+        }]
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "tips",
+        "texts": {
+            "en": "Click where you were as quick as possible!<br>Prioritize quickness over precision!",
+            "fr": "Cliquez où vous étiez le plus vite possible !<br>Privilégiez la vitesse à la précision !"
+        }
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "map",
+            "display": "click",
+            "basemap": "mign",
+            "shape": "circle",
+            "style": {
+                "height": "200px",
+                "width": "200px"
+            },
+            "center": [269803.963425206, 6248561.733196414],
+            "zoom": 15
+        }]
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "The following training session starts by assisting you throughout the first test. Then, you're on your own to run three tests the way they are designed in the real sessions. When the training ends, you will have the option to go back and practice more before starting the experiment."
+            ],
+            "fr": [
+                "La session d'entraînement qui va suivre commence par vous guider tout au long du premier test. Ensuite, les trois tests qui suivent vous mettent en situation réelle. À la fin de l'entraînement, vous aurez la possibilité de revenir en arrière si vous souhaitez vous entraîner davantage avant de commencer l'expérience."
+            ]
+        },
+        "alignment": "center"
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Come on, let's try!",
+            "fr": "C'est bon, je veux essayer !"
+        },
+        "training": 1,
+        "effect": "start",
+        "dev": false
+    }
+]

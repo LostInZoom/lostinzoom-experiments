@@ -1,0 +1,109 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Consent form",
+            "fr": "Formulaire de consentement"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "list",
+        "span": "narrow",
+        "texts": {
+            "en": [
+                "The purpose of this research is to study how much people can be lost when exploring an interactive map. I understand that the results of this study may be submitted for publication. The benefits I may expect from the study are:",
+                {
+                    "ordered": false,
+                    "texts": [
+                        "An appreciation of research on multi-scale cartography.",
+                        "An opportunity to contribute to scientific research.",
+                        "An opportunity to learn about the cognition of maps."
+                    ]
+                },
+                "The procedure will be as follow:",
+                {
+                    "ordered": false,
+                    "texts": [
+                        "I will first be given a step-by-step tutorial of a training application interface.",
+                        "The researchers do not foresee any risks to me for participating in this study, nor do they expect that I will experience any discomfort or stress.",
+                        "I understand that I may withdraw from the study at any time.",
+                        "I understand that I will receive a copy of this consent form if requested.",
+                        "All of the data collected will remain strictly anonymized.  My responses will not be associated with my name or email; instead, only a code number will be used when the researchers store the data. The anonymized data may then be made accessible for other researchers according to the principles of open science.",
+                        "This study respects the <b>GDPR legislation</b> (contact <a href='mailto:dpo@ign.fr'>dpo@ign.fr</a> for questions related to GDPR).",
+                        "For any questions about the study or the LostInZoom project, you can contact <a href='mailto:guillaume.touya@ign.fr'>Guillaume Touya</a>."
+                    ]
+                },
+                "You must be overage to participate.",
+                "You can access the full information sheet concerning the experiment <a href='download-information' target='_blank'>here</a>."
+            ],
+            "fr": [
+                "L'objet de ce projet de recherche est de quantifier la perte de repères lors de l'exploration d'une carte interactive. Je comprends que les résultats de cette expérience peuvent être utilisées dans des publications. Je reconnais les avantages dont je pourrais profiter au terme de cette expérience :",
+                {
+                    "ordered": false,
+                    "texts": [
+                        "Un aperçu des recherches sur la cartographie multi-échelle.",
+                        "Une opportunité de contribuer aux travaux de recherche.",
+                        "Une opportunité d'en apprendre davantage concernant la cognition des cartes."
+                    ]
+                },
+                "La procédure sera la suivante :",
+                {
+                    "ordered": false,
+                    "texts": [
+                        "Je vais dans un premier temps avoir accès à des instructions par étapes ainsi qu'une série de tests factices.",
+                        "Les chercheurs et les chercheuses ne prévoient aucun risques pour ma participation à cette expérience, ils ne s'attendent pas non plus à ce que je sois confronté à quelque inconfort ou stress.",
+                        "Je comprends que je peux me rétracter de cette expérience à tout moment.",
+                        "Je comprends que je recevrai une copie du présent formulaire si j'en fais la demande.",
+                        "Toutes les données collectées demeurent strictement anonymes. Mes réponses ne seront jamais associées à mon nom ou mon adresse e-mail ; en lieu et place, un identifiant unique sera utilisé pour stocker les données. Les données ainsi anonymisées peuvent ensuite être rendue accessible à d'autres chercheurs·euses selon le principe de la science ouverte.",
+                        "Cette expérience respecte le <b>RGPD</b> (contacter <a href='mailto:dpo@ign.fr'>dpo@ign.fr</a> pour toute question concernant le RGPD).",
+                        "Pour toute question concernant cette expérience ou le projet LostInZoom, vous pouvez contacter <a href='mailto:guillaume.touya@ign.fr'>Guillaume Touya</a>."
+                    ]
+                },
+                "Vous devez être légalement majeur pour participer à cette expérience.",
+                "Vous pouvez accéder à la fiche d'information concernant l'expérience <a href='download-information' target='_blank'>ici</a>. (en anglais uniquement)"
+            ]
+        },
+        "ordered": true,
+        "header": {
+            "texts": {
+                "en": "I agree to participate in a study which aims at collecting data to measure the desert fog effect occurring during the exploration of an interactive map. The following points have been explained to me:",
+                "fr": "J'accepte de participer à une étude dont l'objectif est de récolter des données afin de mesurer le brouillard du désert, phénomène survenant au cours de l'exploration d'une carte interactive. Les points suivants m'ont été expliqués :"
+            },
+            "alignment": "left"
+        }
+    },
+    {
+        "type": "checkbox",
+        "texts": {
+            "en": "I have read and I accept the conditions of the experiment.",
+            "fr": "J'ai lu et j'accepte les conditions de l'expérience."
+        },
+        "mandatory": true,
+        "stayChecked": true
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Let me play!",
+            "fr": "Laissez-moi jouer !"
+        },
+        "effect": "registration",
+        "dev": false
+    }
+]

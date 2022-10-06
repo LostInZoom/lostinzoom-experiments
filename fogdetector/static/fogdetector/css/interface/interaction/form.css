@@ -1,0 +1,115 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.form-question-container {
+    margin-bottom: 20px;
+}
+
+.form-question {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.form-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form-button {
+    font-size: 16px;
+    padding: 8px 16px;
+    margin: 5px;
+    transition: transform .2s, background .5s;
+    -webkit-transition: transform .2s, background .5s;
+    -moz-transition: transform .2s, background .5s;
+    -ms-transition: transform .2s, background .5s;
+    -o-transition: transform .2s, background .5s;
+}
+
+.form-button:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.form-button.selected {
+    color: white;
+    background: var(--main-dark);
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.form-input-label {
+    font-size: 16px;
+}
+
+.form-input {
+    background-color: var(--main-light);
+    overflow: hidden;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    margin: 5px;
+    white-space: nowrap;
+    transition: ease-out transform .2s, background .5s;
+    -webkit-transition: ease-out transform .2s, background .5s;
+    -moz-transition: ease-out transform .2s, background .5s;
+    -ms-transition: ease-out transform .2s, background .5s;
+    -o-transition: ease-out transform .2s, background .5s;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.form-input:hover {
+    background: var(--main-dark);
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.form-input:focus-visible {
+    background: var(--main-dark);
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.form-input.placeholder {
+    font-style: italic;
+    color: var(--white-transparent);
+}
+
+.form-input.selected {
+    background: var(--main-dark);
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.separator-form {
+    margin-bottom: 20px;
+}

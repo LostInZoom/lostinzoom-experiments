@@ -1,0 +1,45 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": true
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": false,
+        "dev": true
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "You made it through part 1!",
+            "fr": "Vous avez survécu à la partie 1 !"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Now for part 2",
+            "fr": "Maintenant la partie 2"
+        },
+        "session": 2,
+        "effect": "start",
+        "dev": false
+    }
+]

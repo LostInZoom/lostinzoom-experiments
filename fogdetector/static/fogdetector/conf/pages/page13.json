@@ -1,0 +1,45 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": true
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": false,
+        "dev": true
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Just a tiny bit more...",
+            "fr": "Encore un petit effort..."
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Part 5, the final stretch",
+            "fr": "Part 5, la dernière ligne droite"
+        },
+        "session": 5,
+        "effect": "start",
+        "dev": false
+    }
+]

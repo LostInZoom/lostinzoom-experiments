@@ -1,0 +1,115 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Finding your way through the desert fog",
+            "fr": "Trouver son chemin à travers le brouillard du désert"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "When you explore an interactive map on a computer or a smartphone, you might feel lost sometimes for a few seconds, all the more when the map changes too much. This phenomenon is called the desert fog, because, as well as a desert storm reshapes the landscape around you, map changes during exploration and zoom often remove landmarks you previously used to position yourself. This experiment seeks to scientifically measure the desert fog in maps and, for the first time, to understand which factors cause the effect, and how it could be reduced in the future."
+            ],
+            "fr": [
+                "Lorsque vous explorez une carte interactive sur un ordinateur ou sur un smartphone, vous pouvez parfois vous sentir perdu·e pendant quelques secondes, à plus forte raison quand la carte change radicalement. Ce phénomène est appelé brouillard du désert, car, de la même manière qu'une tempête du désert refaçonne les paysages autour de vous, la carte change pendant l'exploration et, souvent, zoomer enlève les point de repères que vous utilisiez pour vous repérer. Cette expérience vise à mesurer scientifiquement le brouillard du désert et, pour la première fois, à comprendre quels facteurs sont à l'origine de ce phénomène et comment il serait possible de le minimiser."
+            ]
+        },
+        "alignment": "justify"
+    },
+    {
+        "type": "image",
+        "span": "wide",
+        "content": [{
+                "format": "png",
+                "name": "logo-erc",
+                "link": "https://erc.europa.eu/",
+                "style": {
+                    "height": "200px"
+                }
+            },
+            {
+                "format": "svg",
+                "name": "logo-liz",
+                "link": "https://lostinzoom.github.io/home/",
+                "style": {
+                    "width": "500px"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "The survey you are about to take part in is conducted as part of the LostInZoom project, funded by the European Research Council (ERC). Your contribution will help us to better understand how people read multi-scale zoomable maps, and how we could design maps in which people are less likely to get lost."
+            ],
+            "fr": [
+                "L’expérience à laquelle vous vous apprêtez à participer est effectuée dans le cadre du projet de recherche LostInZoom, financé par le Conseil européen de la recherche (ERC). Votre contribution servira à mieux comprendre comment les personnes lisent une carte interactive multi-échelle, et comment nous pourrions concevoir des cartes plus faciles à parcourir."
+            ]
+        },
+        "alignment": "justify"
+    },
+    {
+        "type": "list",
+        "span": "wide",
+        "texts": {
+            "en": [
+                "Use a <b>mouse</b> and a <b>computer screen</b>.",
+                "Do not change the <b>size of this window</b> when running a test.",
+                "Use a computer with a <b>proper internet connection</b> as the experiment relies on online maps animations.",
+                "<b>Press F11 to enter full screen mode</b> to fully enjoy the experiment."
+            ],
+            "fr": [
+                "Réaliser l'expérience avec une <b>souris</b> et sur un <b>écran d'ordinateur</b>.",
+                "Ne pas <b>changer la taille de cette fenêtre</b> pendant un test.",
+                "Utiliser un ordinateur avec une <b>bonne connexion internet</b>, l'expérience repose en effet sur l'utilisation d'animations appliquées à des cartes en ligne.",
+                "<b>Appuyer sur F11 pour entrer en mode plein écran</b> pour profiter au maximum de l'expérience."
+            ]
+        },
+        "ordered": false,
+        "header": {
+            "texts": {
+                "en": "To properly conduct the experiment, please:",
+                "fr": "Afin de réaliser l'expérience dans de bonnes conditions, merci de :"
+            },
+            "alignment": "left"
+        },
+        "duration": {
+            "texts": {
+                "en": "The experiment will last approximately",
+                "fr": "L'expérience va durer environ"
+            },
+            "units": {
+                "en": "minutes",
+                "fr": "minutes"
+            }
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Alright!",
+            "fr": "D'accord !"
+        },
+        "effect": "next",
+        "dev": false
+    }
+]

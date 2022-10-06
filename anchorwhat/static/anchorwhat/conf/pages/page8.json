@@ -1,0 +1,57 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": true
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": false,
+        "dev": true
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "You made it through the first session!",
+            "fr": "Vous avez survécu à la première session !"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "Remember, the location as well as the basemap of the following drawing session has changed."
+            ],
+            "fr": [
+                "N'oubliez pas, la zone ainsi que le fond de carte de la session de dessin suivante ont changés."
+            ]
+        },
+        "alignment": "center"
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Yes, yes, I got it!",
+            "fr": "Oui, oui, j'ai compris !"
+        },
+        "session": 2,
+        "effect": "start",
+        "dev": false
+    }
+]

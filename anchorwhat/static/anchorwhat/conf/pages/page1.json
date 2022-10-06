@@ -1,0 +1,32 @@
+[{
+        "type": "title",
+        "texts": {
+            "en": "Anchor, What?",
+            "fr": "Anchor, What?"
+        }
+    },
+    {
+        "type": "subtitle",
+        "texts": {
+            "en": "An experiment to explore the way you look at maps",
+            "fr": "Une expérience pour explorer votre manière d'appréhender la carte"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Let's go!",
+            "fr": "Allons-y !"
+        },
+        "effect": "next",
+        "dev": false
+    }
+]

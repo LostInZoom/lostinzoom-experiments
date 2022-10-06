@@ -1,0 +1,20 @@
+[{
+        "smallScale": [
+            "pan ss mign",
+            "zoomout sg mign"
+        ],
+        "largeScale": [
+            "pan ls mign",
+            "zoomin lg mign"
+        ],
+        "nbGuide": 1
+    },
+    {
+        "largeScale": [
+            "zoomin lg mign",
+            "pan ls pign",
+            "zoomin lg osm"
+        ],
+        "nbGuide": 0
+    }
+]

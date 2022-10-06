@@ -1,0 +1,53 @@
+.languages {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.flag-container {
+    margin-right: 10px;
+}
+
+.flag-container:last-child {
+    margin-right: 30px;
+}
+
+.flag {
+    height: 50px;
+    width: 50px;
+}
+
+.flag>img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+.flag-overlay {
+    position: absolute;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    z-index: 60;
+    box-shadow: inset 0 0 10px var(--light-gray);
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+.flag-overlay:hover {
+    box-shadow: inset 0 0 20px var(--dark-gray);
+}

@@ -1,0 +1,65 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Skip",
+            "fr": "Passer"
+        },
+        "effect": "skip",
+        "training": false,
+        "dev": true
+    },
+    {
+        "type": "title",
+        "texts": {
+            "en": "Now for the experiment",
+            "fr": "Et maintenant l'expérience"
+        }
+    },
+    {
+        "type": "separator",
+        "style": {
+            "type": "gradient",
+            "thickness": 1,
+            "width": 100
+        }
+    },
+    {
+        "type": "list",
+        "span": "narrow",
+        "texts": {
+            "en": [
+                "You will be drawing on <b>two different locations</b>, randomly selected among three (namely Paris, Madison and Bourg Saint-Maurice).", "Those two locations will have a <b>different basemap</b> (namely OpenStreetMap, Google Maps or IGN topographic maps).", "This two random sessions will be carried at <b>three levels of zoom</b>, from a further to a closer perspective."
+            ],
+            "fr": [
+                "Vous allez dessiner sur <b>deux zones différents</b>, sélectionnées aléatoirement sur trois (à savoir Paris, Madison et Bourg Saint-Maurice).", "Ces deux zones seront représentées sur <b>différents fonds de cartes</b> (à savoir OpenStreetMap, Google Maps et les cartes IGN).", "Ces deux sessions seront conduites à <b>trois niveaux de zoom</b>, d'une perspective lointaine à proche."
+            ]
+        },
+        "ordered": false,
+        "header": {
+            "texts": {
+                "en": "You will experience <b>six drawing session</b>:",
+                "fr": "Vous allez suivre <b>six sessions de dessin</b> :"
+            },
+            "alignment": "left"
+        }
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Let's start drawing!",
+            "fr": "Commençons à dessiner !"
+        },
+        "session": 1,
+        "effect": "start",
+        "dev": false
+    }
+]

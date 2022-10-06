@@ -1,0 +1,173 @@
+{
+    "basemaps": [{
+            "name": "osm",
+            "preload": "Infinity",
+            "source": {
+                "type": "OSM"
+            }
+        },
+        {
+            "name": "pign",
+            "preload": "Infinity",
+            "source": {
+                "type": "WMTS",
+                "provider": "IGN",
+                "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
+                "layer": "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
+                "matrixSet": "PM",
+                "format": "image/png",
+                "style": "normal",
+                "dimensions": [256, 256],
+                "tileGrid": {
+                    "origin": [-20037508, 20037508]
+                }
+            }
+        },
+        {
+            "name": "mign",
+            "preload": "Infinity",
+            "source": {
+                "type": "WMTS",
+                "provider": "IGN",
+                "url": "https://wxs.ign.fr/IGN_SECRET_KEY/geoportail/wmts",
+                "layer": "GEOGRAPHICALGRIDSYSTEMS.MAPS",
+                "matrixSet": "PM",
+                "format": "image/jpeg",
+                "style": "normal",
+                "dimensions": [256, 256],
+                "tileGrid": {
+                    "origin": [-20037508, 20037508]
+                }
+            }
+        }
+    ],
+    "defaultTarget": [269803.963425206, 6248561.733196414],
+    "styles": {
+        "target": {
+            "center": {
+                "radius": 6,
+                "color": "rgba(255,255,255,1)"
+            },
+            "circles": [{
+                    "radius": 3,
+                    "width": 3,
+                    "color": "rgba(0,0,0,1)"
+                },
+                {
+                    "radius": 21,
+                    "width": 6,
+                    "color": "rgba(255,255,255,1)"
+                },
+                {
+                    "radius": 21,
+                    "width": 3,
+                    "color": "rgba(0,0,0,1)"
+                }
+            ]
+        },
+        "clickArea": {
+            "center": {
+                "radius": 50,
+                "color": "rgba(96, 143, 111, 0.5)"
+            }
+        },
+        "targetResults": {
+            "center": {
+                "radius": 8,
+                "color": "rgba(255,255,255,1)"
+            },
+            "circles": [{
+                "radius": 6,
+                "width": 4,
+                "color": "rgba(0, 0, 0,1)"
+            }],
+            "label": {
+                "text": {
+                    "en": "Target",
+                    "fr": "Cible"
+                },
+                "size": "18px",
+                "align": "start",
+                "baseline": "middle",
+                "offsetx": 20,
+                "offsety": 0,
+                "color": "rgba(255, 255, 255, 1)",
+                "backcolor": "rgba(0, 0, 0, 0.7)",
+                "padding": "5"
+            }
+        },
+        "userResults": {
+            "center": {
+                "radius": 8,
+                "color": "rgba(255,255,255,1)"
+            },
+            "circles": [{
+                "radius": 6,
+                "width": 4,
+                "color": "rgba(96, 143, 111,1)"
+            }],
+            "label": {
+                "text": {
+                    "en": "Your average distance",
+                    "fr": "Votre distance moyenne"
+                },
+                "size": "18px",
+                "align": "end",
+                "baseline": "middle",
+                "offsetx": 0,
+                "offsety": -25,
+                "color": "rgba(255, 255, 255, 1)",
+                "backcolor": "rgba(96, 143, 111, 0.7)",
+                "padding": "5"
+            }
+        },
+        "allResults": {
+            "center": {
+                "radius": 8,
+                "color": "rgba(255, 255, 255, 1)"
+            },
+            "circles": [{
+                "radius": 6,
+                "width": 4,
+                "color": "rgba(104, 104, 104, 1)"
+            }],
+            "label": {
+                "text": {
+                    "en": "Overall average distance",
+                    "fr": "Distance moyenne globale"
+                },
+                "size": "18px",
+                "align": "end",
+                "baseline": "middle",
+                "offsetx": 0,
+                "offsety": 25,
+                "color": "rgba(255, 255, 255, 1)",
+                "backcolor": "rgba(104, 104, 104, 0.7)",
+                "padding": "5"
+            }
+        }
+    },
+    "zoomLevels": {
+        "zoom1": 12,
+        "zoom2": 14,
+        "zoom3": 15,
+        "zoom4": 17
+    },
+    "startView": [
+        [-565747.6848337646, 6184117.234739988, 14, "pign"],
+        [-181450.23610508454, 6387307.349978444, 14, "pign"],
+        [261387.12041786616, 6251183.387344534, 14, "pign"],
+        [343437.1284481793, 5745014.647232951, 14, "pign"],
+        [296877.8186771493, 5634033.441631556, 13, "pign"],
+        [408055.4763179382, 5791665.70321266, 12, "pign"],
+        [399372.5435099781, 5516454.8573086625, 13, "pign"],
+        [11984.964762668988, 5285854.13820006, 13, "pign"],
+        [-153518.4482580332, 5785810.483012559, 14, "pign"],
+        [618160.5249176552, 5620864.443787747, 14, "pign"],
+        [539001.1465416177, 5744800.860174198, 14, "pign"],
+        [178077.65475856466, 6572093.914069081, 15, "pign"],
+        [715495.7214056702, 5314640.019114735, 13, "pign"],
+        [693319.1746893419, 5611256.424794476, 12, "pign"],
+        [809660.330285229, 6120956.281898047, 13, "pign"]
+    ]
+}

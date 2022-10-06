@@ -1,0 +1,39 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Back",
+            "fr": "Retour"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "results"
+    },
+    {
+        "type": "special",
+        "items": [{
+            "type": "map",
+            "display": "results",
+            "basemap": "pign",
+            "shape": "square",
+            "style": {
+                "height": "500px",
+                "width": "100%"
+            },
+            "zoom": 17
+        }]
+    },
+    {
+        "type": "paragraph",
+        "texts": {
+            "en": [
+                "If you liked Fog Detector, please consider trying the experiment <a href='http://54.211.63.55/anchorwhat/' target='_blank'>Anchorwhat</a> where you will draw on maps!"
+            ],
+            "fr": [
+                "Si vous avez aimé Fog Detector, n'hésitez pas à essayer l'expérience <a href='http://54.211.63.55/anchorwhat/' target='_blank'>Anchorwhat</a> où vous dessinerez sur des cartes !"
+            ]
+        },
+        "alignment": "center"
+    }
+]

@@ -1,0 +1,31 @@
+# Static update bash script
+update-static.sh
+
+# Static files
+/static/
+
+# VS Code
+.vscode/
+
+# Ignore django migrations
+**/migrations
+
+# Admin configuration
+lizexp/admin/
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+# Private 
+lizexp/private/**
+
+# Sphinx documentation
+docs/_build/
+docs/_static/
+docs/_templates/

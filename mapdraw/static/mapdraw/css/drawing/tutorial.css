@@ -1,0 +1,174 @@
+.mask-container {
+    position: absolute;
+    z-index: 70;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mask-container.bottom {
+    justify-content: end;
+}
+
+.glowing-mask {
+    position: absolute;
+    pointer-events: none;
+    z-index: 90;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+}
+
+.glowing-mask.glowing {
+    animation: glowing 2s ease-in-out infinite;
+    -webkit-animation: glowing 2s ease-in-out infinite;
+}
+
+.border-mask {
+    position: absolute;
+    z-index: 70;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+
+.border-mask-tuto {
+    background-color: var(--dark-gray-transparent);
+}
+
+.border-mask-area {
+    background-color: var(--light-gray-transparent);
+}
+
+.pointer-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 65;
+}
+
+#cursor {
+    transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+}
+
+.tutorial-guide-container {
+    z-index: 75;
+    max-width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+}
+
+.mask-container.bottom>#drawing {
+    align-items: end;
+}
+
+.mask-container.bottom>#drawing>.tutorial-guide-container {
+    max-width: 50%;
+    margin-bottom: 50px;
+}
+
+.tutorial-main-label {
+    color: white;
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--main-dark-transparent);
+    user-select: none;
+    transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+}
+
+.tutorial-button {
+    align-self: stretch;
+    cursor: pointer;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-dark-transparent);
+    transition: background-color .5s;
+    -webkit-transition: background-color .5s;
+    -moz-transition: background-color .5s;
+    -ms-transition: background-color .5s;
+    -o-transition: background-color .5s;
+}
+
+.tutorial-button.active {
+    width: 50px;
+}
+
+.tutorial-button:hover {
+    background-color: var(--main-light-transparent);
+}
+
+.tutorial-button>img {
+    height: 50px;
+    width: 0;
+}
+
+.tutorial-button.active>img {
+    width: 20px;
+}
+
+.tutorial-button-next {
+    border-radius: 0 10px 10px 0;
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    -ms-border-radius: 0 10px 10px 0;
+    -o-border-radius: 0 10px 10px 0;
+}
+
+.tutorial-button-previous {
+    border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
+}
+
+.tutorial-tips {
+    position: absolute;
+}
+
+.tutorial-tips-label {
+    max-width: 300px;
+    font-size: 18px;
+    line-height: 25px;
+    padding: 15px;
+    border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
+}
