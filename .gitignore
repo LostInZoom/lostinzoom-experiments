@@ -26,6 +26,5 @@ media
 lizexp/private/**
 
 # Sphinx documentation
-docs/_build/
-docs/_static/
-docs/_templates/
+docs/build/
+docs/templates/
