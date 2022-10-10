@@ -389,8 +389,8 @@ function handleScreenResize(param) {
             scroller.style.top = '0%';
 
             page.addEventListener('scroll', function(event) {
-                let scrollTop = event.target.scrollTop;
-                let scrollMax = event.target.scrollTopMax;
+                let scrollTop = $(event.target).scrollTop();
+                let scrollMax = event.target.scrollHeight - event.target.clientHeight;
                 let scrolled = (((100 - height) * scrollTop) / scrollMax);
                 scroller.style.top = scrolled + '%';
             }, { passive: true });

@@ -213,10 +213,9 @@ function handleSideScroller(param) {
 
     function moveSideScroller(e, height) {
         let scroller = document.getElementById('scroller');
-        let scrollTop = e.target.scrollTop;
-        let scrollMax = e.target.scrollTopMax;
+        let scrollTop = $(e.target).scrollTop();
+        let scrollMax = e.target.scrollHeight - e.target.clientHeight;
         let scrolled = (((100 - height) * scrollTop) / scrollMax);
-
         scroller.style.top = scrolled + '%';
     }
 }
