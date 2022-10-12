@@ -53,12 +53,37 @@ Install required packages::
 
     pip install -r requirements.txt
 
-If you are not using PIP, here are the python packages needed::
+If your are not using PIP, here are the packages used::
 
     django
+    psycopg2-binary
     pymemcache
     device_detector
     user_agents
+
+Standalone Map Draw version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To install Map Draw as a standalone web application, the first step is to remove the
+all unwanted files as well as all their references inside the code. Even if this is not too cumbersome
+this process is meant to be simplified in the future.
+
+Edit the file ``lizexp/lizexp/settings.py`` and remove the following lines::
+
+    DATABASES = {
+        'default': DJANGO_DATABASE,
+        'fogdetector': FOG_DETECTOR_DATABASE,
+        'anchorwhat': ANCHORWHAT_DATABASE,
+    }
+
+Delete the following folder from the ``lizexp/`` directory::
+
+    lizexp/anchorwhat/
+    lizexp/docs/
+    lizexp/fogdetector/
+    lizexp/home/
+
+
 
 Usage
 =======
