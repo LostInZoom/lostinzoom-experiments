@@ -1,0 +1,21 @@
+{
+    "options": {
+        "defaultBrushSize": 50,
+        "minBrushSize": 10,
+        "maxBrushSize": 150,
+        "brushSizeIncrement": 5
+    },
+    "colors": {
+        "default": 8
+    },
+    "text": {
+        "layer": "Layer",
+        "controls": [{
+            "name": "undo",
+            "label": "Undo"
+        }, {
+            "name": "clear",
+            "label": "Clear colour"
+        }]
+    }
+}

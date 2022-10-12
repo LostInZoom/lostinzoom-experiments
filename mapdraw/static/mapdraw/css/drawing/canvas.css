@@ -66,20 +66,18 @@
 .color-container {
     overflow: auto;
     scrollbar-width: none;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
 }
 
 .color-input-container {
     display: flex;
+    margin-left: auto;
     align-items: center;
     justify-content: flex-end;
     border: solid 2px white;
     border-bottom: solid 1px white;
     border-top: solid 1px white;
     pointer-events: all;
-    height: 26px;
+    height: 50px;
     width: fit-content;
     padding: 0 2px;
     transition: transform .3s ease-in-out, height .1s ease-in-out, width .2s ease-in-out, background .2s ease-out, border-radius .2s ease-in-out;
@@ -136,7 +134,7 @@
 }
 
 .color-input-container.active {
-    height: 50px;
+    height: 70px;
 }
 
 .color-input-container.colorselect {
@@ -146,7 +144,7 @@
 
 .color-input-items {
     cursor: pointer;
-    height: 26px;
+    height: 100%;
     display: flex;
     align-items: center;
 }
@@ -191,7 +189,6 @@
 }
 
 .color-change-items {
-    cursor: pointer;
     align-self: center;
     display: flex;
     justify-content: center;
@@ -208,11 +205,20 @@
     width: 26px;
 }
 
-.slider-container {
-    position: relative;
-    width: 220px;
-    height: 6px;
+.select-color {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     margin: 0 10px;
+    width: 220px;
+    height: 100%;
+}
+
+.slider-container {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 6px;
     background-image: linear-gradient(to right, hsl(0, 100%, 50%) 0%, hsl(36, 100%, 50%) 10%, hsl(72, 100%, 50%) 20%, hsl(108, 100%, 50%) 30%, hsl(144, 100%, 50%) 40%, hsl(180, 100%, 50%) 50%, hsl(216, 100%, 50%) 60%, hsl(252, 100%, 50%) 70%, hsl(288, 100%, 50%) 80%, hsl(324, 100%, 50%) 90%, hsl(360, 100%, 50%) 100%);
     border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -226,6 +232,7 @@
     height: 10px;
     width: 10px;
     outline: solid 1.5px white;
+    top: -2px;
     left: 0;
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -234,11 +241,32 @@
     -o-border-radius: 50%;
 }
 
+.default-color-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40%;
+}
+
+.default-color {
+    cursor: pointer;
+    width: inherit;
+    height: 100%;
+    outline: solid 1px white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
 .random-color {
+    cursor: pointer;
     margin-left: 4px;
 }
 
 .validate-color {
+    cursor: pointer;
     margin-right: 4px;
 }
 
@@ -284,13 +312,6 @@
 .color-delete {
     width: 30px;
     border-left: solid 1.5px white;
-}
-
-.color-input-container.active>.color-rename,
-.color-input-container.active>.color-change,
-.color-input-container.active>.color-select,
-.color-input-container.active>.color-delete {
-    height: 50px;
 }
 
 .add-layer {

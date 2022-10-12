@@ -1,5 +1,5 @@
 import json, csv, os
-from lizexp.private.privacy import IGN_SECRET_KEY, GOOGLE_SECRET_KEY
+from lizexp.private.privacy import *
 
 def get_file(filename, app, ext):
         return open(app + '/static/' + app + '/conf/' + filename + '.' + ext, encoding='utf-8')
@@ -19,6 +19,7 @@ def get_CSV(filename, app):
 def retrieve_configuration(app):
     return {
         "cartography": get_JSON('cartography', app),
+        "drawing": get_JSON('drawing', app),
         "keys": {
             "ign": IGN_SECRET_KEY,
             "google": GOOGLE_SECRET_KEY

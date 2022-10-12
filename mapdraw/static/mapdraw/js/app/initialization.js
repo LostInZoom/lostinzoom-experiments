@@ -15,6 +15,7 @@ $(document).ready(function() {
             success: function(conf) {
                 let param = {
                     cartography: conf.cartography,
+                    drawing: conf.drawing,
                     keys: conf.keys
                 };
                 // Loading Google Maps API

@@ -5,10 +5,22 @@
 
 function drawingMode(param) {
     let container = document.getElementById('container');
-    param.cartography.drawing['currentBrushSize'] = param.cartography.drawing.defaultBrushSize;
+    param.drawing.options['currentBrushSize'] = param.drawing.options.defaultBrushSize;
     let height = container.offsetHeight;
     let width = container.offsetWidth;
     let mousedown = false;
+
+    // Defining the default colors
+    let defaultcolors = [];
+    let cur = param.drawing.colors.default;
+    let incr = 360 / cur;
+    let hue = 0;
+    while (cur > 0) {
+        let defaultcolor = getColour({ h: hue, s: 0.8, v: 0.8, opacity: 0.7 });
+        defaultcolors.push(defaultcolor);
+        hue += incr;
+        cur -= 1;
+    }
 
     // Initialization of canvases properties to use throughout the session
     param.cartography['canvases'] = {
@@ -156,7 +168,7 @@ function drawingMode(param) {
     }
 
     addLayer(param, function(layeroptions) {
-        param.cartography.drawing.currentColor = layeroptions.color;
+        param.drawing.options.currentColor = layeroptions.color;
         addClass(layeroptions.divs[1], 'active')
         waitMap(0.01, function() {
             removeClass(layeroptions.divs[0], 'shrinked');
@@ -176,8 +188,8 @@ function drawingMode(param) {
     let mousecursor = new fabric.Circle({
         left: -100,
         top: -100,
-        radius: param.cartography.drawing.currentBrushSize / 2,
-        fill: param.cartography.drawing.currentColor,
+        radius: param.drawing.options.currentBrushSize / 2,
+        fill: param.drawing.options.currentColor,
         stroke: 'white',
         strokeWidth: 2,
         originX: 'center',
@@ -238,8 +250,15 @@ function drawingMode(param) {
 
     function addLayer(param, callback) {
         let nb = param.cartography.canvases.layertotal + 1;
-        let color = randomColour({ s: 0.8, v: 0.8, opacity: 0.7 });
-        let placeholder = param.cartography.text.layer + ' ' + nb;
+
+        let color;
+        if ((nb - 1) < defaultcolors.length) {
+            color = defaultcolors[nb - 1];
+        } else {
+            color = getColour({ s: 0.8, v: 0.8, opacity: 0.7 });
+        }
+
+        let placeholder = param.drawing.text.layer + ' ' + nb;
 
         // Creating a canvas object for the drawable area of the layer
         let canvasdiv = document.createElement('canvas');
@@ -255,22 +274,22 @@ function drawingMode(param) {
         let changecolor = makeElement('color-change', `<img src='../static/mapdraw/img/change.svg' />`);
         changecolorcontainer.appendChild(changecolor);
         let rename = makeElement('color-rename color-input-items', `<img src='../static/mapdraw/img/rename.svg' />`);
-        let selectcolorcontainer = makeElement('color-select-container color-input-items');
-        let selectcolor = makeElement('color-select color-input-items placeholder', placeholder);
+        let colorselectcontainer = makeElement('color-select-container color-input-items');
+        let colorselect = makeElement('color-select color-input-items placeholder', placeholder);
         let deletecolor = makeElement('color-delete color-input-items', `<img src='../static/mapdraw/img/clear.svg' />`);
 
-        selectcolor.setAttribute('spellcheck', 'false');
-        selectcolorcontainer.appendChild(selectcolor);
+        colorselect.setAttribute('spellcheck', 'false');
+        colorselectcontainer.appendChild(colorselect);
         changecolorcontainer.addEventListener('click', changeLayerColor);
         rename.addEventListener('click', renameLayer);
-        selectcolorcontainer.addEventListener('click', activateLayer);
+        colorselectcontainer.addEventListener('click', activateLayer);
         deletecolor.addEventListener('click', deleteLayer);
 
-        colorinput.append(changecolorcontainer, rename, selectcolorcontainer, deletecolor);
+        colorinput.append(changecolorcontainer, rename, colorselectcontainer, deletecolor);
         colorcontainer.appendChild(colorinput);
 
         let controlcontainer = makeElement('drawing-control-container');
-        let controls = param.cartography.text.controls;
+        let controls = param.drawing.text.controls;
         // Looping through the different controls
         for (c = 0; c < controls.length; ++c) {
             let name = controls[c].name;
@@ -366,7 +385,7 @@ function drawingMode(param) {
         });
 
         // Setting the width and color of the free drawing brush
-        canvas.freeDrawingBrush.width = param.cartography.drawing.currentBrushSize;
+        canvas.freeDrawingBrush.width = param.drawing.options.currentBrushSize;
         canvas.freeDrawingBrush.color = color.rgba.text;
 
         canvas.on('mouse:down', function(event) {
@@ -377,7 +396,7 @@ function drawingMode(param) {
             if (event.button === 1) {
                 mousedown = false;
             } else if (event.button === 2) {
-                if (mousedown === false) updateBrushSize(canvas, cursor, mousecursor, param.cartography.drawing.defaultBrushSize);
+                if (mousedown === false) updateBrushSize(canvas, cursor, mousecursor, param.drawing.options.defaultBrushSize);
             }
         })
 
@@ -387,7 +406,7 @@ function drawingMode(param) {
             // Setting the position of the cursor to the location of the mouse
             let mouse = canvas.getPointer(event);
             mousecursor.set({
-                radius: param.cartography.drawing.currentBrushSize / 2,
+                radius: param.drawing.options.currentBrushSize / 2,
                 top: mouse.y,
                 left: mouse.x
             }).setCoords().canvas.renderAll();
@@ -407,10 +426,10 @@ function drawingMode(param) {
         // Defining the cursor behavior when using the mouse wheel
         canvas.on('mouse:wheel', function(event) {
             if (mousedown === false) {
-                let currentBrushSize = param.cartography.drawing.currentBrushSize;
-                let maxBrushSize = param.cartography.drawing.maxBrushSize;
-                let minBrushSize = param.cartography.drawing.minBrushSize;
-                let brushSizeIncrement = param.cartography.drawing.brushSizeIncrement;
+                let currentBrushSize = param.drawing.options.currentBrushSize;
+                let maxBrushSize = param.drawing.options.maxBrushSize;
+                let minBrushSize = param.drawing.options.minBrushSize;
+                let brushSizeIncrement = param.drawing.options.brushSizeIncrement;
 
                 // Assigning the current brush size to the new brush size
                 let newvalue = currentBrushSize;
@@ -457,7 +476,7 @@ function drawingMode(param) {
                 path: path,
                 geometry: geometry,
                 timestamp: timestamp,
-                thickness: param.cartography.drawing.currentBrushSize / 2
+                thickness: param.drawing.options.currentBrushSize / 2
             });
         })
 
@@ -486,7 +505,7 @@ function drawingMode(param) {
                 mousecursor.setOptions({ fill: color.rgba.text });
                 canvas.freeDrawingBrush.color = color.rgba.text;
                 // Resetting the width of the drawing brush
-                canvas.freeDrawingBrush.width = param.cartography.drawing.currentBrushSize;
+                canvas.freeDrawingBrush.width = param.drawing.options.currentBrushSize;
 
                 // Activating the canvas, the importance selector and the layer button
                 addClass(canvasdiv.parentElement, 'active')
@@ -501,40 +520,40 @@ function drawingMode(param) {
 
         function renameLayer(event) {
             let text;
-            selectcolor.setAttribute('contenteditable', 'true');
-            if (selectcolor.innerHTML === placeholder) {
-                selectcolor.innerHTML = '';
-                removeClass(selectcolor, 'placeholder');
+            colorselect.setAttribute('contenteditable', 'true');
+            if (colorselect.innerHTML === placeholder) {
+                colorselect.innerHTML = '';
+                removeClass(colorselect, 'placeholder');
             }
 
-            $(selectcolor).focus(function() {
+            $(colorselect).focus(function() {
                 selectTextInDiv(this);
             });
-            $(selectcolor).keypress(function(event) {
+            $(colorselect).keypress(function(event) {
                 if (event.which === 13) {
                     event.preventDefault();
                     event.target.blur();
                 }
             });
-            $(selectcolor).focusout(function() {
-                if (this.innerHTML === '' || selectcolor.innerHTML === '<br>' || selectcolor.innerHTML === '<empty string>') {
+            $(colorselect).focusout(function() {
+                if (this.innerHTML === '' || colorselect.innerHTML === '<br>' || colorselect.innerHTML === '<empty string>') {
                     this.innerHTML = placeholder;
                     addClass(this, 'placeholder');
                 }
                 validateLayerName();
             });
 
-            $(selectcolor).focus();
+            $(colorselect).focus();
 
             function validateLayerName() {
-                text = selectcolor.innerHTML.replace(/(<br>\s*)+$/, '');
-                selectcolor.innerHTML = '';
-                selectcolor.innerHTML = text;
+                text = colorselect.innerHTML.replace(/(<br>\s*)+$/, '');
+                colorselect.innerHTML = '';
+                colorselect.innerHTML = text;
                 param.cartography.canvases.canvas['layer' + nb].name = text;
-                $(selectcolor).unbind('focus');
-                $(selectcolor).unbind('focusout');
-                $(selectcolor).unbind('keypress');
-                selectcolor.setAttribute('contenteditable', 'false');
+                $(colorselect).unbind('focus');
+                $(colorselect).unbind('focusout');
+                $(colorselect).unbind('keypress');
+                colorselect.setAttribute('contenteditable', 'false');
             }
         }
 
@@ -546,16 +565,19 @@ function drawingMode(param) {
             hideE(changecolor);
 
             let randomcolor = makeElement('random-color color-change-items hidden', `<img src='../static/mapdraw/img/random.svg' />`);
-            let slidercontainer = makeElement('slider-container color-change-items hidden');
+            let selectcolor = makeElement('select-color color-change-items hidden');
+            let slidercontainer = makeElement('slider-container');
             let sliderhandle = makeElement('slider-handle');
             let validatecolor = makeElement('validate-color color-change-items hidden', `<img src='../static/mapdraw/img/validate.svg' />`);
+            let defaultcolorcontainer = makeElement('default-color-container');
 
             slidercontainer.appendChild(sliderhandle);
-            changecolorcontainer.append(randomcolor, slidercontainer, validatecolor);
+            selectcolor.append(slidercontainer, defaultcolorcontainer);
+            changecolorcontainer.append(randomcolor, selectcolor, validatecolor);
 
             waitMap(0.2, function() {
                 remove(changecolor);
-                displayE(randomcolor, slidercontainer, validatecolor);
+                displayE(randomcolor, selectcolor, validatecolor);
 
                 let minoffset = 0;
                 let maxoffset = 210;
@@ -567,6 +589,23 @@ function drawingMode(param) {
                 sliderhandle.addEventListener('mousedown', clickHandle);
                 window.addEventListener('mousemove', dragging);
                 window.addEventListener('mouseup', unclickHandle);
+
+                let margins = (220 / defaultcolors.length) / 2 + 'px';
+                for (let i = 0; i < defaultcolors.length; ++i) {
+                    let rgb = defaultcolors[i].rgba;
+                    let defaultcolor = makeElement('default-color');
+                    defaultcolor.style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
+                    if (i + 1 < defaultcolors.length) {
+                        defaultcolor.style.marginRight = margins;
+                    }
+                    defaultcolor.addEventListener('click', function() {
+                        color = defaultcolors[i];
+                        left = remapValue(color.hsv.h, 0, 360, 0, 210);
+                        sliderhandle.style.left = left + 'px';
+                        updateColor(color);
+                    });
+                    defaultcolorcontainer.appendChild(defaultcolor);
+                }
 
                 function clickHandle(e) {
                     c = e.clientX - left;
@@ -583,7 +622,7 @@ function drawingMode(param) {
                         }
                         left = offset;
                         sliderhandle.style.left = left + 'px';
-                        color = randomColour({ h: remapValue(left, 0, 210, 0, 360), s: 0.8, v: 0.8, opacity: 0.7 });
+                        color = getColour({ h: remapValue(left, 0, 210, 0, 360), s: 0.8, v: 0.8, opacity: 0.7 });
                         updateColor(color);
                     }
                 }
@@ -605,20 +644,16 @@ function drawingMode(param) {
                             }
                             left = offset;
                             sliderhandle.style.left = left + 'px';
-                            color = randomColour({ h: remapValue(left, 0, 210, 0, 360), s: 0.8, v: 0.8, opacity: 0.7 });
+                            color = getColour({ h: remapValue(left, 0, 210, 0, 360), s: 0.8, v: 0.8, opacity: 0.7 });
                             updateColor(color);
                         }
                     }
                 }
 
-                function changeSlider() {
-
-                }
-
                 randomcolor.addEventListener('click', randomColorListener);
 
                 function randomColorListener() {
-                    color = randomColour({ s: 0.8, v: 0.8, opacity: 0.7 });
+                    color = getColour({ s: 0.8, v: 0.8, opacity: 0.7 });
                     left = remapValue(color.hsv.h, 0, 360, 0, 210);
                     sliderhandle.style.left = left + 'px';
                     updateColor(color);
@@ -656,7 +691,7 @@ function drawingMode(param) {
                     window.removeEventListener('mousemove', dragging);
                     window.removeEventListener('mouseup', unclickHandle);
                     randomcolor.removeEventListener('click', randomColorListener);
-                    hideE(randomcolor, slidercontainer, validatecolor);
+                    hideE(randomcolor, selectcolor, validatecolor);
 
                     waitMap(0.2, function() {
                         removeClass(colorinput, 'colorselect');
@@ -665,7 +700,7 @@ function drawingMode(param) {
 
                         removeClass(changecolorcontainer, 'active');
                         changecolorcontainer.style.width = '28px';
-                        remove(randomcolor, slidercontainer, validatecolor);
+                        remove(randomcolor, selectcolor, validatecolor);
                         displayE(changecolor);
                         changecolorcontainer.addEventListener('click', changeLayerColor);
                     })
@@ -719,11 +754,11 @@ function drawingMode(param) {
             duration: 100
         });
         // Updating the current brush size
-        param.cartography.drawing.currentBrushSize = value;
+        param.drawing.options.currentBrushSize = value;
     }
 }
 
-function randomColour(opt) {
+function getColour(opt) {
     let hsv = randomHSVcolour(opt);
     let rgba = hsvToRgba(hsv, opt.opacity);
     let color = {

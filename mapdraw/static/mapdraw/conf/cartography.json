@@ -40,7 +40,7 @@
             "source": {
                 "type": "WMTS",
                 "provider": "IGN",
-                "url": "https://wxs.ign.fr/stkfyo5p457vpotiuem04qss/geoportail/wmts",
+                "url": "https://wxs.ign.fr/IGN_SECRET_KEY/geoportail/wmts",
                 "layer": "GEOGRAPHICALGRIDSYSTEMS.MAPS",
                 "matrixSet": "PM",
                 "format": "image/jpeg",
@@ -77,21 +77,5 @@
         "fullname": "Open Street Map",
         "center": [281164.34, 5858095.39],
         "zoom": 6
-    },
-    "drawing": {
-        "defaultBrushSize": 50,
-        "minBrushSize": 10,
-        "maxBrushSize": 150,
-        "brushSizeIncrement": 5
-    },
-    "text": {
-        "layer": "Layer",
-        "controls": [{
-            "name": "undo",
-            "label": "Undo"
-        }, {
-            "name": "clear",
-            "label": "Clear colour"
-        }]
     }
 }
