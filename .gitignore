@@ -1,5 +1,5 @@
-# Static update bash script
-update-static.sh
+# Server scripts
+server/
 
 # Static files
 /static/
