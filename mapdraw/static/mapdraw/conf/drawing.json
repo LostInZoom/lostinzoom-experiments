@@ -6,7 +6,11 @@
         "brushSizeIncrement": 5
     },
     "colors": {
-        "default": 8
+        "default": 6,
+        "opacity": {
+            "drawing": 0.4,
+            "menu": 0.8
+        }
     },
     "text": {
         "layer": "Layer",

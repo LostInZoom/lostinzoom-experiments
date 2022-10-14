@@ -82,10 +82,10 @@ function randomHSVcolour(opt) {
     return { h: h, s: s, v: v }
 }
 
-function hsvToRgba(hsv, a) {
+function hsvToRgb(hsv) {
     let f = (n, k = (n + hsv.h / 60) % 6) => hsv.v - hsv.v * hsv.s * Math.max(Math.min(k, 4 - k, 1), 0);
     let r = remapValue(f(5), 0, 1, 0, 256).toFixed();
     let g = remapValue(f(3), 0, 1, 0, 256).toFixed();
     let b = remapValue(f(1), 0, 1, 0, 256).toFixed();
-    return { r: r, g: g, b: b, a: a }
+    return { r: r, g: g, b: b }
 }

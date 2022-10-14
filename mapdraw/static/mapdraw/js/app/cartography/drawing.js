@@ -13,10 +13,12 @@ function drawingMode(param) {
     // Defining the default colors
     let defaultcolors = [];
     let cur = param.drawing.colors.default;
+    let menuopacity = param.drawing.colors.opacity.menu;
+    let drawingopacity = param.drawing.colors.opacity.drawing;
     let incr = 360 / cur;
     let hue = 0;
     while (cur > 0) {
-        let defaultcolor = getColour({ h: hue, s: 0.8, v: 0.8, opacity: 0.7 });
+        let defaultcolor = getColour({ h: hue, s: 0.8, v: 0.8, menuopacity: menuopacity, drawingopacity: drawingopacity });
         defaultcolors.push(defaultcolor);
         hue += incr;
         cur -= 1;
@@ -255,7 +257,7 @@ function drawingMode(param) {
         if ((nb - 1) < defaultcolors.length) {
             color = defaultcolors[nb - 1];
         } else {
-            color = getColour({ s: 0.8, v: 0.8, opacity: 0.7 });
+            color = getColour({ s: 0.8, v: 0.8, menuopacity: menuopacity, drawingopacity: drawingopacity });
         }
 
         let placeholder = param.drawing.text.layer + ' ' + nb;
@@ -268,7 +270,7 @@ function drawingMode(param) {
 
         // Creating the color mark to switch to this layer
         let colorinput = makeElement('color-input-container shrinked', false, 'color-picker' + nb);
-        colorinput.style.backgroundColor = color.rgba.text;
+        colorinput.style.backgroundColor = color.rgba.menu;
 
         let changecolorcontainer = makeElement('color-change-container');
         let changecolor = makeElement('color-change', `<img src='../static/mapdraw/img/change.svg' />`);
@@ -293,12 +295,11 @@ function drawingMode(param) {
         // Looping through the different controls
         for (c = 0; c < controls.length; ++c) {
             let name = controls[c].name;
-            let layercolor = color.rgba.text;
             // Creating DOM elements of the control
             let cont = makeElement('drawing-control');
             let button = makeElement('drawing-control-button ' + name + '-button', `<img src='../static/mapdraw/img/${name}.svg' />`);
             // Setting the backgroung color of the button according to the layer's color
-            button.style.backgroundColor = layercolor;
+            button.style.backgroundColor = color.rgba.menu;
             // Defining the event triggered when clicking on the control button
             button.addEventListener('click', function(event) {
                 // Variable to store the number of remaining objects on the layer
@@ -358,7 +359,7 @@ function drawingMode(param) {
 
             // Creating a tooltip for the controls with the same background color as the layer
             let tooltip = makeElement('drawing-control-tooltip', controls[c].label);
-            tooltip.style.backgroundColor = color.rgba.text;
+            tooltip.style.backgroundColor = color.rgba.menu;
             // Displaying the tooltip when the mouse is over the control button
             button.addEventListener('mouseenter', function(event) {
                 addClass(tooltip, 'active');
@@ -386,7 +387,7 @@ function drawingMode(param) {
 
         // Setting the width and color of the free drawing brush
         canvas.freeDrawingBrush.width = param.drawing.options.currentBrushSize;
-        canvas.freeDrawingBrush.color = color.rgba.text;
+        canvas.freeDrawingBrush.color = color.rgba.drawing;
 
         canvas.on('mouse:down', function(event) {
             if (event.button === 1) mousedown = true;
@@ -482,7 +483,7 @@ function drawingMode(param) {
 
         // Adding layer informations
         param.cartography.canvases.canvas['layer' + nb] = {
-            color: color.rgba.text,
+            color: color.rgba.drawing,
             name: placeholder,
             // Objects is an array that will contain drawn objects
             objects: []
@@ -490,7 +491,7 @@ function drawingMode(param) {
 
         param.cartography.canvases.layertotal += 1;
         param.cartography.canvases.layernumber += 1;
-        let results = { divs: [colorinput, canvasdiv.parentElement], color: color.rgba.text }
+        let results = { divs: [colorinput, canvasdiv.parentElement], color: color.rgba.drawing }
         callback(results);
 
         function activateLayer(event) {
@@ -502,8 +503,8 @@ function drawingMode(param) {
                 removeClassList(document.getElementsByClassName('drawing-control-button'), 'active');
 
                 // Changing the color of the cursor and the canvas brush
-                mousecursor.setOptions({ fill: color.rgba.text });
-                canvas.freeDrawingBrush.color = color.rgba.text;
+                mousecursor.setOptions({ fill: color.rgba.drawing });
+                canvas.freeDrawingBrush.color = color.rgba.drawing;
                 // Resetting the width of the drawing brush
                 canvas.freeDrawingBrush.width = param.drawing.options.currentBrushSize;
 
@@ -584,7 +585,7 @@ function drawingMode(param) {
                 let left = remapValue(color.hsv.h, 0, 360, 0, 210);
                 let c = 0;
                 let drag = false;
-                sliderhandle.style.backgroundColor = color.rgba.text;
+                sliderhandle.style.backgroundColor = color.rgba.menu;
                 sliderhandle.style.left = left + 'px';
                 sliderhandle.addEventListener('mousedown', clickHandle);
                 window.addEventListener('mousemove', dragging);
@@ -622,7 +623,7 @@ function drawingMode(param) {
                         }
                         left = offset;
                         sliderhandle.style.left = left + 'px';
-                        color = getColour({ h: remapValue(left, 0, 210, 0, 360), s: 0.8, v: 0.8, opacity: 0.7 });
+                        color = getColour({ h: remapValue(left, 0, 210, 0, 360), s: 0.8, v: 0.8, menuopacity: menuopacity, drawingopacity: drawingopacity });
                         updateColor(color);
                     }
                 }
@@ -644,7 +645,7 @@ function drawingMode(param) {
                             }
                             left = offset;
                             sliderhandle.style.left = left + 'px';
-                            color = getColour({ h: remapValue(left, 0, 210, 0, 360), s: 0.8, v: 0.8, opacity: 0.7 });
+                            color = getColour({ h: remapValue(left, 0, 210, 0, 360), s: 0.8, v: 0.8, menuopacity: menuopacity, drawingopacity: drawingopacity });
                             updateColor(color);
                         }
                     }
@@ -653,33 +654,33 @@ function drawingMode(param) {
                 randomcolor.addEventListener('click', randomColorListener);
 
                 function randomColorListener() {
-                    color = getColour({ s: 0.8, v: 0.8, opacity: 0.7 });
+                    color = getColour({ s: 0.8, v: 0.8, menuopacity: menuopacity, drawingopacity: drawingopacity });
                     left = remapValue(color.hsv.h, 0, 360, 0, 210);
                     sliderhandle.style.left = left + 'px';
                     updateColor(color);
                 }
 
                 function updateColor(color) {
-                    sliderhandle.style.backgroundColor = color.rgba.text;
-                    canvas.freeDrawingBrush.color = color.rgba.text;
-                    colorinput.style.backgroundColor = color.rgba.text;
+                    sliderhandle.style.backgroundColor = color.rgba.menu;
+                    canvas.freeDrawingBrush.color = color.rgba.drawing;
+                    colorinput.style.backgroundColor = color.rgba.menu;
                     let controls = controlcontainer.getElementsByClassName('drawing-control-button');
-                    for (let k = 0; k < controls.length; ++k) { controls[k].style.backgroundColor = color.rgba.text; }
+                    for (let k = 0; k < controls.length; ++k) { controls[k].style.backgroundColor = color.rgba.menu; }
                     let tooltips = controlcontainer.getElementsByClassName('drawing-control-tooltip');
-                    for (let k = 0; k < tooltips.length; ++k) { tooltips[k].style.backgroundColor = color.rgba.text; }
+                    for (let k = 0; k < tooltips.length; ++k) { tooltips[k].style.backgroundColor = color.rgba.menu; }
                     // Retrieving all objects from the active layer
                     let objects = canvas.getObjects();
                     // Looping through all the objects
                     for (let o = 0; o < objects.length; ++o) {
                         // Changing the color of all layer objects according to the selected importance
                         objects[o].set({
-                            stroke: color.rgba.text
+                            stroke: color.rgba.drawing
                         }).canvas.renderAll();
                     }
-                    param.cartography.canvases.canvas['layer' + nb].color = color.rgba.text;
+                    param.cartography.canvases.canvas['layer' + nb].color = color.rgba.drawing;
 
                     if (hasClass(colorinput, 'active')) {
-                        mousecursor.setOptions({ fill: color.rgba.text });
+                        mousecursor.setOptions({ fill: color.rgba.drawing });
                     }
                 }
 
@@ -760,14 +761,14 @@ function drawingMode(param) {
 
 function getColour(opt) {
     let hsv = randomHSVcolour(opt);
-    let rgba = hsvToRgba(hsv, opt.opacity);
+    let rgba = hsvToRgb(hsv);
     let color = {
         rgba: {
             r: rgba.r,
             g: rgba.g,
             b: rgba.b,
-            a: rgba.a,
-            text: 'rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + rgba.a + ')'
+            drawing: 'rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + opt.drawingopacity + ')',
+            menu: 'rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + opt.menuopacity + ')'
         },
         hsv: {
             h: hsv.h,
