@@ -54,7 +54,6 @@ function createPage(param) {
         if (param.global.general.development.devmode) {
             let pageNumber = makeElement('page-number dev', '-- ' + param.global.texts.dev.page[language] + ' ' + page + ' --');
             pageDiv.appendChild(pageNumber);
-            //pageContent.insertBefore(pageNumber, pageContent.firstChild);
         }
 
         //Appending the page content to the page
@@ -221,6 +220,65 @@ function createPage(param) {
             }
         }
 
+
+        //Getting the full year for the credits
+        let year = new Date().getFullYear();
+        //Creating the credits string
+        let cred = `${year} - <a href='https://lostinzoom.github.io/home/' target='_blank'>ERC LostInZoom</a>`;
+        //Creating the credits div
+        let credits = makeElement('credits', cred);
+
+        let general = param.global.general;
+        //If switch mode is allowed
+        if (general.development.switch) {
+            //creating a container for the development switch
+            let devContainer = makeElement('button-development-container');
+            let dev;
+            let htmlContent;
+            let menuMask = document.getElementById('menu-mask');
+            //Checking if dev mode is active
+            if (general.development.devmode) {
+                //If dev mode is active, setting the variable to false for the click behavior
+                dev = false;
+                //Selecting out message to put on the button
+                htmlContent = param.global.texts.dev.out[param.currentpage.language];
+                //Adding development class to the menu mask
+                addClass(menuMask, 'development');
+            } else {
+                //If dev mode is not active, setting the variable to true for the click behavior
+                dev = true;
+                //Selecting in message to put on the button
+                htmlContent = param.global.texts.dev.in[param.currentpage.language];
+                //Removing development class to the menu mask
+                removeClass(menuMask, 'development');
+            }
+            //Creating the button with the new html text
+            let devButton = makeElement('button button-development dev', htmlContent);
+            //Defining on click behavior
+            onClickE(devButton, true, function() {
+                //Setting the new dev state
+                general.development.devmode = dev;
+                //Hiding page and footer
+                hide('page', 'footer');
+                if (param.currentpage.scroller) {
+                    hide('scroller-container');
+                }
+                waitMap(0.5, function() {
+                    //Destroying page and footer
+                    remove(footer, document.getElementById('page'));
+                    if (param.currentpage.scroller) {
+                        remove(document.getElementById('scroller-container'));
+                    }
+                    //Reconstructing page
+                    constructPage(param);
+                    constructFooter(param);
+                })
+            });
+            //Appending the button to the footer
+            devContainer.appendChild(devButton);
+            footer.appendChild(devContainer);
+        }
+        pageContent.appendChild(credits);
         //Set the scroll position to the top
         document.getElementById('page').scrollTo(0, 0);
 
@@ -848,3 +906,58 @@ function createPage(param) {
         console.log(e);
     }
 };
+
+/**
+ * Create the footer
+ *
+ * @param {object} param: Global parameters loaded from json/csv files.
+ */
+function createFooter(param) {
+    try {
+        let menucontainer = document.getElementById('menu-container');
+        //Getting the current language
+        let current = param.currentpage.language;
+        //Creating the footer div
+        let footer = makeElement('footer hidden', false, 'footer');
+        //Creating the language selection div
+        let languages = makeElement('languages', false, 'lang-' + current);
+        footer.append(languages);
+        menucontainer.append(footer);
+
+        //Looping through supported languages
+        let others = param.global.general.languages.supported;
+        for (let i = 0; i < others.length; ++i) {
+            let newLang = others[i];
+            //If the language is not the current
+            if (newLang !== current) {
+                //Creating a container for the flag
+                let container = makeElement('flag-container');
+                //Creating the flag with the associated svg file
+                let l = makeElement('flag', `<img src='../static/fogdetector/img/${newLang}.svg' />`);
+                //Creating an overlay
+                let overlay = makeElement('flag-overlay');
+                //Defining behavior on click
+                onClickE(overlay, false, function() {
+                    //Changing the current language
+                    param.currentpage.language = newLang;
+                    languages.setAttribute('id', 'lang-' + newLang);
+                    //Hiding page and footer
+                    hide('page', 'footer');
+                    //Waiting 0.5s for them to disappear
+                    waitMap(0.5, function() {
+                        //Removing the footer and the page
+                        remove(footer, document.getElementById('page'));
+                        //Reconstructing page and footer with the new language
+                        constructPage(param);
+                        constructFooter(param);
+                    })
+                });
+                //Appending all div to the container
+                container.append(overlay, l);
+                languages.appendChild(container);
+            }
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}

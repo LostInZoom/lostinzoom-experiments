@@ -3,11 +3,13 @@
 .footer {
     position: absolute;
     bottom: 0;
-    height: 100px;
     width: 100%;
-    transition: all .5s;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     user-select: none;
-    z-index: 50;
+    transition: all .5s;
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
     -ms-transition: all .5s;

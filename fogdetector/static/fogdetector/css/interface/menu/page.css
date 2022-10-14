@@ -34,7 +34,7 @@
     user-select: none;
     overflow: auto;
     -ms-overflow-style: none;
-    /* scrollbar-width: none; */
+    scrollbar-width: none;
     z-index: 40;
     transition: all .5s;
     -webkit-transition: all .5s;
@@ -43,10 +43,9 @@
     -o-transition: all .5s;
 }
 
-
-/* .menu-page::-webkit-scrollbar {
+.menu-page::-webkit-scrollbar {
     display: none;
-} */
+}
 
 .page-underflow {
     display: flex;

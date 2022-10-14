@@ -77,6 +77,13 @@ function hide(...arg) {
     }
 };
 
+function hideE(...arg) {
+    for (let i = 0; i < arg.length; i++) {
+        removeClass(arg[i], 'displayed');
+        addClass(arg[i], 'hidden');
+    }
+}
+
 //Create a div with specified attributes
 function makeElement(className, content, id) {
     let e = document.createElement('div');
@@ -180,7 +187,10 @@ function handleSideScroller(param) {
     } else {
         let container = document.getElementById('scroller-container');
         if (container) {
-            remove(container);
+            container.style.width = '0';
+            waitMap(0.5, function() {
+                remove(container);
+            });
         }
     }
 
@@ -190,6 +200,12 @@ function handleSideScroller(param) {
         let scroller = makeElement(false, false, 'scroller');
         container.appendChild(scroller);
         menu.appendChild(container);
+
+        let footer = document.getElementById('footer');
+        let scrolldown = makeElement('scroll-indicator', `<img src='../static/fogdetector/img/scrolldown.svg' />`, 'scrolldown');
+        let scrollup = makeElement('scroll-indicator', `<img src='../static/fogdetector/img/scrollup.svg' />`, 'scrollup');
+        footer.append(scrolldown, scrollup);
+
         waitMap(0.1, function() {
             container.style.width = '20px';
             callback();
@@ -203,6 +219,7 @@ function handleSideScroller(param) {
         let pCHeight = pageContent.offsetHeight;
         let pHeight = page.offsetHeight;
         let height = ((100 * pHeight) / pCHeight);
+        container.style.width = '20px';
         scroller.style.height = height + '%';
         scroller.style.top = '0%';
 

@@ -11,14 +11,10 @@
 function constructPage(param) {
     //Setting the timer start for the page
     param.timestart = new Date();
-
     //Creating the page
     createPage(param);
     //Displaying the page
     display('page');
-
-    //Checking if the content of the page overflows
-    adjustPageContent(param);
 }
 
 /**
@@ -29,10 +25,7 @@ function constructPage(param) {
 function constructFooter(param) {
     //Creating the footer
     createFooter(param);
-    //Dirty way for footer fading in effect (mystery...)
-    waitMap(0.01, function() {
-        display('footer');
-    })
+    waitMap(0.001, function() { display('footer'); })
 }
 
 /**
@@ -45,9 +38,11 @@ function changePage(param, newPage, waiting) {
     try {
         //Updating the time spent on the current page
         updatePageTime(param);
+        let page = document.getElementById('page');
+        let footer = document.getElementById('footer');
 
         //Hiding the current page
-        hide('page');
+        hideE(page, footer);
 
         if (param.currentpage.scroller) {
             hide('scroller-container');
@@ -56,7 +51,7 @@ function changePage(param, newPage, waiting) {
         //Wait 0.5 sec for the page to disappear
         waitMap(0.5, function() {
             //Destroying the previous page
-            document.getElementById('page').remove();
+            remove(page, footer);
 
             if (waiting === 'registration' && param.registered) {
                 waiting = false;
@@ -125,6 +120,7 @@ function changePage(param, newPage, waiting) {
             function displayNewPage() {
                 //Creating the new page
                 constructPage(param);
+                constructFooter(param);
 
                 if (param.currentpage.scroller) {
                     display('scroller-container');
@@ -172,118 +168,6 @@ function changePage(param, newPage, waiting) {
         });
     } catch (e) {
         console.log('There is a problem with the number of page in your config.js file. Cannot change page.');
-    }
-}
-
-/**
- * Create the footer
- *
- * @param {object} param: Global parameters loaded from json/csv files.
- */
-function createFooter(param) {
-    try {
-        //Creating the footer div
-        let footer = makeElement('footer hidden', false, 'footer');
-        //Getting the full year for the credits
-        let year = new Date().getFullYear();
-        //Creating the credits string
-        let cred = `${year} - <a href='https://lostinzoom.github.io/home/' target='_blank'>ERC LostInZoom</a>`;
-        //Creating the credits div
-        let credits = makeElement('credits', cred);
-        //Creating the language selection div
-        let languages = makeElement('languages', false, 'lang-' + param.currentpage.language);
-
-        //Getting the current language
-        let current = param.currentpage.language;
-
-        //Looping through supported languages
-        let others = param.global.general.languages.supported;
-        for (let i = 0; i < others.length; ++i) {
-            let newLang = others[i];
-            //If the language is not the current
-            if (newLang !== current) {
-                //Creating a container for the flag
-                let container = makeElement('flag-container');
-                //Creating the flag with the associated svg file
-                let l = makeElement('flag', `<img src='../static/fogdetector/img/${newLang}.svg' />`);
-                //Creating an overlay
-                let overlay = makeElement('flag-overlay');
-                //Defining behavior on click
-                onClickE(overlay, false, function() {
-                    //Changing the current language
-                    param.currentpage.language = newLang;
-                    languages.setAttribute('id', 'lang-' + newLang);
-                    //Hiding page and footer
-                    hide('page', 'footer');
-                    //Waiting 0.5s for them to disappear
-                    waitMap(0.5, function() {
-                        //Removing the footer and the page
-                        remove(footer, document.getElementById('page'));
-                        //Reconstructing page and footer with the new language
-                        constructPage(param);
-                        constructFooter(param);
-                    })
-                });
-                //Appending all div to the container
-                container.append(overlay, l);
-                languages.appendChild(container);
-            }
-        }
-        let general = param.global.general;
-        //If switch mode is allowed
-        if (general.development.switch) {
-            //creating a container for the development switch
-            let devContainer = makeElement('button-development-container');
-            let dev;
-            let htmlContent;
-            let menuMask = document.getElementById('menu-mask');
-            //Checking if dev mode is active
-            if (general.development.devmode) {
-                //If dev mode is active, setting the variable to false for the click behavior
-                dev = false;
-                //Selecting out message to put on the button
-                htmlContent = param.global.texts.dev.out[param.currentpage.language];
-                //Adding development class to the menu mask
-                addClass(menuMask, 'development');
-            } else {
-                //If dev mode is not active, setting the variable to true for the click behavior
-                dev = true;
-                //Selecting in message to put on the button
-                htmlContent = param.global.texts.dev.in[param.currentpage.language];
-                //Removing development class to the menu mask
-                removeClass(menuMask, 'development');
-            }
-            //Creating the button with the new html text
-            let devButton = makeElement('button button-development dev', htmlContent);
-            //Defining on click behavior
-            onClickE(devButton, true, function() {
-                //Setting the new dev state
-                general.development.devmode = dev;
-                //Hiding page and footer
-                hide('page', 'footer');
-                if (param.currentpage.scroller) {
-                    hide('scroller-container');
-                }
-                waitMap(0.5, function() {
-                    //Destroying page and footer
-                    remove(footer, document.getElementById('page'));
-                    if (param.currentpage.scroller) {
-                        remove(document.getElementById('scroller-container'));
-                    }
-                    //Reconstructing page and footer
-                    constructPage(param);
-                    constructFooter(param);
-                })
-            });
-            //Appending the button to the footer
-            devContainer.appendChild(devButton);
-            footer.appendChild(devContainer);
-        }
-        //Appending credits and languages to footer, appending the footer to the menu container
-        footer.append(credits, languages);
-        document.getElementById('menu-container').appendChild(footer);
-    } catch (e) {
-        console.log(e);
     }
 }
 

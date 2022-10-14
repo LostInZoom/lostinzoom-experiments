@@ -2,11 +2,12 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    right: 0;
     margin: auto;
     width: 0;
     height: calc(100% - 220px);
-    border-bottom-right-radius: 50px;
-    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
     background-color: var(--main-light-transparent);
     overflow: hidden;
     transition: all .5s;
@@ -26,4 +27,47 @@
     -moz-transition: height .5s;
     -ms-transition: height .5s;
     -o-transition: height .5s;
+}
+
+.scroll-indicator {
+    height: 40px;
+    width: 40px;
+    background-color: var(--main-light);
+    margin: 0 10px;
+    border-radius: 30%;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    -ms-border-radius: 30%;
+    -o-border-radius: 30%;
+    transition: transform .2s ease-in-out;
+    -webkit-transition: transform .2s ease-in-out;
+    -moz-transition: transform .2s ease-in-out;
+    -ms-transition: transform .2s ease-in-out;
+    -o-transition: transform .2s ease-in-out;
+    transform: scale(0, 0);
+    -webkit-transform: scale(0, 0);
+    -moz-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+}
+
+.scroll-indicator.active {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+}
+
+.scroll-indicator:hover {
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+}
+
+.scroll-indicator>img {
+    height: 40px;
+    width: 40px;
 }

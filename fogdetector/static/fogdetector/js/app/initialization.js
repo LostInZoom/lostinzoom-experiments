@@ -53,11 +53,14 @@ $(document).ready(function() {
                     //Constructing the map
                     param = constructMap(param);
 
+                    //Constructing the first page on load
+                    constructPage(param);
+
                     //Constructing the footer
                     constructFooter(param);
 
-                    //Constructing the first page on load
-                    constructPage(param);
+                    //Checking if the content of the page overflows
+                    adjustPageContent(param);
 
                     //Behavior on window size changev
                     window.addEventListener('resize', function() {
