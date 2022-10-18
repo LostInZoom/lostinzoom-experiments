@@ -1,0 +1,41 @@
+#legend-container {
+    font-size: 12px;
+    position: absolute;
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+.legend-items {
+    margin: 0 15px;
+}
+
+.legend-layers-container {
+    height: 100%;
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.legend-layers {
+    display: flex;
+    align-items: center;
+}
+
+.legend-layers-color {
+    height: 15px;
+    width: 25px;
+    border: solid 2px var(--dark-gray);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.legend-layers-name {
+    margin-left: 10px;
+}

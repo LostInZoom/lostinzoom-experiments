@@ -41,6 +41,7 @@ def download(request):
             ))
 
             index = 0
+            indexempty = 0
             features = {
                 "type": "FeatureCollection",
                 "name": "Mapdraw export",
@@ -58,8 +59,9 @@ def download(request):
                         "type": "Feature",
                         "properties": {
                             "layer": index + 1,
-                            "name": layerinfo[index]['name'],
-                            "color": layerinfo[index]['color'],
+                            "number": layerinfo[indexempty]['number'],
+                            "name": layerinfo[indexempty]['name'],
+                            "color": layerinfo[indexempty]['colors']['drawing'],
                             "basemap": basemap,
                             "zoom": zoom,
                             "extent": extent,
@@ -81,8 +83,11 @@ def download(request):
                     while jindex < len(polygons):
                         multipolygon = multipolygon.union(polygons[jindex])
                         jindex += 1
-                    index += 1
                     intersection = multipolygon.intersection(extentpolygon)
                     feature["geometry"] = json.loads(intersection.geojson)
                     features["features"].append(feature)
+                    index += 1
+                    indexempty += 1
+                else:
+                    indexempty += 1
             return HttpResponse(json.dumps(features))

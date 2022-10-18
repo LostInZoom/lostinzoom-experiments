@@ -77,8 +77,10 @@ function drawingMode(param) {
                 layers: [],
                 zoom: param.cartography.currentview.zoom,
                 basemap: param.cartography.currentview.name,
+                fullbasemap: param.cartography.currentview.fullname
             };
             let canvases = param.cartography.canvases;
+            let nb = 1;
             Object.keys(canvases.canvas).forEach(function(key) {
                 let paths = [];
                 let obj = canvases.canvas[key];
@@ -92,17 +94,30 @@ function drawingMode(param) {
                     });
                 }
                 let layer = {
+                    number: nb,
                     name: obj.name,
-                    color: obj.color
+                    colors: obj.colors
                 }
                 results.objects.push(paths);
                 results.layers.push(layer);
+                ++nb;
             });
 
             results['extent'] = [
                 getCoordinatesFromPixel(0, 0, 0, 0, param),
                 getCoordinatesFromPixel(width, height, 0, 0, param)
             ]
+
+            let date = new Date();
+            let year = date.getFullYear();
+            let month = padTime(date.getMonth() + 1);
+            let day = padTime(date.getDate());
+            let hour = padTime(date.getHours());
+            let minutes = padTime(date.getMinutes());
+            let seconds = padTime(date.getSeconds());
+
+            results['time'] = year.toString() + '-' + month.toString() + '-' + day.toString() + ' ' + hour.toString() + ':' + minutes.toString() + ':' + seconds.toString();
+            results['filename'] = 'mapdraw-' + year.toString() + month.toString() + day.toString() + hour.toString() + minutes.toString() + seconds.toString();
 
             sendResults(results);
 
@@ -115,24 +130,17 @@ function drawingMode(param) {
                         data: JSON.stringify(data)
                     },
                     success: function(geojson) {
-                        let date = new Date();
-                        let year = date.getFullYear();
-                        let month = padTime(date.getMonth() + 1);
-                        let day = padTime(date.getDate());
-                        let hour = padTime(date.getHours());
-                        let minutes = padTime(date.getMinutes());
-                        let seconds = padTime(date.getSeconds());
                         let element = document.createElement('a');
-                        let filename = 'mapdraw-' + year.toString() + month.toString() + day.toString() + hour.toString() + minutes.toString() + seconds.toString() + '.geojson';
                         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(geojson));
-                        element.setAttribute('download', filename);
+                        element.setAttribute('download', data.filename + '.geojson');
                         element.style.display = 'none';
                         document.body.appendChild(element);
                         element.click();
                         element.remove();
+                        downloadMapImage(data, param);
                     }
                 })
-            }
+            };
         }
     });
 
@@ -483,7 +491,10 @@ function drawingMode(param) {
 
         // Adding layer informations
         param.cartography.canvases.canvas['layer' + nb] = {
-            color: color.rgba.drawing,
+            colors: {
+                drawing: color.rgba.drawing,
+                menu: color.rgba.menu,
+            },
             name: placeholder,
             // Objects is an array that will contain drawn objects
             objects: []

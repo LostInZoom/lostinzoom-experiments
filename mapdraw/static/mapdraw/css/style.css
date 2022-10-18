@@ -12,6 +12,7 @@ Author: Justin Berli - ERC LostInZoom
 @import url("map/map.css");
 @import url("drawing/canvas.css");
 @import url("drawing/controls.css");
+@import url("drawing/legend.css");
 @import url("drawing/tutorial.css");
 @import url("interface/menu.css");
 
