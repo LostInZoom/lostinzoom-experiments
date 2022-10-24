@@ -25,6 +25,9 @@ media
 # Private 
 lizexp/private/**
 
+#results
+lizexp/results/**
+
 # Sphinx documentation
 docs/build/
 docs/templates/
