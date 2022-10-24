@@ -146,7 +146,7 @@ class Command(BaseCommand):
         time = datetime.datetime.now()
 
         for s in sessions:
-            filename = "lizexp/results/anchorwhat-{0}{1}{2}{3}{4}{5}-{6}.csv".format(time.year, time.month, time.day, time.hour, time.minute, time.second, s)
+            filename = "lizexp/results/anchorwhat/anchorwhat-{0}{1}{2}{3}{4}{5}-{6}.csv".format(time.year, time.month, time.day, time.hour, time.minute, time.second, s)
             with open(filename, 'w') as csvfile:
                 fw = csv.writer(csvfile, delimiter='|')
                 fw.writerow(sessions[s]['cols'])
