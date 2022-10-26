@@ -1,10 +1,7 @@
 from django.core.management.base import BaseCommand
-from django.forms.models import model_to_dict
 from lizexp.api.database import execute_query
-# from anchorwhat.models import Sessions, Pages, Sets, Targets, Questions, Survey
-from django.db import connections
 from datetime import datetime
-import datetime, csv, json
+import datetime, csv
 
 def retrieve_sessions(sessions):
     query = """
