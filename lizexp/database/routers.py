@@ -129,3 +129,47 @@ class AnchorwhatRouter:
         if app_label in self.route_app_labels:
             return db == 'anchorwhat'
         return None
+
+class DeepmapdrawRouter:
+    """
+    A router to control all database operations on models in the
+    deepmapdraw application.
+    """
+    route_app_labels = {'deepmapdraw'}
+
+    def db_for_read(self, model, **hints):
+        """
+        Attempts to read deepmapdraw models go to deepmapdraw.
+        """
+        if model._meta.app_label in self.route_app_labels:
+            return 'deepmapdraw'
+        return None
+
+    def db_for_write(self, model, **hints):
+        """
+        Attempts to write deepmapdraw models go to deepmapdraw.
+        """
+        if model._meta.app_label in self.route_app_labels:
+            return 'deepmapdraw'
+        return None
+
+    def allow_relation(self, obj1, obj2, **hints):
+        """
+        Allow relations if a model in the deepmapdraw app is
+        involved.
+        """
+        if (
+            obj1._meta.app_label in self.route_app_labels or
+            obj2._meta.app_label in self.route_app_labels
+        ):
+           return True
+        return None
+
+    def allow_migrate(self, db, app_label, model_name=None, **hints):
+        """
+        Make sure the deepmapdraw apps only appear in the
+        'deepmapdraw' database.
+        """
+        if app_label in self.route_app_labels:
+            return db == 'deepmapdraw'
+        return None
