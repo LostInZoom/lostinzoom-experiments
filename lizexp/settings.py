@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'fogdetector',
     'anchorwhat',
     'mapdraw',
+    'deepmapdraw',
 ]
 
 MIDDLEWARE = [

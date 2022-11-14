@@ -1,0 +1,104 @@
+/****** Map Styles *********/
+
+.map {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+}
+
+#google-map {
+    height: calc(100% + 50px);
+    width: calc(100% + 50px);
+    transform: translate(-25px, -25px);
+    -webkit-transform: translate(-25px, -25px);
+    -moz-transform: translate(-25px, -25px);
+    -ms-transform: translate(-25px, -25px);
+    -o-transform: translate(-25px, -25px);
+}
+
+.map-menu {
+    position: relative;
+    margin: 0 20px 40px 20px;
+}
+
+.map-menu-overlay {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    user-select: none;
+    pointer-events: all;
+    transition: background .5s, box-shadow .5s, opacity .5s;
+    -webkit-transition: background .5s, box-shadow .5s, opacity .5s;
+    -moz-transition: background .5s, box-shadow .5s, opacity .5s;
+    -ms-transition: background .5s, box-shadow .5s, opacity .5s;
+    -o-transition: background .5s, box-shadow .5s, opacity .5s;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.map-menu-overlay-center {
+    align-items: center;
+}
+
+.map-menu-overlay-top>.map-overlay-content {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.menu-map-container:hover>.map-menu-overlay-hover {
+    opacity: 0.8;
+    background: var(--white);
+}
+
+.menu-map-container:hover>.map-menu-overlay-hover-back {
+    background: var(--white);
+}
+
+.menu-map-container:hover>.map-menu-overlay-hover-noback>.map-overlay-content {
+    background: var(--white);
+}
+
+.menu-map-container:hover>.map-menu-overlay-hover>.map-overlay-content {
+    opacity: 1;
+}
+
+.map-overlay-content {
+    color: var(--dark-gray);
+    opacity: 0;
+    height: min-content;
+    width: min-content;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    pointer-events: none;
+    transition: opacity .5s, background .5s, width .1s;
+    -webkit-transition: opacity .5s, background .5s, width .1s;
+    -moz-transition: opacity .5s, background .5s, width .1s;
+    -ms-transition: opacity .5s, background .5s, width .1s;
+    -o-transition: opacity .5s, background .5s, width .1s;
+}
+
+.ol-control {
+    display: none;
+}
+
+#click-area {
+    position: absolute;
+    z-index: 24;
+    border-radius: 50%;
+    background-color: var(--main-dark);
+    opacity: 0.4;
+    pointer-events: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+
+{% csrf_token %}
+
+<head>
+    {% load static %}
+    <meta charset="utf-8"> {% include "./libs.html" %} {% include "./app.html" %}
+    <title>{{ fullname }} {{ version }}</title>
+</head>
+
+<body>
+    {% block body %}
+    <div id="container">
+        <div id="ol-map" class="map hidden"></div>
+        <div id="google-map" class="map hidden"></div>
+        <div id="loading-container" class="start-up mask hidden"></div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

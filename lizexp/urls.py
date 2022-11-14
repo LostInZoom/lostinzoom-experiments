@@ -21,5 +21,6 @@ urlpatterns = [
     path('fogdetector/', include('fogdetector.urls'), name='fogdetector'),
     path('anchorwhat/', include('anchorwhat.urls'), name='anchorwhat'),
     path('mapdraw/', include('mapdraw.urls'), name='mapdraw'),
+    path('deepmapdraw/', include('deepmapdraw.urls'), name='deepmapdraw'),
     path('admin-django/', admin.site.urls),
 ]

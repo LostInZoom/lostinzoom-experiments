@@ -1,0 +1,13 @@
+.dev {
+    opacity: .5;
+}
+
+.page-number {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    font-size: 30px;
+    margin: 10px auto 0 auto;
+    width: max-content;
+}
