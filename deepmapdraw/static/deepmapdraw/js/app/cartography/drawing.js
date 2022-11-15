@@ -132,14 +132,14 @@ function drawingMode(param) {
                         data: JSON.stringify(data)
                     },
                     success: function(geojson) {
-                        // let element = document.createElement('a');
-                        // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(geojson));
-                        // element.setAttribute('download', data.filename + '.geojson');
-                        // element.style.display = 'none';
-                        // document.body.appendChild(element);
-                        // element.click();
-                        // element.remove();
-                        // downloadMapImage(data, param);
+                        let element = document.createElement('a');
+                        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(geojson));
+                        element.setAttribute('download', data.filename + '.geojson');
+                        element.style.display = 'none';
+                        document.body.appendChild(element);
+                        element.click();
+                        element.remove();
+                        downloadMapImage(data, param);
                     }
                 })
             };
