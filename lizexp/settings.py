@@ -87,6 +87,7 @@ DATABASES = {
     'default': DJANGO_DATABASE,
     'fogdetector': FOG_DETECTOR_DATABASE,
     'anchorwhat': ANCHORWHAT_DATABASE,
+    'deepmapdraw': DEEPMAPDRAW_DATABASE,
 }
 
 # DATABASE_ROUTERS = [

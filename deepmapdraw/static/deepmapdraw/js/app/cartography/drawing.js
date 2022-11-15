@@ -73,11 +73,13 @@ function drawingMode(param) {
     downloadbutton.addEventListener('click', function() {
         if (hasClass(downloadbutton, 'active')) {
             let results = {
+                user: param.user,
                 objects: [],
                 layers: [],
                 zoom: param.cartography.currentview.zoom,
                 basemap: param.cartography.currentview.name,
-                fullbasemap: param.cartography.currentview.fullname
+                fullbasemap: param.cartography.currentview.fullname,
+                center: param.cartography.currentview.center
             };
             let canvases = param.cartography.canvases;
             let nb = 1;
@@ -123,21 +125,21 @@ function drawingMode(param) {
 
             function sendResults(data) {
                 $.ajax({
-                    url: "download/",
+                    url: "send_results/",
                     type: 'POST',
                     data: {
                         csrfmiddlewaretoken: getCookie('csrftoken'),
                         data: JSON.stringify(data)
                     },
                     success: function(geojson) {
-                        let element = document.createElement('a');
-                        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(geojson));
-                        element.setAttribute('download', data.filename + '.geojson');
-                        element.style.display = 'none';
-                        document.body.appendChild(element);
-                        element.click();
-                        element.remove();
-                        downloadMapImage(data, param);
+                        // let element = document.createElement('a');
+                        // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(geojson));
+                        // element.setAttribute('download', data.filename + '.geojson');
+                        // element.style.display = 'none';
+                        // document.body.appendChild(element);
+                        // element.click();
+                        // element.remove();
+                        // downloadMapImage(data, param);
                     }
                 })
             };

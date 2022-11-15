@@ -255,7 +255,7 @@ function calculateTextWidth(text, style) {
 }
 
 function getUserInfos() {
-    let container = document.getElementById('menu-container');
+    let container = document.getElementById('container');
     let user = {
         userAgent: navigator.userAgent,
         resolution: [container.clientWidth, container.clientHeight]
