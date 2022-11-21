@@ -82,6 +82,8 @@ function createInterface(param) {
         max: [20026376.39, 20048966.1],
     };
 
+    param['mode'] = 'navigation';
+
     let geoinfoscontainer = makeElement('geo-infos-container');
     let geoinfos = makeElement('geo-infos', `<img src='../static/mapdraw/img/help.svg' />`);
     geoinfoscontainer.addEventListener('click', openInformations);

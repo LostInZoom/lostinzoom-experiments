@@ -4,6 +4,7 @@
  */
 
 function navigationMode(param) {
+    param['mode'] = 'navigation';
     let container = document.getElementById('container');
 
     let drawingcontainer = makeElement('mode-container drawing-mode-container');
@@ -26,7 +27,8 @@ function navigationMode(param) {
     function drawingModeListener(event) {
         drawingbutton.removeEventListener('click', drawingModeListener);
         let selection = document.getElementById('basemap-selection');
-        removeClassList([drawingbutton, tooltip], 'active');
+        let geoinfos = document.getElementsByClassName('geo-infos-container')[0];
+        removeClassList([drawingbutton, tooltip, geoinfos], 'active');
         addClass(selection, 'drawing-mode');
         drawingMode(param);
         waitMap(0.5, function() {

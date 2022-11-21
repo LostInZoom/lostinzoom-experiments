@@ -4,6 +4,9 @@
  */
 
 function drawingMode(param) {
+    param['mode'] = 'drawing';
+    param.drawing['start'] = new Date();
+
     let container = document.getElementById('container');
     param.drawing.options['currentBrushSize'] = param.drawing.options.defaultBrushSize;
     let height = container.offsetHeight;
@@ -60,7 +63,7 @@ function drawingMode(param) {
 
     let downloadcontainer = makeElement('mode-container download-container');
     let downloadbutton = makeElement('mode-button button-download', `<img src='../static/mapdraw/img/download.svg' />`);
-    let downloadtooltip = makeElement('drawing-control-tooltip', 'Download GeoJSON');
+    let downloadtooltip = makeElement('drawing-control-tooltip', 'Send results');
     downloadbutton.addEventListener('mouseenter', function(event) {
         addClass(downloadtooltip, 'active');
     })
@@ -79,7 +82,8 @@ function drawingMode(param) {
                 zoom: param.cartography.currentview.zoom,
                 basemap: param.cartography.currentview.name,
                 fullbasemap: param.cartography.currentview.fullname,
-                center: param.cartography.currentview.center
+                center: param.cartography.currentview.center,
+                start: param.drawing.start
             };
             let canvases = param.cartography.canvases;
             let nb = 1;
@@ -91,6 +95,7 @@ function drawingMode(param) {
                     paths.push({
                         geometry: objects[o].geometry,
                         timestamp: objects[o].timestamp,
+                        date: objects[o].date,
                         thickness: objects[o].thickness,
                         buffer: pxToMeters(objects[o].thickness, param.cartography.currentview.zoom, param)
                     });
@@ -120,8 +125,29 @@ function drawingMode(param) {
 
             results['time'] = year.toString() + '-' + month.toString() + '-' + day.toString() + ' ' + hour.toString() + ':' + minutes.toString() + ':' + seconds.toString();
             results['filename'] = 'mapdraw-' + year.toString() + month.toString() + day.toString() + hour.toString() + minutes.toString() + seconds.toString();
+            results['end'] = new Date();
 
-            sendResults(results);
+            popuptext.innerHTML = 'Sending results will bring you back to navigation mode and erase your current drawing.<br>Continue?';
+            addClassList([popucontainer, popupmask], 'active');
+            popupbuttonyes.addEventListener('click', yesSendListener);
+            popupbuttonno.addEventListener('click', noSendListener);
+
+            function yesSendListener(event) {
+                navigationbutton.removeEventListener('click', navigationModeListener);
+                popupbuttonyes.removeEventListener('click', yesSendListener);
+                popupbuttonno.removeEventListener('click', noSendListener);
+                removeClassList([popucontainer, popupmask], 'active');
+                sendResults(results);
+            }
+
+            function noSendListener(event) {
+                popupbuttonno.removeEventListener('click', noSendListener);
+                popupbuttonyes.removeEventListener('click', yesSendListener);
+                removeClassList([popucontainer, popupmask], 'active');
+                waitMap(0.2, function() {
+                    popuptext.innerHTML = 'Getting back to navigation mode will erase your current drawing.<br>Continue?';
+                });
+            }
 
             function sendResults(data) {
                 $.ajax({
@@ -132,14 +158,11 @@ function drawingMode(param) {
                         data: JSON.stringify(data)
                     },
                     success: function(geojson) {
-                        let element = document.createElement('a');
-                        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(geojson));
-                        element.setAttribute('download', data.filename + '.geojson');
-                        element.style.display = 'none';
-                        document.body.appendChild(element);
-                        element.click();
-                        element.remove();
-                        downloadMapImage(data, param);
+                        let clear = document.getElementsByClassName('clear-button');
+                        for (let i = 0; i < clear.length; ++i) {
+                            clear[i].click();
+                        }
+                        returnNavigation();
                     }
                 })
             };
@@ -213,52 +236,54 @@ function drawingMode(param) {
     waitMap(0.5, function() {
         addClass(navigationbutton, 'active');
         navigationbutton.addEventListener('click', navigationModeListener);
-
-        function navigationModeListener(event) {
-            if (param.cartography.canvases.layersContainingObjects > 0) {
-                addClassList([popucontainer, popupmask], 'active');
-                popupbuttonyes.addEventListener('click', yeslistener);
-                popupbuttonno.addEventListener('click', nolistener);
-            } else {
-                returnNavigation();
-            }
-
-            function yeslistener(event) {
-                navigationbutton.removeEventListener('click', navigationModeListener);
-                popupbuttonyes.removeEventListener('click', yeslistener);
-                popupbuttonno.removeEventListener('click', nolistener);
-                removeClassList([popucontainer, popupmask], 'active');
-                let clear = document.getElementsByClassName('clear-button');
-                for (let i = 0; i < clear.length; ++i) {
-                    clear[i].click();
-                }
-                returnNavigation();
-            }
-
-            function nolistener(event) {
-                popupbuttonno.removeEventListener('click', nolistener);
-                popupbuttonyes.removeEventListener('click', yeslistener);
-                removeClassList([popucontainer, popupmask], 'active');
-            }
-
-            function returnNavigation() {
-                let selection = document.getElementById('basemap-selection');
-                let layers = document.getElementsByClassName('color-input-container');
-                removeClassList(layers, 'slide');
-                removeClassList(layers, 'active');
-                removeClass(layeradd, 'slide');
-                removeClassList([navigationbutton, navigationtooltip, downloadbutton, downloadtooltip], 'active');
-                removeClass(selection, 'drawing-mode');
-                navigationMode(param);
-                waitMap(0.2, function() {
-                    remove(drawing);
-                });
-                waitMap(0.5, function() {
-                    remove(navigationcontainer, downloadcontainer, colormanagement, popupmask);
-                });
-            }
-        }
     })
+
+    function navigationModeListener(event) {
+        if (param.cartography.canvases.layersContainingObjects > 0) {
+            addClassList([popucontainer, popupmask], 'active');
+            popupbuttonyes.addEventListener('click', yeslistener);
+            popupbuttonno.addEventListener('click', nolistener);
+        } else {
+            returnNavigation();
+        }
+
+        function yeslistener(event) {
+            navigationbutton.removeEventListener('click', navigationModeListener);
+            popupbuttonyes.removeEventListener('click', yeslistener);
+            popupbuttonno.removeEventListener('click', nolistener);
+            removeClassList([popucontainer, popupmask], 'active');
+            let clear = document.getElementsByClassName('clear-button');
+            for (let i = 0; i < clear.length; ++i) {
+                clear[i].click();
+            }
+            returnNavigation();
+        }
+
+        function nolistener(event) {
+            popupbuttonno.removeEventListener('click', nolistener);
+            popupbuttonyes.removeEventListener('click', yeslistener);
+            removeClassList([popucontainer, popupmask], 'active');
+        }
+    }
+
+    function returnNavigation() {
+        let selection = document.getElementById('basemap-selection');
+        let layers = document.getElementsByClassName('color-input-container');
+        removeClassList(layers, 'slide');
+        removeClassList(layers, 'active');
+        removeClass(layeradd, 'slide');
+        removeClassList([navigationbutton, navigationtooltip, downloadbutton, downloadtooltip], 'active');
+        removeClass(selection, 'drawing-mode');
+        let geoinfos = document.getElementsByClassName('geo-infos-container')[0];
+        addClass(geoinfos, 'active');
+        navigationMode(param);
+        waitMap(0.2, function() {
+            remove(drawing);
+        });
+        waitMap(0.5, function() {
+            remove(navigationcontainer, downloadcontainer, colormanagement, popupmask);
+        });
+    }
 
     function addLayer(param, callback) {
         let nb = param.cartography.canvases.layertotal + 1;
@@ -487,6 +512,7 @@ function drawingMode(param) {
                 path: path,
                 geometry: geometry,
                 timestamp: timestamp,
+                date: new Date(),
                 thickness: param.drawing.options.currentBrushSize / 2
             });
         })

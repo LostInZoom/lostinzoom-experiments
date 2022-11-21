@@ -3,11 +3,12 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.gis.geos import Polygon, MultiPolygon, LineString, Point
 from deepmapdraw.setup import *
+from django.contrib.gis import geos
 from datetime import datetime, timezone
 from device_detector import DeviceDetector
 from django.contrib.sessions.backends.db import SessionStore
 from user_agents import parse
-from deepmapdraw.models import Sessions, Sets, Drawings
+from deepmapdraw.models import Sessions, Sets, Layers
 import json
 
 # Create your views here.
@@ -68,6 +69,8 @@ def send_results(request):
             session = Sessions.objects.get(django_key=data['user'])
             set = Sets()
             set.session = session
+            set.start = data['start']
+            set.end = data['end']
             set.basemap = basemap
             set.zoom = zoom
             set.basemap = basemap
@@ -134,14 +137,19 @@ def send_results(request):
                     feature["geometry"] = json.loads(intersection.geojson)
                     features["features"].append(feature)
 
-                    drawing = Drawings()
-                    drawing.set = set
-                    drawing.layer = index + 1
-                    drawing.number = layerinfo[indexempty]['number']
-                    drawing.name = layerinfo[indexempty]['name']
-                    drawing.color = layerinfo[indexempty]['colors']['drawing']
-                    drawing.geom = intersection
-                    drawing.save()
+                    if intersection and isinstance(intersection, geos.Polygon):
+                        intersection = geos.MultiPolygon(intersection)
+
+                    layer = Layers()
+                    layer.set = set
+                    layer.start = l[0]['date']
+                    layer.end = l[len(l) - 1]['date']
+                    layer.layer = index + 1
+                    layer.number = layerinfo[indexempty]['number']
+                    layer.name = layerinfo[indexempty]['name']
+                    layer.color = layerinfo[indexempty]['colors']['drawing']
+                    layer.geom = intersection
+                    layer.save()
 
                     index += 1
                     indexempty += 1
