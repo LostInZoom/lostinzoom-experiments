@@ -84,7 +84,7 @@ def retrieve_trials(sessions):
     trialsquery = '''
         select tr.session, s.training, s.number as set_number, tr.trial_position,
             opt.type as trial_type, opt.subtype as trial_subtype, opt.basemap,
-            targ.name as location, targ.type as target_type, targ.x, targ.y,
+            targ.id as target_id, targ.name as location, targ.type as target_type, targ.x, targ.y,
             tr.duration_ms, tr.click_time, tr.distance_px, tr.distance_m,
             tr.target_start_top, tr.target_start_right, tr.target_start_bottom, tr.target_start_left,
             tr.target_end_top, tr.target_end_right, tr.target_end_bottom, tr.target_end_left
