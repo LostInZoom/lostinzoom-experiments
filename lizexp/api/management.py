@@ -13,7 +13,18 @@ def questionPrompt(prompt):
             else:
                 return False
 
-def eraseWarning(app):
-    prompt = "WARNING: This operation will completely clear " + app + " database.\nYou won't be able to retrieve any data afterwards.\nProceed? (yes or no)\n"
+def promptWarning(prompt):
     state = questionPrompt(prompt)
     return state
+
+def databaseClearingWarning(app):
+    state = promptWarning("WARNING: This operation will completely clear " + app + " database.\nYou won't be able to retrieve any data afterwards.\nProceed? (yes or no)\n")
+    return state
+
+def fileLinesToSet(filename):
+    # Dict that will contain keys and values
+    results=set()
+    with open(filename, "r") as f:
+        for line in f:
+            results.add(line.rstrip())
+        return results

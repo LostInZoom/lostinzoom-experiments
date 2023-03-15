@@ -41,11 +41,7 @@ INSTALLED_APPS = [
     # geodjango
     'django.contrib.gis',
     # Own applications
-    'home',
-    'fogdetector',
-    'anchorwhat',
     'mapdraw',
-    'deepmapdraw',
 ]
 
 MIDDLEWARE = [
@@ -83,17 +79,11 @@ WSGI_APPLICATION = 'lizexp.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': DJANGO_DATABASE,
-    'fogdetector': FOG_DETECTOR_DATABASE,
-    'anchorwhat': ANCHORWHAT_DATABASE,
-    'deepmapdraw': DEEPMAPDRAW_DATABASE,
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite.db',
+    }
 }
-
-# DATABASE_ROUTERS = [
-#     'lizexp.database.routers.AuthRouter',
-#     'lizexp.database.routers.FogDetectorRouter',
-#     'lizexp.database.routers.AnchorwhatRouter'
-# ]
 
 # Cache configuration using pymemcache
 # https://docs.djangoproject.com/en/3.2/topics/cache/

@@ -24,6 +24,7 @@ media
 
 # Private 
 lizexp/private/**
+lizexp/setup/private/**
 
 #results
 lizexp/results/anchorwhat/**
