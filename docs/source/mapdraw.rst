@@ -14,14 +14,15 @@ Once installed, this tool can be easily configured to fit your needs.
 
 Main features:
  * Basemaps selection (OSM, Google, custom WMTS source)
- * sdf
+ * Layer system with custom colors and names
+ * Free drawing tool with adjustable brush size
+ * GeoJSON and .png map export
 
 Installation
 ==============
 
 **Map Draw** is part of the LostInZoom `Django <https://www.djangoproject.com/>`_ project which contains several other
-web applications designed to conduct experiments on cartographic navigation. But don't worry, in this section, you will
-learn how to install only Map Draw on your computer or remote server.
+web applications designed to conduct experiments on cartographic navigation. Please take a look at the :installation:`installation file`. for more details.
 
 Setting up Django
 ------------------

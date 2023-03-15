@@ -13,4 +13,5 @@ project which aims at providing a framework to develop and conduct scientific ex
    :maxdepth: 2
    :titlesonly:
 
+   installation
    mapdraw
