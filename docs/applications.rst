@@ -4,8 +4,8 @@
 Applications
 ============
 
-Presentation
-============
+Map Draw
+========
 
 **Map Draw** is a web application designed to draw on maps and download the data in GeoJSON format.
 Once installed, this tool can be easily configured to fit your needs.
