@@ -16,7 +16,12 @@ author = 'LostInZoom'
 
 master_doc = 'index'
 source_suffix = '.rst'
-extensions = []
+extensions = [
+    'sphinx.ext.autosectionlabel'
+]
+
+autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 2
 
 templates_path = ['_templates']
 exclude_patterns = []
