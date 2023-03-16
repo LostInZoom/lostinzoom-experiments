@@ -7,8 +7,12 @@ def install_lostinzoom_experiments(params):
     if (doit):
         print('Setting up LostInZoom Experiments...')
         print('Installing pip dependencies...')
-        required = fileLinesToSet('requirements.txt')
-        subprocess.check_call([sys.executable, '-m', 'pip', 'install', *required])
+        try:
+            required = fileLinesToSet('requirements.txt')
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', *required])
+        except:
+            print("pip is not installed. Either install pip or install the dependencies yourself before running this script.")
+            sys.exit()
 
         print('Creating private file...')
         private_path = r'lizexp/private'
@@ -16,11 +20,8 @@ def install_lostinzoom_experiments(params):
             os.makedirs(private_path)
 
         django_key = input(f"Secret key for the Django project [REQUIRED]: ")
-
         ign_key = input(f"IGN key [OPTIONAL]: ")
-
         google_key = input(f"Google API key [OPTIONAL]: ")
-
         new_host = input(f"Host/domain name of your project (leave blank for localhost): ")
 
         privacy = private_path + '/privacy.py'
@@ -100,7 +101,6 @@ def install_lostinzoom_experiments(params):
             
             shutil.copyfile(r'lizexp/setup/lizexp/settings.py', r'lizexp/settings.py')
             shutil.copyfile(r'lizexp/setup/lizexp/urls.py', r'lizexp/urls.py')
-            subprocess.call(["python3", "manage.py", "makemigrations"])
             subprocess.call(["python3", "manage.py", "migrate"])
             subprocess.call(["python3", "manage.py", "makemigrations", "anchorwhat"])
             subprocess.call(["python3", "manage.py", "migrate", "anchorwhat", "--database=anchorwhat"])
