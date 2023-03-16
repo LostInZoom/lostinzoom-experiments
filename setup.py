@@ -15,27 +15,24 @@ def install_lostinzoom_experiments(params):
         if not os.path.exists(private_path):
             os.makedirs(private_path)
 
-        django_key = input(f"Enter a secret key for this particular Django installation." +
-            "This is used to provide cryptographic signing, and should be set to a unique, unpredictable value.\n" +
-            "You can leave it blank and update it later.\n")
+        django_key = input(f"Secret key for the Django project [REQUIRED]: ")
 
-        ign_key = input(f"Enter a IGN Geoservices key to use IGN Basemaps. Some of them (Plan IGN) does not require a key.\n" +
-            "Leave blank if you don't intend to use it or prefer to provide it later.\n")
+        ign_key = input(f"IGN key [OPTIONAL]: ")
 
-        google_key = input(f"Enter a Google API key to use Google Basemaps.\n" +
-            "Leave blank if you don't intend to use it or prefer to provide it later.\n")
+        google_key = input(f"Google API key [OPTIONAL]: ")
 
-        new_host = input(f"Type in the host/domain name that this site will serve\n" +
-            "It can be www.example.com as well as an ip adress. Leave blank for local:\n")
+        new_host = input(f"Host/domain name of your project (leave blank for localhost): ")
 
         privacy = private_path + '/privacy.py'
         if os.path.exists(privacy):
             os.remove(privacy)
 
         with open(privacy,'a') as f:
-            f.write("DJANGO_SECRET_KEY = '{0}'\n".format(django_key) +
+            f.write(
+                "DJANGO_SECRET_KEY = '{0}'\n".format(django_key) +
                 "IGN_SECRET_KEY = '{0}'\n".format(ign_key) +
-                "GOOGLE_SECRET_KEY = '{0}'\n".format(google_key))
+                "GOOGLE_SECRET_KEY = '{0}'\n".format(google_key)
+            )
             if len(new_host) > 0:
                 f.write("ALLOWED_OWN_HOSTS = ['127.0.0.1', 'localhost', '{0}']\n".format(new_host))
             else:
@@ -54,12 +51,64 @@ def install_lostinzoom_experiments(params):
                     "python3 manage.py runserver\n" +
                     "...to launch a development server on port 8000 and test the application.")
         else:
-            print("Setting up full fledge project")
-            shutil.copyfile(r'lizexp/setup/lizexp/settings.py', r'lizexp/settings.py')
-            shutil.copyfile(r'lizexp/setup/lizexp/urls.py', r'lizexp/urls.py')
             sqlite = r'sqlite.db'
             if os.path.exists(sqlite):
                 os.remove(sqlite)
+            print("Setting up whole Django project")
+            import psycopg2
+            print("Connecting to PostgreSQL")
+            print("Please provide your PostgreSQL's informations to connect and create the database.")
+            dbhost = input(f"Host: ")
+            dbport = input(f"Port: ")
+            dbuser = input(f"User: ")
+            dbpwd = input(f"Password: ")
+            postgres = psycopg2.connect(database='postgres', user=dbuser, password=dbpwd, host=dbhost, port=int(dbport))
+            postgres.autocommit = True
+            print("Creating the PostgreSQL database")
+            dbname = input(f"Database name: ")
+            with postgres.cursor() as cursor:
+                cursor.execute("SELECT datname FROM pg_database;")
+                list_database = cursor.fetchall()
+                if (dbname,) in list_database:
+                    print("{0} database already exists.".format(dbname))
+                else:
+                    print("{0} database does not exist. Creating it.".format(dbname))
+                    sql = 'CREATE DATABASE {0} OWNER {1};'.format(dbname, dbuser)
+                    cursor.execute(sql)
+                postgres.close()
+            lizexpdb = psycopg2.connect(database=dbname, user=dbuser, password=dbpwd, host=dbhost, port=int(dbport))
+            lizexpdb.autocommit = True
+            with lizexpdb.cursor() as cursor:
+                sql = '''
+                    CREATE EXTENSION IF NOT EXISTS postgis;
+                    CREATE SCHEMA IF NOT EXISTS anchorwhat;
+                    CREATE SCHEMA IF NOT EXISTS deepmapdraw;
+                    CREATE SCHEMA IF NOT EXISTS fogdetector;
+                '''
+                cursor.execute(sql)
+                lizexpdb.close()
+
+            with open(privacy,'a') as f:
+                f.write(
+                    "\nDB_NAME = '{0}'\n".format(dbname) + 
+                    "DB_HOST = '{0}'\n".format(dbhost) +
+                    "DB_PORT = '{0}'\n".format(dbport) +
+                    "DB_USER = '{0}'\n".format(dbuser) +
+                    "DB_PWD = '{0}'\n".format(dbpwd)
+                )
+                f.close()
+            
+            shutil.copyfile(r'lizexp/setup/lizexp/settings.py', r'lizexp/settings.py')
+            shutil.copyfile(r'lizexp/setup/lizexp/urls.py', r'lizexp/urls.py')
+            subprocess.call(["python3", "manage.py", "makemigrations"])
+            subprocess.call(["python3", "manage.py", "migrate"])
+            subprocess.call(["python3", "manage.py", "makemigrations", "anchorwhat"])
+            subprocess.call(["python3", "manage.py", "migrate", "anchorwhat", "--database=anchorwhat"])
+            subprocess.call(["python3", "manage.py", "makemigrations", "deepmapdraw"])
+            subprocess.call(["python3", "manage.py", "migrate", "deepmapdraw", "--database=deepmapdraw"])
+            subprocess.call(["python3", "manage.py", "makemigrations", "fogdetector"])
+            subprocess.call(["python3", "manage.py", "migrate", "fogdetector", "--database=fogdetector"])
+            
     else:
         print('Nothing was done')
 

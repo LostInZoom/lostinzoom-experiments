@@ -83,10 +83,50 @@ WSGI_APPLICATION = 'lizexp.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': DJANGO_DATABASE,
-    'fogdetector': FOG_DETECTOR_DATABASE,
-    'anchorwhat': ANCHORWHAT_DATABASE,
-    'deepmapdraw': DEEPMAPDRAW_DATABASE,
+    'default': {
+        'NAME': DB_NAME,
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'USER': DB_USER,
+        'PASSWORD': DB_PWD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
+        'OPTIONS': {
+            'options': '-c search_path=public'
+        },
+    },
+    'anchorwhat': {
+        'NAME': DB_NAME,
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'USER': DB_USER,
+        'PASSWORD': DB_PWD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
+        'OPTIONS': {
+            'options': '-c search_path=public,anchorwhat'
+        },
+    },
+    'deepmapdraw': {
+        'NAME': DB_NAME,
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'USER': DB_USER,
+        'PASSWORD': DB_PWD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
+        'OPTIONS': {
+            'options': '-c search_path=public,deepmapdraw'
+        },
+    },
+    'fogdetector': {
+        'NAME': DB_NAME,
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'USER': DB_USER,
+        'PASSWORD': DB_PWD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
+        'OPTIONS': {
+            'options': '-c search_path=public,fogdetector'
+        },
+    }  
 }
 
 # DATABASE_ROUTERS = [
