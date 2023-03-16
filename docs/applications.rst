@@ -17,7 +17,7 @@ Main features:
  * Basemaps selection (OSM, Google, custom WMTS source)
  * Layer system with custom colors and names
  * Free drawing tool with adjustable brush size
- * GeoJSON and .png map export
+ * GeoJSON and PNG map export
 
 Mapdraw installation
 =====================
