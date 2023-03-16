@@ -1,8 +1,8 @@
-.. _Map Draw:
+.. _Applications:
 
-========
-Map Draw
-========
+============
+Applications
+============
 
 Presentation
 ============
@@ -13,6 +13,7 @@ Once installed, this tool can be easily configured to fit your needs.
 .. image:: img/mapdraw-presentation.jpg
 
 Main features:
+^^^^^^^^^^^^^^
  * Basemaps selection (OSM, Google, custom WMTS source)
  * Layer system with custom colors and names
  * Free drawing tool with adjustable brush size
@@ -23,4 +24,4 @@ Mapdraw installation
 
 **Map Draw** is part of the LostInZoom `Django <https://www.djangoproject.com/>`_ project which contains several other
 web applications designed to conduct experiments on cartographic navigation.
-Please take a look at the :ref:`mapdraw <Map Draw application only>` for more details.
+Please take a look at the :ref:`installation page <Installation>` for more details.
