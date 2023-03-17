@@ -7,18 +7,20 @@ LostInZoom Experiments
 `LostInZoom experiments <https://github.com/LostInZoom/lostinzoom-experiments>`_ is a `Django <https://www.djangoproject.com/>`_
 project which aims at providing a framework to develop and conduct scientific experiments on map navigation.
 
+User guide available `here<https://lostinzoom-experiments.readthedocs.io/en/latest/>`_.
+
 Draw on maps
 ^^^^^^^^^^^^
 .. image:: docs/img/presentation-drawing.jpg
 
 Create beautiful forms
 ^^^^^^^^^^^^^^^^^^^^^^
-.. image:: img/presentation-form1.jpg
+.. image:: docs/img/presentation-form1.jpg
 
 Use maps inside forms
 ^^^^^^^^^^^^^^^^^^^^^
-.. image:: img/presentation-form2.jpg
+.. image:: docs/img/presentation-form2.jpg
 
 Change the language on the fly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. image:: img/presentation-language.jpg
+.. image:: docs/img/presentation-language.jpg
