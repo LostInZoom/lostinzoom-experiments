@@ -142,8 +142,8 @@ Create a new database, conect to that new database, create the PostGIS extension
 
 Then copy/paste and overwrite both of those files::
 
-    $ cp lizexp/setup/lizexp/settings.py lizexp/
-    $ cp lizexp/setup/lizexp/urls.py lizexp/
+    $ cp lizexp/setup/lizexp/settings.py lizexp/settings.py
+    $ cp lizexp/setup/lizexp/urls.py lizexp/urls.py
 
 Apply the migration of your Django project::
 
