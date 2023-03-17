@@ -1,14 +1,17 @@
 #!/usr/bin/env python
-import os, sys, subprocess, argparse, shutil
+import os, sys, subprocess, argparse, shutil, django
 from lizexp.api.management import promptWarning, fileLinesToSet
 
 def install_lostinzoom_experiments(params):
+    # Add a variable to check if the user is sure about the operation.
     doit = promptWarning('This operation will bring modification to this django project.\nProceed? (yes/y or no/n)\n')
     if (doit):
         print('Setting up LostInZoom Experiments...')
         print('Installing pip dependencies...')
         try:
+            # Stores required packages to install inside a set
             required = fileLinesToSet('requirements.txt')
+            # Installing every pip packages from the set
             subprocess.check_call([sys.executable, '-m', 'pip', 'install', *required])
         except:
             print("pip is not installed. Either install pip or install the dependencies yourself before running this script.")
@@ -108,6 +111,9 @@ def install_lostinzoom_experiments(params):
             subprocess.call(["python3", "manage.py", "migrate", "deepmapdraw", "--database=deepmapdraw"])
             subprocess.call(["python3", "manage.py", "makemigrations", "fogdetector"])
             subprocess.call(["python3", "manage.py", "migrate", "fogdetector", "--database=fogdetector"])
+
+            subprocess.call(["python3", "manage.py", "initialize_anchorwhat", "--nocheck"])
+            subprocess.call(["python3", "manage.py", "initialize_fogdetector", "--nocheck"])
             
     else:
         print('Nothing was done')

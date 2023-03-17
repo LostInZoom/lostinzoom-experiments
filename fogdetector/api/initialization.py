@@ -29,7 +29,6 @@ def initialize_forms(app):
         p = get_JSON('pages/' + page.replace('.json', ''), app)
         for element in p:
             if element['type'] == 'form':
-                #print(element)
                 questionNb = 1
                 pageI = Pages.objects.using('fogdetector').get(id=pagenb)
                 for content in element['content']:
