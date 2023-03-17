@@ -9,7 +9,7 @@ project which aims at providing a framework to develop and conduct scientific ex
 
 Draw on maps
 ^^^^^^^^^^^^
-.. image:: img/presentation-drawing.jpg
+.. image:: docs/img/presentation-drawing.jpg
 
 Create beautiful forms
 ^^^^^^^^^^^^^^^^^^^^^^
