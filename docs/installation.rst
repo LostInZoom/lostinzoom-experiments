@@ -174,8 +174,8 @@ Standalone Map Draw
 
 If you want a standalone Map Draw instance, copy/paste and overwrite both of those files::
 
-    $ cp lizexp/setup/standalone/mapdraw/settings.py lizexp/
-    $ cp lizexp/setup/standalone/mapdraw/urls.py lizexp/
+    $ cp lizexp/setup/standalone/mapdraw/settings.py lizexp/settings.py
+    $ cp lizexp/setup/standalone/mapdraw/urls.py lizexp/urls.py
 
 Then, apply the migrations to your Django project. This will create a SQLite database inside the project root directory::
 
