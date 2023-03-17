@@ -14,14 +14,14 @@ Once you cloned the `lostinzoom-experiments repository <https://github.com/LostI
 modify some things before you can start developping or deploying your web application. A step-by-step guide is provided here
 but you must have some basic knowledge of how Django works if you want to set it up quickly.
 
-Two possibilities are offered: you can either install the :ref:`whole Django project <InstallProject>` or you can only install
-a :ref:`simple Map Draw instance <MapDrawOnly>`.
-
 Before setting up the Django project, you will need to install `PostgreSQL <https://www.postgresql.org/>`_ with its extension
 `PostGIS <https://postgis.net/>`_.
 
 Automatic setup
 ===============
+
+Two possibilities are offered: you can either install the :ref:`whole Django project <InstallProject>` or you can only install
+a :ref:`simple Map Draw instance <MapDrawOnly>`.
 
 .. _InstallProject:
 
