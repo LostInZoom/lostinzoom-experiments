@@ -158,6 +158,11 @@ Now, make and apply individually all migrations for each applications::
     $ python3 manage.py makemigrations fogdetector
     $ python3 manage.py migrate fogdetector --database=fogdetector
 
+Initialize the two applications that requires a configuration file generated from the database::
+
+    $ python3 manage.py initialize_anchorwhat --nocheck
+    $ python3 manage.py initialize_fogdetector --nocheck
+
 Finally, run the development server on the port 8000 using::
 
     $ python3 manage.py runserver
