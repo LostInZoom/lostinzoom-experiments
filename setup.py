@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import os, sys, subprocess, argparse, shutil, django
+import os, sys, subprocess, argparse, shutil
 from lizexp.api.management import promptWarning, fileLinesToSet
 
 def install_lostinzoom_experiments(params):
