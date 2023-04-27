@@ -17,6 +17,11 @@ def install_lostinzoom_experiments(params):
             print("pip is not installed. Either install pip or install the dependencies yourself before running this script.")
             sys.exit()
 
+        if sys.platform.startswith('win32'):
+            pystr = "python"
+        else:
+            pystr = "python3"
+
         print('Creating private file...')
         private_path = r'lizexp/private'
         if not os.path.exists(private_path):
@@ -50,9 +55,9 @@ def install_lostinzoom_experiments(params):
                 shutil.copyfile(r'lizexp/setup/standalone/mapdraw/settings.py', r'lizexp/settings.py')
                 shutil.copyfile(r'lizexp/setup/standalone/mapdraw/urls.py', r'lizexp/urls.py')
                 print("Creating the dummy db.")
-                subprocess.call(["python3", "manage.py", "migrate"])
+                subprocess.call([pystr, "manage.py", "migrate"])
                 print("Standalone mapdraw application successfully setup. You can use the following command...\n" +
-                    "python3 manage.py runserver\n" +
+                    pystr + " manage.py runserver\n" +
                     "...to launch a development server on port 8000 and test the application.")
         else:
             sqlite = r'sqlite.db'
@@ -104,16 +109,16 @@ def install_lostinzoom_experiments(params):
             
             shutil.copyfile(r'lizexp/setup/lizexp/settings.py', r'lizexp/settings.py')
             shutil.copyfile(r'lizexp/setup/lizexp/urls.py', r'lizexp/urls.py')
-            subprocess.call(["python3", "manage.py", "migrate"])
-            subprocess.call(["python3", "manage.py", "makemigrations", "anchorwhat"])
-            subprocess.call(["python3", "manage.py", "migrate", "anchorwhat", "--database=anchorwhat"])
-            subprocess.call(["python3", "manage.py", "makemigrations", "deepmapdraw"])
-            subprocess.call(["python3", "manage.py", "migrate", "deepmapdraw", "--database=deepmapdraw"])
-            subprocess.call(["python3", "manage.py", "makemigrations", "fogdetector"])
-            subprocess.call(["python3", "manage.py", "migrate", "fogdetector", "--database=fogdetector"])
+            subprocess.call([pystr, "manage.py", "migrate"])
+            subprocess.call([pystr, "manage.py", "makemigrations", "anchorwhat"])
+            subprocess.call([pystr, "manage.py", "migrate", "anchorwhat", "--database=anchorwhat"])
+            subprocess.call([pystr, "manage.py", "makemigrations", "deepmapdraw"])
+            subprocess.call([pystr, "manage.py", "migrate", "deepmapdraw", "--database=deepmapdraw"])
+            subprocess.call([pystr, "manage.py", "makemigrations", "fogdetector"])
+            subprocess.call([pystr, "manage.py", "migrate", "fogdetector", "--database=fogdetector"])
 
-            subprocess.call(["python3", "manage.py", "initialize_anchorwhat", "--nocheck"])
-            subprocess.call(["python3", "manage.py", "initialize_fogdetector", "--nocheck"])
+            subprocess.call([pystr, "manage.py", "initialize_anchorwhat", "--nocheck"])
+            subprocess.call([pystr, "manage.py", "initialize_fogdetector", "--nocheck"])
             
     else:
         print('Nothing was done')
