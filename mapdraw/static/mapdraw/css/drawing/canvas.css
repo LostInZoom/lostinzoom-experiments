@@ -64,8 +64,14 @@
 }
 
 .color-container {
-    overflow: auto;
+    pointer-events: all;
+    overflow: scroll;
     scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.color-container::-webkit-scrollbar {
+    display: none;
 }
 
 .color-input-container {
