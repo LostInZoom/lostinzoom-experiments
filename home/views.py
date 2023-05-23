@@ -1,8 +1,17 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse, HttpRequest
+from django.views.decorators.cache import cache_control
+from django.views.decorators.http import require_GET
 from home.setup import *
+from lizexp import settings
 import json
+
+@require_GET
+@cache_control(max_age=60 * 60 * 24, immutable=True, public=True)  # one day
+def favicon(request: HttpRequest) -> HttpResponse:
+    file = (settings.BASE_DIR / 'static' / 'home' / 'img' / 'favicon.png').open('rb')
+    return FileResponse(file)
 
 # Create your views here.
 @csrf_exempt
