@@ -229,25 +229,25 @@ function createInterface(param) {
 
     function swapProjectionDisplay() {
         projectionchange.removeEventListener('click', swapProjectionDisplay);
-        let newproj, newtext, newlabel, newunit;
+        let newproj, newtext, newlabel, newunit, newcenter;
         if (current.projection === '3857') {
             newproj = '4326';
             newtext = 'WGS84 unprojected';
             newlabel = ['lat', 'long'];
             newunit = '°';
+            newcenter = project('3857', '4326', current.center);
         } else {
             newproj = '3857';
             newtext = 'Pseudo mercator';
             newlabel = ['x', 'y'];
             newunit = 'meters';
+            newcenter = current.center
         }
 
         current.bounds = {
             min: project(current.projection, newproj, current.bounds.min),
             max: project(current.projection, newproj, current.bounds.max),
         };
-        let newcenter = project(current.projection, newproj, current.center);
-        current.center = newcenter;
 
         current.projection = newproj;
         xvalue.innerHTML = newcenter[0];

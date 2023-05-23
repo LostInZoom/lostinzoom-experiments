@@ -306,14 +306,17 @@ function switchBasemap(basemap, param) {
 }
 
 function updateGeographicInformations(center, zoom, param) {
-    // if (param.cartography.currentview.projection === "4326") {
-    //     center = olCoordinateToGoogle(center);
-    // }
+    let dcenter;
+    if (param.cartography.currentview.projection === "4326") {
+        dcenter = olCoordinateToGoogle(center);
+    } else {
+        dcenter = center
+    }
     let xvalue = document.getElementById('x-value');
     let yvalue = document.getElementById('y-value');
     let zoomvalue = document.getElementById('zoom-value');
-    if (xvalue) { xvalue.innerHTML = center[0]; }
-    if (yvalue) { yvalue.innerHTML = center[1]; }
+    if (xvalue) { xvalue.innerHTML = dcenter[0]; }
+    if (yvalue) { yvalue.innerHTML = dcenter[1]; }
     if (zoomvalue) { zoomvalue.innerHTML = parseInt(zoom); }
 }
 
