@@ -19,5 +19,34 @@
             "en": "scientific experiments platform",
             "fr": "plate-forme d'expériences scientifiques"
         }
+    },
+    {
+        "type": "image",
+        "span": "wide",
+        "content": [{
+                "format": "png",
+                "name": "logo-erc",
+                "link": "https://erc.europa.eu/",
+                "style": {
+                    "height": "200px"
+                }
+            },
+            {
+                "format": "svg",
+                "name": "logo-liz",
+                "link": "https://lostinzoom.github.io/home/",
+                "style": {
+                    "width": "500px"
+                }
+            },
+            {
+                "format": "png",
+                "name": "logo-humanum",
+                "link": "https://huma-num.fr/",
+                "style": {
+                    "height": "150px"
+                }
+            }
+        ]
     }
 ]

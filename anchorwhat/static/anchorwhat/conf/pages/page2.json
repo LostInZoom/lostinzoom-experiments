@@ -52,6 +52,14 @@
                 "style": {
                     "width": "500px"
                 }
+            },
+            {
+                "format": "png",
+                "name": "logo-humanum",
+                "link": "https://huma-num.fr/",
+                "style": {
+                    "height": "150px"
+                }
             }
         ]
     },

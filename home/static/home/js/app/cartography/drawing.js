@@ -170,7 +170,7 @@ function drawingMode(param, callback) {
     validation.appendChild(validationcontainer);
     drawing.appendChild(validation);
 
-    let help = makeElement('help-button active', `<img src='../static/anchorwhat/img/help.svg' />`);
+    let help = makeElement('help-button active', `<img src='../static/home/img/help.svg' />`);
     let controlwasactive = false;
     help.addEventListener('mouseenter', function(event) {
         displayE(hintcontainer);
@@ -236,7 +236,7 @@ function drawingMode(param, callback) {
 
         // Creating the color mark to switch to this layer
         let colorinput = makeElement('color-input-container', false, 'color-picker' + (i + 1));
-        let color = makeElement('color-picker', `<img src='../static/anchorwhat/img/validate.svg' />`);
+        let color = makeElement('color-picker', `<img src='../static/home/img/validate.svg' />`);
         color.style.backgroundColor = canvases.canvas[index].color;
 
         let placeholder = param.global.texts.experiment.layers.placeholders[language];
@@ -289,7 +289,7 @@ function drawingMode(param, callback) {
             let layercolor = canvases.canvas[index].color;
             // Creating DOM elements of the control
             let cont = makeElement('drawing-control');
-            let button = makeElement('drawing-control-button ' + name + '-button', `<img src='../static/anchorwhat/img/${name}.svg' />`);
+            let button = makeElement('drawing-control-button ' + name + '-button', `<img src='../static/home/img/${name}.svg' />`);
             // Setting the backgroung color of the button according to the layer's color
             button.style.backgroundColor = layercolor;
             // Defining the event triggered when clicking on the control button
@@ -704,8 +704,8 @@ function drawingMode(param, callback) {
         let tutopointermask = makeElement('pointer-mask');
         let guidecontainer = makeElement('tutorial-guide-container hidden');
         let masklabel = makeElement('tutorial-main-label', false, 'tutorial-main-label');
-        let nextbutton = makeElement('tutorial-button tutorial-button-next', `<img src='../static/anchorwhat/img/next.svg' />`);
-        let previousbutton = makeElement('tutorial-button tutorial-button-previous', `<img src='../static/anchorwhat/img/previous.svg' />`);
+        let nextbutton = makeElement('tutorial-button tutorial-button-next', `<img src='../static/home/img/next.svg' />`);
+        let previousbutton = makeElement('tutorial-button tutorial-button-previous', `<img src='../static/home/img/previous.svg' />`);
         guidecontainer.append(previousbutton, masklabel, nextbutton);
         drawing.append(guidecontainer, tutopointermask);
 

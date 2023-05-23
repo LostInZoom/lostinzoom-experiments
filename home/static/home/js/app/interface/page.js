@@ -473,7 +473,7 @@ function createPage(param) {
                     if ('svg' in object.question) {
                         let name = object.question.svg;
                         let svgcontainer = makeElement('form-svg-container');
-                        let svg = makeElement('form-svg form-svg-question', `<img src='../static/anchorwhat/img/${name}.svg' />`);
+                        let svg = makeElement('form-svg form-svg-question', `<img src='../static/home/img/${name}.svg' />`);
                         svgcontainer.appendChild(svg);
                         container.append(svgcontainer);
                     }
@@ -518,7 +518,7 @@ function createPage(param) {
 
                                 let button;
                                 if (svg) {
-                                    button = makeElement('form-svg-answer form-svg form-item form-item' + nbQuestion + status, `<img src='../static/anchorwhat/img/${content[k]}.svg' />`, id);
+                                    button = makeElement('form-svg-answer form-svg form-item form-item' + nbQuestion + status, `<img src='../static/home/img/${content[k]}.svg' />`, id);
                                     button.setAttribute('value', content[k]);
                                 } else {
                                     button = makeElement('button form-button form-item form-item' + nbQuestion + status, content[k], id);
@@ -840,9 +840,9 @@ function createPage(param) {
                     let file = image.name + '.' + image.format;
                     let imagecontent;
                     if ('link' in image) {
-                        imagecontent = `<a href='${image.link}' target='_blank'><img src='../static/anchorwhat/img/${file}'/></a>`
+                        imagecontent = `<a href='${image.link}' target='_blank'><img src='../static/home/img/${file}'/></a>`
                     } else {
-                        imagecontent = `<img src='../static/anchorwhat/img/${file}'/>`
+                        imagecontent = `<img src='../static/home/img/${file}'/>`
                     }
                     let imgDiv = makeElement('menu-image', imagecontent);
                     applyStyle(imgDiv, image.style);
@@ -854,7 +854,7 @@ function createPage(param) {
                 if (param.results) {
                     let mapContainer = makeElement('results-container map-results-container', false, 'results-container');
                     let mapUser = makeElement('map-results', false, 'map-results-user-container');
-                    let refresh = makeElement('refresh', `<img src='../static/anchorwhat/img/refresh.svg' />`, 'refresh-results');
+                    let refresh = makeElement('refresh', `<img src='../static/home/img/refresh.svg' />`, 'refresh-results');
                     let mapOther = makeElement('map-results', false, 'map-results-other-container');
                     mapContainer.append(mapUser, refresh, mapOther);
                     pageContent.appendChild(mapContainer);

@@ -204,7 +204,7 @@ function createFooter(param) {
                 //Creating a container for the flag
                 let container = makeElement('flag-container');
                 //Creating the flag with the associated svg file
-                let l = makeElement('flag', `<img src='../static/anchorwhat/img/${newLang}.svg' />`);
+                let l = makeElement('flag', `<img src='../static/home/img/${newLang}.svg' />`);
                 //Creating an overlay
                 let overlay = makeElement('flag-overlay');
                 //Defining behavior on click
