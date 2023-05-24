@@ -21,6 +21,15 @@
         }
     },
     {
+        "type": "button",
+        "texts": {
+            "en": "Take a look!",
+            "fr": "C'est par ici!"
+        },
+        "effect": "next",
+        "dev": false
+    },
+    {
         "type": "image",
         "span": "wide",
         "content": [{
@@ -48,14 +57,5 @@
                 }
             }
         ]
-    },
-    {
-        "type": "button",
-        "texts": {
-            "en": "Experiments",
-            "fr": "Expériences"
-        },
-        "effect": "next",
-        "dev": false
     }
 ]
