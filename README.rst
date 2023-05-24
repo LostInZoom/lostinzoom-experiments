@@ -9,6 +9,8 @@ project which aims at providing a framework to develop and conduct scientific ex
 
 User guide available `here <https://lostinzoom-experiments.readthedocs.io/en/latest/>`_.
 
+Deployed version available `here <https://lostinzoom.huma-num.fr>`_.
+
 Draw on maps
 ^^^^^^^^^^^^
 .. image:: docs/img/presentation-drawing.jpg
