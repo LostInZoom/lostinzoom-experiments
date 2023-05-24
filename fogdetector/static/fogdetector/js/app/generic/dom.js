@@ -165,13 +165,13 @@ function adjustPageContent(param) {
             //If the page content doesn't overflow the page, we set the proper class 
             addClass(pageDiv, 'page-underflow');
             param.currentpage.scroller = false;
-            handleSideScroller(param);
         } else {
             //If the page content overflow the page, we set the proper class
             addClass(pageDiv, 'page-overflow');
             param.currentpage.scroller = true;
-            handleSideScroller(param);
         }
+        handleSideScroller(param);
+        handleScrollIndicators(param);
     }
 }
 
@@ -185,46 +185,43 @@ function handleSideScroller(param) {
             });
         }
     } else {
-        let container = document.getElementById('scroller-container');
-        if (container) {
-            container.style.width = '0';
+        let scrollercontainer = document.getElementById('scroller-container');
+        if (scrollercontainer) {
+            scrollercontainer.style.width = '0';
             waitMap(0.5, function() {
-                remove(container);
+                remove(scrollercontainer);
             });
         }
     }
 
     function createScrollerElements(callback) {
         let menu = document.getElementById('menu-container');
-        let container = makeElement(false, false, 'scroller-container');
+        let scrollercontainer = makeElement(false, false, 'scroller-container');
         let scroller = makeElement(false, false, 'scroller');
-        container.appendChild(scroller);
-        menu.appendChild(container);
-
-        let footer = document.getElementById('footer');
-        let scrolldown = makeElement('scroll-indicator', `<img src='../static/fogdetector/img/scrolldown.svg' />`, 'scrolldown');
-        let scrollup = makeElement('scroll-indicator', `<img src='../static/fogdetector/img/scrollup.svg' />`, 'scrollup');
-        footer.append(scrolldown, scrollup);
+        scrollercontainer.appendChild(scroller);
+        menu.appendChild(scrollercontainer);
 
         waitMap(0.1, function() {
-            container.style.width = '20px';
+            scrollercontainer.style.width = '20px';
             callback();
         });
     }
 
     function displayScroller() {
+        let scrollercontainer = document.getElementById('scroller');
         let scroller = document.getElementById('scroller');
         let page = document.getElementById('page');
         let pageContent = document.getElementById('page-content');
         let pCHeight = pageContent.offsetHeight;
         let pHeight = page.offsetHeight;
         let height = ((100 * pHeight) / pCHeight);
-        container.style.width = '20px';
+        scrollercontainer.style.width = '20px';
         scroller.style.height = height + '%';
         scroller.style.top = '0%';
 
         page.addEventListener('scroll', function(event) {
             moveSideScroller(event, height);
+            displayScrollButtons();
         }, { passive: true });
     }
 
@@ -234,6 +231,60 @@ function handleSideScroller(param) {
         let scrollMax = e.target.scrollHeight - e.target.clientHeight;
         let scrolled = (((100 - height) * scrollTop) / scrollMax);
         scroller.style.top = scrolled + '%';
+    }
+}
+
+function handleScrollIndicators(param) {
+    let page = document.getElementById('page');
+    let pageContent = document.getElementById('page-content');
+    if (param.currentpage.scroller) {
+        ishere = document.getElementById('scrolldown');
+        if (ishere) {
+            displayScrollButtons();
+        } else {
+            footer = document.getElementById('footer');
+            let scrolldown = makeElement('scroll-indicator', `<img src='../static/fogdetector/img/scrolldown.svg' />`, 'scrolldown');
+            let scrollup = makeElement('scroll-indicator', `<img src='../static/fogdetector/img/scrollup.svg' />`, 'scrollup');
+
+            scrolldown.addEventListener('click', scrollDown);
+            function scrollDown() {
+                scrolldown.removeEventListener('click', scrollDown);
+                $(page).animate({
+                    scrollTop: $(pageContent).height()
+                }, 200, function() {
+                    scrolldown.addEventListener('click', scrollDown);
+                });
+            }
+
+            scrollup.addEventListener('click', scrollUp);
+            function scrollUp() {
+                scrollup.removeEventListener('click', scrollUp);
+                $(page).animate({
+                    scrollTop: 0
+                }, 200, function() {
+                    scrollup.addEventListener('click', scrollUp);
+                });
+            }
+            footer.append(scrolldown, scrollup);
+            displayScrollButtons()
+        }
+    }
+}
+
+function displayScrollButtons() {
+    let page = document.getElementById('page');
+    let pageContent = document.getElementById('page-content');
+    let scrolldown = document.getElementById('scrolldown');
+    let scrollup = document.getElementById('scrollup');
+    if (page.scrollTop > 0) {
+        addClass(scrollup, 'active');
+    } else {
+        removeClass(scrollup, 'active');
+    }
+    if (page.scrollTop < (pageContent.offsetHeight - page.offsetHeight)) {
+        addClass(scrolldown, 'active');
+    } else {
+        removeClass(scrolldown, 'active');
     }
 }
 
@@ -279,6 +330,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
-function createTable(object) {
-
+function simulateWheelEvent(e, params) {
+    let wheelevent = new WheelEvent('wheel', params);
+    e.dispatchEvent(wheelevent);
 }

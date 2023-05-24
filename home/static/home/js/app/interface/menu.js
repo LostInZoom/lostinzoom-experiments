@@ -98,16 +98,7 @@ function changePage(param, newPage, waiting) {
                 } else if (newPage === 'back') {
                     param.currentpage.page -= 1;
                 }
-
-                if (param.currentpage.page === param.global.general.pages.total) {
-                    param['results'] = { index: 0 }
-                    endSession(param, function(results) {
-                        param.results = results;
-                        pagePhase3();
-                    })
-                } else {
-                    pagePhase3();
-                }
+                pagePhase3();
             }
 
             function pagePhase3() {

@@ -30,10 +30,10 @@ Defining the graphical chart
     --white: #fff;
     --light-gray: rgb(158, 158, 158);
     --dark-gray: rgb(104, 104, 104);
-    --main-light: rgb(138, 163, 196);
-    --main-dark: rgb(100, 121, 146);
-    --main-dark-transparent: rgba(62, 94, 134, 0.6);
-    --main-light-transparent: rgba(131, 157, 189, 0.6);
+    --main-light: rgb(138, 194, 196);
+    --main-dark: rgb(100, 146, 142);
+    --main-dark-transparent: rgba(62, 134, 130, 0.6);
+    --main-light-transparent: rgba(131, 189, 189, 0.6);
     --dev-light: var(--light-gray);
     --dev-dark: var(--dark-gray);
 }

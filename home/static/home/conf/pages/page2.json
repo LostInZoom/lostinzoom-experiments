@@ -1,0 +1,75 @@
+[{
+        "type": "button",
+        "texts": {
+            "en": "Presentation",
+            "fr": "Présentation"
+        },
+        "effect": "back",
+        "dev": false
+    },
+    {
+        "type": "image",
+        "span": "wide",
+        "content": [{
+            "format": "png",
+            "name": "pres-mapdraw",
+            "link": "https://lostinzoom.huma-num.fr/mapdraw",
+            "overlay": {
+                "label": {
+                    "en": "Map Draw",
+                    "fr": "Map Draw"
+                },
+                "description": {
+                    "en": "Choose a map to draw on, and download the data.",
+                    "fr": "Choisissez une carte, dessinez dessus, et téléchargez les données."
+                },
+                "background": true
+            },
+            "style": {
+                "height": "200px",
+                "border-radius": "30px"
+            }
+        },
+        {
+                "format": "png",
+                "name": "pres-fogdetector",
+                "link": "https://lostinzoom.huma-num.fr/fogdetector",
+                "overlay": {
+                    "label": {
+                        "en": "Fog Detector",
+                        "fr": "Fog Detector"
+                    },
+                    "description": {
+                        "en": "Try to find a target as quick as possible after a map animation.",
+                        "fr": "Tentez de trouver une cible aussi rapidement que possible après une animation cartographique."
+                    },
+                    "background": true
+                },
+                "style": {
+                    "height": "200px",
+                    "border-radius": "30px"
+                }
+            },
+            {
+                "format": "png",
+                "name": "pres-anchorwhat",
+                "link": "https://lostinzoom.huma-num.fr/anchorwhat",
+                "overlay": {
+                    "label": {
+                        "en": "Anchorwhat",
+                        "fr": "Anchorwhat"
+                    },
+                    "description": {
+                        "en": "Draw map elements on different basemaps.",
+                        "fr": "Dessinez des éléments sur différents fonds de cartes."
+                    },
+                    "background": true
+                },
+                "style": {
+                    "height": "200px",
+                    "border-radius": "30px"
+                }
+            }
+        ]
+    }
+]

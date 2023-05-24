@@ -914,11 +914,14 @@ function createPage(param) {
  */
 function createFooter(param) {
     try {
+        let page = document.getElementById('page');
+        let pageContent = document.getElementById('page-content');
         let menucontainer = document.getElementById('menu-container');
         //Getting the current language
         let current = param.currentpage.language;
         //Creating the footer div
         let footer = makeElement('footer hidden', false, 'footer');
+
         //Creating the language selection div
         let languages = makeElement('languages', false, 'lang-' + current);
         footer.append(languages);

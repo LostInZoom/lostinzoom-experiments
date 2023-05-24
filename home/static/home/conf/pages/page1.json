@@ -16,8 +16,8 @@
     {
         "type": "subtitle",
         "texts": {
-            "en": "scientific experiments platform",
-            "fr": "plate-forme d'expériences scientifiques"
+            "en": "Cartographic experiments",
+            "fr": "Expériences cartographiques"
         }
     },
     {
@@ -48,5 +48,14 @@
                 }
             }
         ]
+    },
+    {
+        "type": "button",
+        "texts": {
+            "en": "Experiments",
+            "fr": "Expériences"
+        },
+        "effect": "next",
+        "dev": false
     }
 ]

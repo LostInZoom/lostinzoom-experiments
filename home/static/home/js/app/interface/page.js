@@ -844,8 +844,27 @@ function createPage(param) {
                     } else {
                         imagecontent = `<img src='../static/home/img/${file}'/>`
                     }
-                    let imgDiv = makeElement('menu-image', imagecontent);
-                    applyStyle(imgDiv, image.style);
+
+                    let imgDiv = makeElement('menu-image');
+                    let imageContent = makeElement('menu-image-content', imagecontent)
+                    applyStyle(imageContent, image.style);
+
+                    if ('overlay' in image) {
+                        let overlay = makeElement('image-menu-overlay');
+                        addClass(overlay, 'image-menu-overlay-hover');
+                        if (image.overlay.background) {
+                            addClass(overlay, 'image-menu-overlay-hover-back');
+                        } else {
+                            addClass(overlay, 'image-menu-overlay-hover-noback');
+                        }
+                        let overlaylabel = makeElement('image-overlay-label', image.overlay.label[language]);
+                        let overlaydesc = makeElement('image-overlay-description', image.overlay.description[language]);
+                        overlay.append(overlaylabel, overlaydesc);
+                        applyStyle(overlay, image.style);
+                        imgDiv.appendChild(overlay)
+                    }
+                    
+                    imgDiv.appendChild(imageContent)
                     div.appendChild(imgDiv);
                 }
             }

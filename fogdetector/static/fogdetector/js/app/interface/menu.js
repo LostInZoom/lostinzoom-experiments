@@ -15,6 +15,8 @@ function constructPage(param) {
     createPage(param);
     //Displaying the page
     display('page');
+
+    adjustPageContent(param)
 }
 
 /**
@@ -119,9 +121,9 @@ function changePage(param, newPage, waiting) {
 
             function displayNewPage() {
                 //Creating the new page
-                constructPage(param);
                 constructFooter(param);
-
+                constructPage(param);
+                
                 if (param.currentpage.scroller) {
                     display('scroller-container');
                 }
