@@ -57,8 +57,6 @@ def registration(request):
             session.browser = browser.browser.family
             session.user_agent = ua
             session.start = start
-            session.screen_width = data["resolution"][0]
-            session.screen_height = data["resolution"][1]
             session.save()
 
             return HttpResponse(key, mimetype)
@@ -90,6 +88,8 @@ def send_results(request):
             set.x_max = extent[1][0]
             set.y_min = extent[1][1]
             set.y_max = extent[0][1]
+            set.screen_width = data["resolution"][0]
+            set.screen_height = data["resolution"][1]
             set.save()
 
             extentpolygon = Polygon((

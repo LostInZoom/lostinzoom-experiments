@@ -83,7 +83,8 @@ function drawingMode(param) {
                 basemap: param.cartography.currentview.name,
                 fullbasemap: param.cartography.currentview.fullname,
                 center: param.cartography.currentview.center,
-                start: param.drawing.start
+                start: param.drawing.start,
+                resolution: [container.clientWidth, container.clientHeight]
             };
             let canvases = param.cartography.canvases;
             let nb = 1;

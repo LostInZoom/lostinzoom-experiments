@@ -8,8 +8,6 @@ class Sessions(models.Model):
     os = models.CharField(max_length=100, blank=True, null=True)
     browser = models.CharField(max_length=100, blank=True, null=True)
     user_agent = models.CharField(max_length=500, blank=True, null=True)
-    screen_width = models.IntegerField(blank=True, null=True)
-    screen_height = models.IntegerField(blank=True, null=True)
     class Meta:
         managed = True
         db_table = 'deepmapdraw\".\"sessions'
@@ -26,6 +24,8 @@ class Sets(models.Model):
     x_max = models.DecimalField(max_digits=19, decimal_places=10, blank=True, null=True)
     y_min = models.DecimalField(max_digits=19, decimal_places=10, blank=True, null=True)
     y_max = models.DecimalField(max_digits=19, decimal_places=10, blank=True, null=True)
+    screen_width = models.IntegerField(blank=True, null=True)
+    screen_height = models.IntegerField(blank=True, null=True)
     class Meta:
         managed = True
         db_table = 'deepmapdraw\".\"sets'
