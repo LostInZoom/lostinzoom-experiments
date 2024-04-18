@@ -31,6 +31,26 @@
             }
         },
         {
+            "format": "png",
+            "name": "pres-zoomtracker",
+            "link": "https://lostinzoom.huma-num.fr/zoomtracker",
+            "overlay": {
+                "label": {
+                    "en": "Zoom Tracker",
+                    "fr": "Zoom Tracker"
+                },
+                "description": {
+                    "en": "Record your interactions with the map.",
+                    "fr": "Enregistrez vos interactions avec la carte."
+                },
+                "background": true
+            },
+            "style": {
+                "height": "200px",
+                "border-radius": "30px"
+            }
+        },
+        {
                 "format": "png",
                 "name": "pres-fogdetector",
                 "link": "https://lostinzoom.huma-num.fr/fogdetector",
@@ -51,7 +71,7 @@
                 }
             },
             {
-                "format": "png",
+                "format": "jpg",
                 "name": "pres-anchorwhat",
                 "link": "https://lostinzoom.huma-num.fr/anchorwhat",
                 "overlay": {

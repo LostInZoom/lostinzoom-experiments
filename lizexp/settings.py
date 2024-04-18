@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'fogdetector',
     'anchorwhat',
     'mapdraw',
+    'zoomtracker',
     'deepmapdraw',
 ]
 

@@ -1,0 +1,74 @@
+{
+    "basemaps": [{
+            "name": "osm",
+            "fullname": "Open Street Map",
+            "preload": "Infinity",
+            "source": {
+                "type": "OSM"
+            }
+        },
+        {
+            "name": "pign",
+            "fullname": "IGN Plan",
+            "preload": "Infinity",
+            "source": {
+                "type": "WMTS",
+                "provider": "IGN",
+                "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
+                "layer": "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
+                "matrixSet": "PM",
+                "format": "image/png",
+                "style": "normal",
+                "requestEncoding": "KVP",
+                "dimensions": [256, 256],
+                "tileGrid": {
+                    "origin": [-20037508, 20037508]
+                }
+            }
+        },
+        {
+            "name": "mign",
+            "fullname": "IGN Maps",
+            "preload": "Infinity",
+            "source": {
+                "type": "WMTS",
+                "provider": "IGN",
+                "url": "https://wxs.ign.fr/IGN_SECRET_KEY/geoportail/wmts",
+                "layer": "GEOGRAPHICALGRIDSYSTEMS.MAPS",
+                "matrixSet": "PM",
+                "format": "image/jpeg",
+                "style": "normal",
+                "requestEncoding": "KVP",
+                "dimensions": [256, 256],
+                "tileGrid": {
+                    "origin": [-20037508, 20037508]
+                }
+            }
+        },
+        {
+            "name": "ortho",
+            "fullname": "IGN Orthophotos",
+            "preload": "Infinity",
+            "source": {
+                "type": "WMTS",
+                "provider": "IGN",
+                "url": "https://wxs.ign.fr/essentiels/geoportail/wmts",
+                "layer": "ORTHOIMAGERY.ORTHOPHOTOS",
+                "matrixSet": "PM",
+                "format": "image/jpeg",
+                "style": "normal",
+                "requestEncoding": "KVP",
+                "dimensions": [256, 256],
+                "tileGrid": {
+                    "origin": [-20037508, 20037508]
+                }
+            }
+        }
+    ],
+    "currentview": {
+        "name": "osm",
+        "fullname": "Open Street Map",
+        "center": [281164.34, 5858095.39],
+        "zoom": 6
+    }
+}
