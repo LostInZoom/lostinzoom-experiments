@@ -320,7 +320,7 @@ function updateGeographicInformations(center, zoom, param) {
     if (zoomvalue) { zoomvalue.innerHTML = parseInt(zoom); }
 }
 
-function downloadMapImage(data, param) {
+function getBasemapImage(param, callback) {
     let container = document.getElementById('container');
     let width = container.offsetWidth;
     let height = container.offsetHeight;
@@ -329,23 +329,17 @@ function downloadMapImage(data, param) {
     mapCanvas.width = width;
     mapCanvas.height = height;
     let mapContext = mapCanvas.getContext('2d');
-    param.cartography.currentview.name === 'google' ? getGooglecanvas(printMap) : getOLcanvas(printMap)
 
-    function printMap(layers) {
+    if (param.cartography.currentview.name === 'google') {
+        getGooglecanvas((layers) => { callback(getBase64Image(layers)) })
+    } else {
+        getOLcanvas((layers) => { callback(getBase64Image(layers)) })
+    }
+
+    function getBase64Image(layers) {
         layers.forEach(function(canvas) { mapContext.drawImage(canvas, 0, 0); })
-        createLegend(data, function(legend) {
-            mapContext.drawImage(legend, (width - (document.getElementById('legend-container').offsetWidth + 15)), 15);
-            mapContext.globalAlpha = 1;
-            mapContext.setTransform(1, 0, 0, 1, 0, 0);
-            let link = document.createElement('a');
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            link.setAttribute('href', mapCanvas.toDataURL());
-            link.setAttribute('download', data.filename + '.png');
-            link.click();
-            link.remove();
-            document.getElementById('legend-container').remove();
-        });
+        let base64 = mapCanvas.toDataURL("image/jpeg");
+        return base64;
     }
 
     function getGooglecanvas(callback) {
@@ -357,8 +351,7 @@ function downloadMapImage(data, param) {
             logging: false
         }).then(function(canvas) {
             callback(new Set([
-                canvas,
-                ...document.querySelectorAll('.canvas-container > canvas.lower-canvas')
+                canvas
             ]));
         })
     }
@@ -367,46 +360,9 @@ function downloadMapImage(data, param) {
         let map = param.cartography.olmap;
         map.once('rendercomplete', function() {
             callback(new Set([
-                ...map.getViewport().querySelectorAll('.ol-layer canvas, canvas.ol-layer'),
-                ...document.querySelectorAll('.canvas-container > canvas.lower-canvas')
+                ...map.getViewport().querySelectorAll('.ol-layer canvas, canvas.ol-layer')
             ]));
         });
         map.renderSync();
-    }
-
-    function createLegend(data, callback) {
-        let container = document.getElementById('container');
-        let layersdiv = document.getElementsByClassName('color-container')[0];
-        let width = 307;
-        let height = layersdiv.offsetHeight;
-
-        let legendContainer = makeElement(false, false, 'legend-container');
-        legendContainer.style.height = height + 'px';
-        legendContainer.style.width = width + 'px';
-        container.append(legendContainer);
-
-        let time = makeElement('legend-items', 'time: <b>' + data.time + '</b>');
-        if (data.layers.length > 1) { time.style.marginTop = '10px' }
-        let basemap = makeElement('legend-items', 'basemap: <b>' + data.fullbasemap + '</b>');
-        let zoom = makeElement('legend-items', 'zoom: <b>' + data.zoom + '</b>');
-
-        let layers = makeElement('legend-layers-container');
-        for (let i = 0; i < data.layers.length; ++i) {
-            let layer = makeElement('legend-layers');
-            let layercolor = makeElement('legend-layers-color');
-            layercolor.style.backgroundColor = data.layers[i].colors.menu;
-            let layername = makeElement('legend-layers-name', data.layers[i].name);
-            layer.append(layercolor, layername);
-            layers.append(layer);
-        }
-
-        legendContainer.append(time, basemap, zoom, layers);
-
-        html2canvas(legendContainer, {
-            useCORS: true,
-            logging: false
-        }).then(function(canvas) {
-            callback(canvas);
-        });
     }
 }

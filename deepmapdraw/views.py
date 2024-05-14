@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, FileResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files.base import ContentFile
 from django.contrib.gis.geos import Polygon, MultiPolygon, LineString, Point
 from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_GET
@@ -14,6 +15,7 @@ from deepmapdraw.models import Sessions, Sets, Layers
 from mapdraw.setup import *
 from lizexp import settings
 import json
+import base64
 
 # Create your views here.
 
@@ -70,16 +72,19 @@ def send_results(request):
             layers = data['objects']
             layerinfo = data['layers']
             basemap = data['basemap']
+            baseimage = data['imagebasemap']
             zoom = data['zoom']
             extent = data['extent']
             center = data['center']
 
             session = Sessions.objects.get(django_key=data['user'])
+
             set = Sets()
             set.session = session
             set.start = data['start']
             set.end = data['end']
             set.basemap = basemap
+            set.basemapimage = baseimage
             set.zoom = zoom
             set.basemap = basemap
             set.center_x = center[0]

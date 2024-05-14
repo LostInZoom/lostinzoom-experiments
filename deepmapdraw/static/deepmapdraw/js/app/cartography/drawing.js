@@ -75,98 +75,101 @@ function drawingMode(param) {
 
     downloadbutton.addEventListener('click', function() {
         if (hasClass(downloadbutton, 'active')) {
-            let results = {
-                user: param.user,
-                objects: [],
-                layers: [],
-                zoom: param.cartography.currentview.zoom,
-                basemap: param.cartography.currentview.name,
-                fullbasemap: param.cartography.currentview.fullname,
-                center: param.cartography.currentview.center,
-                start: param.drawing.start,
-                resolution: [container.clientWidth, container.clientHeight]
-            };
-            let canvases = param.cartography.canvases;
-            let nb = 1;
-            Object.keys(canvases.canvas).forEach(function(key) {
-                let paths = [];
-                let obj = canvases.canvas[key];
-                let objects = obj.objects;
-                for (o = 0; o < objects.length; ++o) {
-                    paths.push({
-                        geometry: objects[o].geometry,
-                        timestamp: objects[o].timestamp,
-                        date: objects[o].date,
-                        thickness: objects[o].thickness,
-                        buffer: pxToMeters(objects[o].thickness, param.cartography.currentview.zoom, param)
+            getBasemapImage(param, (image) => {
+                let results = {
+                    user: param.user,
+                    objects: [],
+                    layers: [],
+                    zoom: param.cartography.currentview.zoom,
+                    basemap: param.cartography.currentview.name,
+                    fullbasemap: param.cartography.currentview.fullname,
+                    imagebasemap: image,
+                    center: param.cartography.currentview.center,
+                    start: param.drawing.start,
+                    resolution: [container.clientWidth, container.clientHeight]
+                };
+                let canvases = param.cartography.canvases;
+                let nb = 1;
+                Object.keys(canvases.canvas).forEach(function(key) {
+                    let paths = [];
+                    let obj = canvases.canvas[key];
+                    let objects = obj.objects;
+                    for (o = 0; o < objects.length; ++o) {
+                        paths.push({
+                            geometry: objects[o].geometry,
+                            timestamp: objects[o].timestamp,
+                            date: objects[o].date,
+                            thickness: objects[o].thickness,
+                            buffer: pxToMeters(objects[o].thickness, param.cartography.currentview.zoom, param)
+                        });
+                    }
+                    let layer = {
+                        number: nb,
+                        name: obj.name,
+                        colors: obj.colors
+                    }
+                    results.objects.push(paths);
+                    results.layers.push(layer);
+                    ++nb;
+                });
+    
+                results['extent'] = [
+                    getCoordinatesFromPixel(0, 0, 0, 0, param),
+                    getCoordinatesFromPixel(width, height, 0, 0, param)
+                ]
+    
+                let date = new Date();
+                let year = date.getFullYear();
+                let month = padTime(date.getMonth() + 1);
+                let day = padTime(date.getDate());
+                let hour = padTime(date.getHours());
+                let minutes = padTime(date.getMinutes());
+                let seconds = padTime(date.getSeconds());
+    
+                results['time'] = year.toString() + '-' + month.toString() + '-' + day.toString() + ' ' + hour.toString() + ':' + minutes.toString() + ':' + seconds.toString();
+                results['filename'] = 'mapdraw-' + year.toString() + month.toString() + day.toString() + hour.toString() + minutes.toString() + seconds.toString();
+                results['end'] = new Date();
+    
+                popuptext.innerHTML = 'Sending results will bring you back to navigation mode and erase your current drawing.<br>Continue?';
+                addClassList([popucontainer, popupmask], 'active');
+                popupbuttonyes.addEventListener('click', yesSendListener);
+                popupbuttonno.addEventListener('click', noSendListener);
+    
+                function yesSendListener(event) {
+                    navigationbutton.removeEventListener('click', navigationModeListener);
+                    popupbuttonyes.removeEventListener('click', yesSendListener);
+                    popupbuttonno.removeEventListener('click', noSendListener);
+                    removeClassList([popucontainer, popupmask], 'active');
+                    sendResults(results);
+                }
+    
+                function noSendListener(event) {
+                    popupbuttonno.removeEventListener('click', noSendListener);
+                    popupbuttonyes.removeEventListener('click', yesSendListener);
+                    removeClassList([popucontainer, popupmask], 'active');
+                    waitMap(0.2, function() {
+                        popuptext.innerHTML = 'Getting back to navigation mode will erase your current drawing.<br>Continue?';
                     });
                 }
-                let layer = {
-                    number: nb,
-                    name: obj.name,
-                    colors: obj.colors
-                }
-                results.objects.push(paths);
-                results.layers.push(layer);
-                ++nb;
-            });
-
-            results['extent'] = [
-                getCoordinatesFromPixel(0, 0, 0, 0, param),
-                getCoordinatesFromPixel(width, height, 0, 0, param)
-            ]
-
-            let date = new Date();
-            let year = date.getFullYear();
-            let month = padTime(date.getMonth() + 1);
-            let day = padTime(date.getDate());
-            let hour = padTime(date.getHours());
-            let minutes = padTime(date.getMinutes());
-            let seconds = padTime(date.getSeconds());
-
-            results['time'] = year.toString() + '-' + month.toString() + '-' + day.toString() + ' ' + hour.toString() + ':' + minutes.toString() + ':' + seconds.toString();
-            results['filename'] = 'mapdraw-' + year.toString() + month.toString() + day.toString() + hour.toString() + minutes.toString() + seconds.toString();
-            results['end'] = new Date();
-
-            popuptext.innerHTML = 'Sending results will bring you back to navigation mode and erase your current drawing.<br>Continue?';
-            addClassList([popucontainer, popupmask], 'active');
-            popupbuttonyes.addEventListener('click', yesSendListener);
-            popupbuttonno.addEventListener('click', noSendListener);
-
-            function yesSendListener(event) {
-                navigationbutton.removeEventListener('click', navigationModeListener);
-                popupbuttonyes.removeEventListener('click', yesSendListener);
-                popupbuttonno.removeEventListener('click', noSendListener);
-                removeClassList([popucontainer, popupmask], 'active');
-                sendResults(results);
-            }
-
-            function noSendListener(event) {
-                popupbuttonno.removeEventListener('click', noSendListener);
-                popupbuttonyes.removeEventListener('click', yesSendListener);
-                removeClassList([popucontainer, popupmask], 'active');
-                waitMap(0.2, function() {
-                    popuptext.innerHTML = 'Getting back to navigation mode will erase your current drawing.<br>Continue?';
-                });
-            }
-
-            function sendResults(data) {
-                $.ajax({
-                    url: "send_results/",
-                    type: 'POST',
-                    data: {
-                        csrfmiddlewaretoken: getCookie('csrftoken'),
-                        data: JSON.stringify(data)
-                    },
-                    success: function(geojson) {
-                        let clear = document.getElementsByClassName('clear-button');
-                        for (let i = 0; i < clear.length; ++i) {
-                            clear[i].click();
+    
+                function sendResults(data) {
+                    $.ajax({
+                        url: "send_results/",
+                        type: 'POST',
+                        data: {
+                            csrfmiddlewaretoken: getCookie('csrftoken'),
+                            data: JSON.stringify(data)
+                        },
+                        success: function(geojson) {
+                            let clear = document.getElementsByClassName('clear-button');
+                            for (let i = 0; i < clear.length; ++i) {
+                                clear[i].click();
+                            }
+                            returnNavigation();
                         }
-                        returnNavigation();
-                    }
-                })
-            };
+                    })
+                };
+            });
         }
     });
 

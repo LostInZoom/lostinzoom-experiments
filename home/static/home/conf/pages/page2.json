@@ -11,7 +11,7 @@
         "type": "image",
         "span": "wide",
         "content": [{
-            "format": "png",
+            "format": "jpg",
             "name": "pres-mapdraw",
             "link": "https://lostinzoom.huma-num.fr/mapdraw",
             "overlay": {
@@ -31,7 +31,7 @@
             }
         },
         {
-            "format": "png",
+            "format": "jpg",
             "name": "pres-zoomtracker",
             "link": "https://lostinzoom.huma-num.fr/zoomtracker",
             "overlay": {
@@ -51,7 +51,7 @@
             }
         },
         {
-                "format": "png",
+                "format": "jpg",
                 "name": "pres-fogdetector",
                 "link": "https://lostinzoom.huma-num.fr/fogdetector",
                 "overlay": {

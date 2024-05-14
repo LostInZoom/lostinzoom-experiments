@@ -27,8 +27,7 @@ function constructOpenLayersMap(target, param, opt) {
 function createOpenLayersMap(target, opt) {
     let view = new ol.View({
         center: opt.center,
-        zoom: opt.zoom,
-        constrainResolution: true
+        zoom: opt.zoom
     })
     return new ol.Map({
         target: target,
@@ -317,7 +316,7 @@ function updateGeographicInformations(center, zoom, param) {
     let zoomvalue = document.getElementById('zoom-value');
     if (xvalue) { xvalue.innerHTML = dcenter[0]; }
     if (yvalue) { yvalue.innerHTML = dcenter[1]; }
-    if (zoomvalue) { zoomvalue.innerHTML = parseInt(zoom); }
+    if (zoomvalue) { zoomvalue.innerHTML = zoom.toString(); }
 }
 
 function downloadMapImage(data, param) {

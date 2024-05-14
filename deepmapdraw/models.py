@@ -17,6 +17,7 @@ class Sets(models.Model):
     start = models.DateTimeField(blank=True, null=True)
     end = models.DateTimeField(blank=True, null=True)
     basemap = models.CharField(max_length=100, blank=True, null=True)
+    basemapimage = models.TextField(blank=True, null=True)
     zoom = models.IntegerField(blank=True, null=True)
     center_x = models.DecimalField(max_digits=19, decimal_places=10, blank=True, null=True)
     center_y = models.DecimalField(max_digits=19, decimal_places=10, blank=True, null=True)
