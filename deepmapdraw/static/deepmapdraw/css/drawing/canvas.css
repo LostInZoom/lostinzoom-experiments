@@ -55,7 +55,7 @@
     flex-direction: column;
     align-items: flex-end;
     padding: 15px;
-    overflow: hidden;
+    /* overflow: hidden; */
     transition: all .2s linear;
     -webkit-transition: all .2s linear;
     -moz-transition: all .2s linear;
@@ -65,7 +65,7 @@
 
 .color-container {
     pointer-events: all;
-    overflow: scroll;
+    /* overflow: scroll; */
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -282,11 +282,64 @@
     border-right: solid 1.5px white;
 }
 
+.color-predefined {
+    width: 26px;
+    border-right: solid 1.5px white;
+}
+
+.color-selected {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
 .color-select-container {
+    position: relative;
     width: 200px;
     justify-content: flex-start;
     margin: 0 6px;
-    overflow: hidden;
+}
+
+.predefined-container {
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+
+.predefined-container.active {
+    opacity: 1;
+}
+
+.predefined-cancel {
+    color: white;
+    user-select: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: background .1s linear;
+}
+
+.predefined-cancel:hover {
+    background-color: inherit;
+}
+
+.predefined-element {
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background .1s linear;
+}
+
+.predefined-element:hover {
+    background-color: inherit;
 }
 
 .color-select {

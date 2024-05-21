@@ -13,13 +13,20 @@
         }
     },
     "text": {
-        "layer": "Layer",
+        "layer": "Couche",
         "controls": [{
             "name": "undo",
-            "label": "Undo"
+            "label": "Annuler"
         }, {
             "name": "clear",
-            "label": "Clear colour"
-        }]
+            "label": "Vider la couleur courante"
+        }],
+        "defaultNames": [
+            "Ancres artificiels (symboles, toponymes, frontières administratives, etc.)",
+            "Réseaux de transports",
+            "Villes, bâtiments, parcs",
+            "Eau (lac, rivière, trait de côte, etc.)",
+            "Forêts, montagnes et autres sites naturels remarquables"
+        ]
     }
 }

@@ -8,7 +8,7 @@ function navigationMode(param) {
     let container = document.getElementById('container');
 
     let drawingcontainer = makeElement('mode-container drawing-mode-container');
-    let drawingbutton = makeElement('mode-button', `<img src='../static/mapdraw/img/drawing.svg' />`);
+    let drawingbutton = makeElement('mode-button', `<img src='../static/deepmapdraw/img/drawing.svg' />`);
     let tooltip = makeElement('drawing-control-tooltip', 'Drawing mode');
     drawingbutton.addEventListener('mouseenter', function(event) {
         addClass(tooltip, 'active');

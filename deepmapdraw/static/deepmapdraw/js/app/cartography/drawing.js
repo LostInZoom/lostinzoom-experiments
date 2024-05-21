@@ -46,7 +46,7 @@ function drawingMode(param) {
     container.appendChild(popupmask);
 
     let navigationcontainer = makeElement('mode-container navigation-mode-container');
-    let navigationbutton = makeElement('mode-button', `<img src='../static/mapdraw/img/navigation.svg' />`);
+    let navigationbutton = makeElement('mode-button', `<img src='../static/deepmapdraw/img/navigation.svg' />`);
     let navigationtooltip = makeElement('drawing-control-tooltip', 'Navigation mode');
     navigationbutton.addEventListener('mouseenter', function(event) {
         addClass(navigationtooltip, 'active');
@@ -62,7 +62,7 @@ function drawingMode(param) {
     container.appendChild(drawing);
 
     let downloadcontainer = makeElement('mode-container download-container');
-    let downloadbutton = makeElement('mode-button button-download', `<img src='../static/mapdraw/img/download.svg' />`);
+    let downloadbutton = makeElement('mode-button button-download', `<img src='../static/deepmapdraw/img/download.svg' />`);
     let downloadtooltip = makeElement('drawing-control-tooltip', 'Send results');
     downloadbutton.addEventListener('mouseenter', function(event) {
         addClass(downloadtooltip, 'active');
@@ -127,7 +127,7 @@ function drawingMode(param) {
                 let seconds = padTime(date.getSeconds());
     
                 results['time'] = year.toString() + '-' + month.toString() + '-' + day.toString() + ' ' + hour.toString() + ':' + minutes.toString() + ':' + seconds.toString();
-                results['filename'] = 'mapdraw-' + year.toString() + month.toString() + day.toString() + hour.toString() + minutes.toString() + seconds.toString();
+                results['filename'] = 'deepmapdraw-' + year.toString() + month.toString() + day.toString() + hour.toString() + minutes.toString() + seconds.toString();
                 results['end'] = new Date();
     
                 popuptext.innerHTML = 'Sending results will bring you back to navigation mode and erase your current drawing.<br>Continue?';
@@ -187,7 +187,7 @@ function drawingMode(param) {
     param.cartography.canvases['layernumber'] = 0;
     param.cartography.canvases['layertotal'] = 0;
 
-    let layeradd = makeElement('add-layer', `<img src='../static/mapdraw/img/layer.svg' />`);
+    let layeradd = makeElement('add-layer', `<img src='../static/deepmapdraw/img/layer.svg' />`);
     layeradd.addEventListener('click', addLayerListener);
     colormanagement.append(colorcontainer, layeradd);
     container.appendChild(colormanagement);
@@ -312,21 +312,42 @@ function drawingMode(param) {
         colorinput.style.backgroundColor = color.rgba.menu;
 
         let changecolorcontainer = makeElement('color-change-container');
-        let changecolor = makeElement('color-change', `<img src='../static/mapdraw/img/change.svg' />`);
+        let changecolor = makeElement('color-change', `<img src='../static/deepmapdraw/img/change.svg' />`);
         changecolorcontainer.appendChild(changecolor);
-        let rename = makeElement('color-rename color-input-items', `<img src='../static/mapdraw/img/rename.svg' />`);
+        let rename = makeElement('color-rename color-input-items', `<img src='../static/deepmapdraw/img/rename.svg' />`);
+        let predefined = makeElement('color-predefined color-input-items', `<img src='../static/deepmapdraw/img/text.svg' />`);
+
+        predefined.addEventListener('click', openPredefined);
+
+        function openPredefined(e) {
+            predefined.removeEventListener('click', openPredefined);
+            let predefinedcontainer = makeElement('predefined-container mask');
+            predefinedcontainer.style.backgroundColor = color.rgba.menu;
+            container.append(predefinedcontainer);
+
+            waitMap(0.01, () => {
+                addClass(predefinedcontainer, 'active');
+                let defaultNames = param.drawing.text.defaultNames;
+                for (n = 0; n < defaultNames.length; ++n) {
+                    let predefinedelement = makeElement('predefined-element', defaultNames[n]);
+                    predefinedcontainer.append(predefinedelement);
+                }
+                predefinedcontainer.append(makeElement('predefined-cancel', 'Annuler'));
+            })
+        }
+
         let colorselectcontainer = makeElement('color-select-container color-input-items');
         let colorselect = makeElement('color-select color-input-items placeholder', placeholder);
-        let deletecolor = makeElement('color-delete color-input-items', `<img src='../static/mapdraw/img/clear.svg' />`);
+        let deletecolor = makeElement('color-delete color-input-items', `<img src='../static/deepmapdraw/img/clear.svg' />`);
 
         colorselect.setAttribute('spellcheck', 'false');
-        colorselectcontainer.appendChild(colorselect);
+        colorselectcontainer.append(colorselect);
         changecolorcontainer.addEventListener('click', changeLayerColor);
         rename.addEventListener('click', renameLayer);
         colorselectcontainer.addEventListener('click', activateLayer);
         deletecolor.addEventListener('click', deleteLayer);
 
-        colorinput.append(changecolorcontainer, rename, colorselectcontainer, deletecolor);
+        colorinput.append(changecolorcontainer, predefined, rename, colorselectcontainer, deletecolor);
         colorcontainer.appendChild(colorinput);
 
         let controlcontainer = makeElement('drawing-control-container');
@@ -336,7 +357,7 @@ function drawingMode(param) {
             let name = controls[c].name;
             // Creating DOM elements of the control
             let cont = makeElement('drawing-control');
-            let button = makeElement('drawing-control-button ' + name + '-button', `<img src='../static/mapdraw/img/${name}.svg' />`);
+            let button = makeElement('drawing-control-button ' + name + '-button', `<img src='../static/deepmapdraw/img/${name}.svg' />`);
             // Setting the backgroung color of the button according to the layer's color
             button.style.backgroundColor = color.rgba.menu;
             // Defining the event triggered when clicking on the control button
@@ -608,11 +629,11 @@ function drawingMode(param) {
             addClass(changecolorcontainer, 'active');
             hideE(changecolor);
 
-            let randomcolor = makeElement('random-color color-change-items hidden', `<img src='../static/mapdraw/img/random.svg' />`);
+            let randomcolor = makeElement('random-color color-change-items hidden', `<img src='../static/deepmapdraw/img/random.svg' />`);
             let selectcolor = makeElement('select-color color-change-items hidden');
             let slidercontainer = makeElement('slider-container');
             let sliderhandle = makeElement('slider-handle');
-            let validatecolor = makeElement('validate-color color-change-items hidden', `<img src='../static/mapdraw/img/validate.svg' />`);
+            let validatecolor = makeElement('validate-color color-change-items hidden', `<img src='../static/deepmapdraw/img/validate.svg' />`);
             let defaultcolorcontainer = makeElement('default-color-container');
 
             slidercontainer.appendChild(sliderhandle);
@@ -739,7 +760,7 @@ function drawingMode(param) {
 
                     waitMap(0.2, function() {
                         removeClass(colorinput, 'colorselect');
-                        changecolor = makeElement('color-change hidden', `<img src='../static/mapdraw/img/change.svg' />`);
+                        changecolor = makeElement('color-change hidden', `<img src='../static/deepmapdraw/img/change.svg' />`);
                         changecolorcontainer.appendChild(changecolor);
 
                         removeClass(changecolorcontainer, 'active');

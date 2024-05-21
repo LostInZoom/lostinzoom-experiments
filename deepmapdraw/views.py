@@ -12,7 +12,7 @@ from device_detector import DeviceDetector
 from django.contrib.sessions.backends.db import SessionStore
 from user_agents import parse
 from deepmapdraw.models import Sessions, Sets, Layers
-from mapdraw.setup import *
+from deepmapdraw.setup import *
 from lizexp import settings
 import json
 import base64
@@ -109,7 +109,7 @@ def send_results(request):
             indexempty = 0
             features = {
                 "type": "FeatureCollection",
-                "name": "Deepmapdraw export",
+                "name": "deepmapdraw export",
                 "crs": {
                     "type": "name",
                     "properties": {

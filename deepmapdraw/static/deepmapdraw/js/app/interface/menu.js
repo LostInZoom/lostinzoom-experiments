@@ -85,13 +85,13 @@ function createInterface(param) {
     param['mode'] = 'navigation';
 
     let geoinfoscontainer = makeElement('geo-infos-container');
-    let geoinfos = makeElement('geo-infos', `<img src='../static/mapdraw/img/help.svg' />`);
+    let geoinfos = makeElement('geo-infos', `<img src='../static/deepmapdraw/img/help.svg' />`);
     geoinfoscontainer.addEventListener('click', openInformations);
     geoinfoscontainer.append(geoinfos);
 
     let projectioncontainer = makeElement('select-projection-container');
     let projectioninfos = makeElement('projection-infos');
-    let projectionchange = makeElement('projection-change', `<img src='../static/mapdraw/img/earth.svg' />`);
+    let projectionchange = makeElement('projection-change', `<img src='../static/deepmapdraw/img/earth.svg' />`);
     projectioncontainer.append(projectioninfos, projectionchange);
 
     projectioninfos.innerHTML = 'Pseudo mercator';
