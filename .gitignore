@@ -7,6 +7,9 @@ server/
 # VS Code
 .vscode/
 
+# Venv
+.venv/
+
 # Ignore django migrations
 **/migrations
 
