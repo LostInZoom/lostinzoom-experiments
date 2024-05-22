@@ -316,25 +316,7 @@ function drawingMode(param) {
         changecolorcontainer.appendChild(changecolor);
         let rename = makeElement('color-rename color-input-items', `<img src='../static/deepmapdraw/img/rename.svg' />`);
         let predefined = makeElement('color-predefined color-input-items', `<img src='../static/deepmapdraw/img/text.svg' />`);
-
         predefined.addEventListener('click', openPredefined);
-
-        function openPredefined(e) {
-            predefined.removeEventListener('click', openPredefined);
-            let predefinedcontainer = makeElement('predefined-container mask');
-            predefinedcontainer.style.backgroundColor = color.rgba.menu;
-            container.append(predefinedcontainer);
-
-            waitMap(0.01, () => {
-                addClass(predefinedcontainer, 'active');
-                let defaultNames = param.drawing.text.defaultNames;
-                for (n = 0; n < defaultNames.length; ++n) {
-                    let predefinedelement = makeElement('predefined-element', defaultNames[n]);
-                    predefinedcontainer.append(predefinedelement);
-                }
-                predefinedcontainer.append(makeElement('predefined-cancel', 'Annuler'));
-            })
-        }
 
         let colorselectcontainer = makeElement('color-select-container color-input-items');
         let colorselect = makeElement('color-select color-input-items placeholder', placeholder);
@@ -584,7 +566,6 @@ function drawingMode(param) {
         }
 
         function renameLayer(event) {
-            let text;
             colorselect.setAttribute('contenteditable', 'true');
             if (colorselect.innerHTML === placeholder) {
                 colorselect.innerHTML = '';
@@ -609,17 +590,59 @@ function drawingMode(param) {
             });
 
             $(colorselect).focus();
+        }
 
-            function validateLayerName() {
-                text = colorselect.innerHTML.replace(/(<br>\s*)+$/, '');
-                colorselect.innerHTML = '';
-                colorselect.innerHTML = text;
-                param.cartography.canvases.canvas['layer' + nb].name = text;
-                $(colorselect).unbind('focus');
-                $(colorselect).unbind('focusout');
-                $(colorselect).unbind('keypress');
-                colorselect.setAttribute('contenteditable', 'false');
+        function openPredefined(e) {
+            predefined.removeEventListener('click', openPredefined);
+            let predefinedmask = makeElement('predefined-mask mask');
+            let predefinedcontainer = makeElement('predefined-container');
+            predefinedcontainer.style.backgroundColor = color.rgba.menu;
+            predefinedmask.append(predefinedcontainer);
+            container.append(predefinedmask);
+
+            waitMap(0.01, () => {
+                addClass(predefinedmask, 'active');
+                let defaultNames = param.drawing.text.defaultNames;
+                for (n = 0; n < defaultNames.length; ++n) {
+                    let predefinedelement = makeElement('predefined-element', defaultNames[n]);
+                    predefinedcontainer.append(predefinedelement);
+                    predefinedelement.addEventListener('click', validatePredefined);
+                }
+                let predefinedcancel = makeElement('predefined-cancel', 'Annuler');
+                predefinedcancel.addEventListener('click', cancelPredefined);
+                predefinedcontainer.append(predefinedcancel);
+            });
+
+            function validatePredefined(e) {
+                e.target.removeEventListener('click', validatePredefined);
+                colorselect.innerHTML = e.target.innerHTML;
+                validateLayerName();
+                closePredefined();
             }
+
+            function cancelPredefined(e) {
+                e.target.removeEventListener('click', cancelPredefined);
+                closePredefined();
+            }
+
+            function closePredefined() {
+                removeClass(predefinedmask, 'active');
+                waitMap(0.2, () => {
+                    predefinedmask.remove();
+                    predefined.addEventListener('click', openPredefined);
+                });
+            }
+        }
+
+        function validateLayerName() {
+            let text = colorselect.innerHTML.replace(/(<br>\s*)+$/, '');
+            colorselect.innerHTML = '';
+            colorselect.innerHTML = text;
+            param.cartography.canvases.canvas['layer' + nb].name = text;
+            $(colorselect).unbind('focus');
+            $(colorselect).unbind('focusout');
+            $(colorselect).unbind('keypress');
+            colorselect.setAttribute('contenteditable', 'false');
         }
 
         function changeLayerColor(event) {
