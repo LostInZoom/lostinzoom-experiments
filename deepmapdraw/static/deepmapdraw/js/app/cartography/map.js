@@ -315,8 +315,18 @@ function updateGeographicInformations(center, zoom, param) {
     let xvalue = document.getElementById('x-value');
     let yvalue = document.getElementById('y-value');
     let zoomvalue = document.getElementById('zoom-value');
-    if (xvalue) { xvalue.innerHTML = dcenter[0]; }
-    if (yvalue) { yvalue.innerHTML = dcenter[1]; }
+    if (xvalue) {
+        let newx;
+        if (param.cartography.currentview.projection === "4326") { newx = dcenter[0]; }
+        else { newx = parseInt(dcenter[0]); }
+        xvalue.innerHTML = newx;
+    }
+    if (yvalue) {
+        let newy;
+        if (param.cartography.currentview.projection === "4326") { newy = dcenter[1]; }
+        else { newy = parseInt(dcenter[1]); }
+        yvalue.innerHTML = newy;
+    }
     if (zoomvalue) { zoomvalue.innerHTML = parseInt(zoom); }
 }
 

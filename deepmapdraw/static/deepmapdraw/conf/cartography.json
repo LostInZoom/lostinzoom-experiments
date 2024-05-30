@@ -75,7 +75,7 @@
     "currentview": {
         "name": "osm",
         "fullname": "Open Street Map",
-        "center": [281164.34, 5858095.39],
+        "center": [281164, 5858095],
         "zoom": 6
     }
 }
