@@ -118,7 +118,10 @@ function createInterface(param) {
 
 
     let xval, yval, zoomval;
-    $(xvalue).focus(function() { xval = selectTextInDiv(this); });
+    $(xvalue).focus(function() { 
+        xval = selectTextInDiv(this);
+        xvalue.addEventListener("paste", pasteAsPlainText);
+    });
     $(xvalue).keypress(function(event) {
         if (event.which === 13) {
             event.preventDefault();
@@ -126,6 +129,7 @@ function createInterface(param) {
         }
     });
     $(xvalue).focusout(function() {
+        xvalue.removeEventListener("paste", pasteAsPlainText);
         let val = xvalue.innerHTML;
         let bounds = current.bounds;
         if (isNaN(parseFloat(val)) || val < bounds.min[0] || val > bounds.max[0]) {
@@ -137,7 +141,10 @@ function createInterface(param) {
         }
     });
 
-    $(yvalue).focus(function() { yval = selectTextInDiv(this); });
+    $(yvalue).focus(function() { 
+        yval = selectTextInDiv(this);
+        yvalue.addEventListener("paste", pasteAsPlainText);
+    });
     $(yvalue).keypress(function(event) {
         if (event.which === 13) {
             event.preventDefault();
@@ -145,7 +152,7 @@ function createInterface(param) {
         }
     });
     $(yvalue).focusout(function() {
-        // change y
+        yvalue.removeEventListener("paste", pasteAsPlainText);
         let val = yvalue.innerHTML;
         let bounds = current.bounds;
         if (isNaN(parseFloat(val)) || val < bounds.min[1] || val > bounds.max[1]) {
@@ -214,6 +221,12 @@ function createInterface(param) {
             geoinfos.addEventListener('click', closeInformations);
         })
     }
+
+    function pasteAsPlainText(e) {
+        e.preventDefault();
+        let text = (e.originalEvent || e).clipboardData.getData('text/plain');
+        e.target.innerHTML = text;
+    }    
 
     function closeInformations(event) {
         event.stopPropagation();
