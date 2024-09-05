@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'mapdraw',
     'zoomtracker',
     'deepmapdraw',
+    'saliency',
 ]
 
 MIDDLEWARE = [
