@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'zoomtracker',
     'deepmapdraw',
     'saliency',
+    'seism',
 ]
 
 MIDDLEWARE = [

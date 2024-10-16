@@ -24,5 +24,6 @@ urlpatterns = [
     path('deepmapdraw/', include('deepmapdraw.urls'), name='deepmapdraw'),
     path('zoomtracker/', include('zoomtracker.urls'), name='zoomtracker'),
     path('saliency/', include('saliency.urls'), name='saliency'),
+    path('seism/', include('seism.urls'), name='seism'),
     path('admin-django/', admin.site.urls),
 ]
