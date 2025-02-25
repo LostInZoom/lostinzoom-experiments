@@ -9,6 +9,12 @@ function constructMap(param) {
     param = createBasemapLayers(param);
     param = constructOpenLayersMap('ol-map', param, start);
     param = constructGoogleMap('google-map', param, start);
+
+    param.cartography.olmap.on('click', (e) => {
+        let target = param.cartography.olmap.getEventCoordinate(event);
+        navigator.clipboard.writeText(target);
+    })
+
     return param;
 }
 
