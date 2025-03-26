@@ -21,7 +21,7 @@
             "source": {
                 "type": "WMTS",
                 "provider": "IGN",
-                "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
+                "url": "https://data.geopf.fr/wmts",
                 "layer": "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
                 "matrixSet": "PM",
                 "format": "image/png",
@@ -40,7 +40,7 @@
             "source": {
                 "type": "WMTS",
                 "provider": "IGN",
-                "url": "https://wxs.ign.fr/IGN_SECRET_KEY/geoportail/wmts",
+                "url": "https://data.geopf.fr/IGN_SECRET_KEY/wmts",
                 "layer": "GEOGRAPHICALGRIDSYSTEMS.MAPS",
                 "matrixSet": "PM",
                 "format": "image/jpeg",
@@ -59,7 +59,7 @@
             "source": {
                 "type": "WMTS",
                 "provider": "IGN",
-                "url": "https://wxs.ign.fr/essentiels/geoportail/wmts",
+                "url": "https://data.geopf.fr/wmts",
                 "layer": "ORTHOIMAGERY.ORTHOPHOTOS",
                 "matrixSet": "PM",
                 "format": "image/jpeg",
