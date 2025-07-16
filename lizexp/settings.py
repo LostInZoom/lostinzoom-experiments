@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'deepmapdraw',
     'saliency',
     'seism',
+    'seism2',
     'thegoodmap',
 ]
 

@@ -25,6 +25,6 @@ urlpatterns = [
     path('zoomtracker/', include('zoomtracker.urls'), name='zoomtracker'),
     path('saliency/', include('saliency.urls'), name='saliency'),
     path('seism/', include('seism.urls'), name='seism'),
+    path('seism2/', include('seism2.urls'), name='seism2'),
     path('thegoodmap/', include('thegoodmap.urls'), name='thegoodmap'),
-    path('admin-django/', admin.site.urls),
 ]
